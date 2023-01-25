@@ -1,0 +1,17 @@
+{"runid":2850,"integrated_county_latest_by_state_fips_01":
+[{"state":"AL","new_cases_past_7_days":8925,"Seven_day_cum_new_cases_per_100k":182.0,"new_deaths_past_7_days":44,
+"seven_day_cum_new_deaths_per_100k":0.9,"StateName":"Alabama","StateFIPS":"01","StateAbbr":"AL",
+"percent_positive_7_day_range":"10-14.9%","total_test_results_reported_7_day_count_change":8311,
+"total_test_results_reported_7_day_count_change_per_100K":168.87,
+"sum_previous_day_pediatric_and_adult_7DayAvg":77.0,"Administered_Dose1_Recip":3180917,
+"Administered_Dose1_Pop_Pct":64.9,"Administered_Dose1_Recip_5Plus":3172321,"Administered_Dose1_Recip_5PlusPop_Pct":68.8,
+"Administered_Dose1_Recip_12Plus":3097724,"Administered_Dose1_Recip_12PlusPop_Pct":74.0,
+"Administered_Dose1_Recip_18Plus":2925461,"Administered_Dose1_Recip_18PlusPop_Pct":76.7,
+"Administered_Dose1_Recip_65Plus":837844,"Administered_Dose1_Recip_65PlusPop_Pct":95.0,
+"Series_Complete_Yes":2601816,"Series_Complete_Pop_Pct":53.1,"Series_Complete_5Plus":2598610,
+"Series_Complete_5PlusPop_Pct":56.4,"Series_Complete_12Plus":2545893,"Series_Complete_12PlusPop_Pct":60.8,
+"Series_Complete_18Plus":2408870,"Series_Complete_18PlusPop_Pct":63.1,"Series_Complete_65Plus":722920,
+"Series_Complete_65PlusPop_Pct":85.1,"Bivalent_Booster":327344,"Bivalent_Booster_5Plus":327344,
+"Bivalent_Booster_12Plus":326508,"Bivalent_Booster_18Plus":320272,"Bivalent_Booster_65Plus":178637,
+"Bivalent_Booster_Pop_Pct":6.7,"Bivalent_Booster_5Plus_Pop_Pct":7.1,"Bivalent_Booster_12Plus_Pop_Pct":7.8,
+"Bivalent_Booster_18Plus_Pop_Pct":8.4,"Bivalent_Booster_65Plus_Pop_Pct":21.0}]}
