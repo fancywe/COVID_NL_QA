@@ -26,7 +26,7 @@ st.markdown('<h3>Question</h3>', unsafe_allow_html=True)
 question = st.text_input("Put your query", value="What are the symptoms of COVID")
 button = st.button('Get Answer')
 st.text("")
-st.text("")
+
 
 if button:
     headers = {
