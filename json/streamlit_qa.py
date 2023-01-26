@@ -25,7 +25,7 @@ top_k_retriever = st.sidebar.slider("Max. number of documents from retriever", m
 st.markdown('<h3>Question</h3>', unsafe_allow_html=True)
 question = st.text_input("Put your query", value="What are the symptoms of COVID")
 button = st.button('Get Answer')
-st.text("")
+
 
 
 if button:
