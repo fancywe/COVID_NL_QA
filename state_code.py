@@ -40,35 +40,35 @@ us_state_to_abbrev = {
     "Montana": "MT",
     "Nebraska": "NE",
     "Nevada": "NV",
-    "New Hampshire": "NH",
-    "New Jersey": "NJ",
-    "New Mexico": "NM",
-    "New York": "NY",
-    "North Carolina": "NC",
-    "North Dakota": "ND",
+    "New hampshire": "NH",
+    "New jersey": "NJ",
+    "New mexico": "NM",
+    "New york": "NY",
+    "North carolina": "NC",
+    "North dakota": "ND",
     "Ohio": "OH",
     "Oklahoma": "OK",
     "Oregon": "OR",
     "Pennsylvania": "PA",
-    "Rhode Island": "RI",
-    "South Carolina": "SC",
-    "South Dakota": "SD",
+    "Rhode island": "RI",
+    "South carolina": "SC",
+    "South cakota": "SD",
     "Tennessee": "TN",
     "Texas": "TX",
     "Utah": "UT",
     "Vermont": "VT",
     "Virginia": "VA",
     "Washington": "WA",
-    "West Virginia": "WV",
+    "West virginia": "WV",
     "Wisconsin": "WI",
     "Wyoming": "WY",
-    "District of Columbia": "DC",
-    "American Samoa": "AS",
+    "District of columbia": "DC",
+    "American samoa": "AS",
     "Guam": "GU",
-    "Northern Mariana Islands": "MP",
-    "Puerto Rico": "PR",
-    "United States Minor Outlying Islands": "UM",
-    "U.S. Virgin Islands": "VI",
+    "Northern mariana islands": "MP",
+    "Puerto rico": "PR",
+    "United states minor outlying islands": "UM",
+    "U.s. virgin islands": "VI",
 }
 states = {
         'AK': 'Alaska',
@@ -130,24 +130,27 @@ states = {
         'WY': 'Wyoming'
 }
 
-dict_for_regular_data = {
-   'week case info':['case info','total case','weekly case rate per 100k','weekly case rate','case'],
-   'week death info':['total death','death rate','death info','death'],
-   'test info':['test info','positivity','testing'],
-   'Hosp info':['hostpital info','hospitalizations','admissions','hospitals','icu','patients','inpatient','beds'],
-   # 'Comm info':['community characteristics','community info']     
-        
+Q_code={
+    
 }
-# dict_for_state_data ={
-#    'week case info':['7-day','case info','last week','this week','total case','weekly case rate per 100k','weekly case rate'],
-#    'week death info':['total death','death rate','death info'],
+# dict_for_regular_data = {
+#    'week case info':['case info','total case','weekly case rate per 100k','weekly case rate','case'],
+#    'week death info':['total death','death rate','death info','death'],
 #    'test info':['test info','positivity','testing'],
 #    'Hosp info':['hostpital info','hospitalizations','admissions','hospitals','icu','patients','inpatient','beds'],
-#    'Comm info':['community characteristics','community info','loacl info','population']     
+#    # 'Comm info':['community characteristics','community info']     
+        
 # }
-dict_for_vac={
-   'vaccinations','vac info','vac','dose','boost','vaccination'         
-}
+# # dict_for_state_data ={
+# #    'week case info':['7-day','case info','last week','this week','total case','weekly case rate per 100k','weekly case rate'],
+# #    'week death info':['total death','death rate','death info'],
+# #    'test info':['test info','positivity','testing'],
+# #    'Hosp info':['hostpital info','hospitalizations','admissions','hospitals','icu','patients','inpatient','beds'],
+# #    'Comm info':['community characteristics','community info','loacl info','population']     
+# # }
+# dict_for_vac={
+#    'vaccinations','vac info','vac','dose','boost','vaccination'         
+# }
 # dict_for_county_vac_data={
         
         
