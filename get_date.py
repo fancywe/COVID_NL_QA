@@ -24,7 +24,7 @@ def getDataFile(state,county,code):
     data={}
     # date=datetime.today().strftime('%Y-%m-%d')   
     dic_name=''
-  
+
     
     print(state,county,code)    
     headers = {'Accept': 'application/json'}
@@ -53,8 +53,13 @@ def getDataFile(state,county,code):
            
             print(type(json_object))
             result= json_object[dic_name][0]
-            
-            return result
+        history='https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=integrated_county_timeseries_by_state_fips_'+str(stateNum)
+        page = requests.get(history, headers=headers) # get county
+        text = json.loads(page.text)
+        dic_name="integrated_county_timeseries_by_state_fips_"+str(stateNum)
+        result['History']=text[dic_name] 
+        print(result['History'])    
+        return result
         
         # else:
         #     page = requests.get(url, headers=headers)
@@ -87,9 +92,10 @@ def getDataFile(state,county,code):
            
             print(type(json_object))
         result= json_object[dic_name]
+       
         return result
     
-    elif 10<=code<20:
+    elif 10<=code<15:
         
         
         dic_name='integrated_county_latest_external_data'  
@@ -115,39 +121,70 @@ def getDataFile(state,county,code):
             print(type(dic))
             for i in dic:
                 if i["County"].lower()==(county.lower()+' county') and i["State"]==state:
-                        return i
+                        result=i
                 elif i["County"].lower()==(county.lower()+' city') and i["State"]==state:
-                        return i
+                        result=i
                 elif i["County"].lower()==(county.lower()+' muni') and i["State"]==state:
-                        return i
+                        result=i
                 elif i["County"].lower()==(county.lower()+' parish') and i["State"]==state:
-                        return i
-        # else:
-        #     page = requests.get(url, headers=headers)
-    
-        #     text = json.loads(page.text)
-        #     print(type(text))
-        #     json_string =json.dumps(text)
-            
-        #     with open('json/County/County_'+date+'.json', 'w') as outfile:
-        #         json.dump(json_string, outfile)
-        #         # json_object = json.load(outfile)
-                
-            # dic=text[dic_name] 
-            
-            # for i in dic:
-            #     if i["County"].lower()==(county.lower()+' county') and i["State"]==state:
-            #             return i
-            #     elif i["County"].lower()==(county.lower()+' city') and i["State"]==state:
-            #             return i
-            #     elif i["County"].lower()==(county.lower()+' muno') and i["State"]==state:
-            #             return i
-            #     elif i["County"].lower()==(county.lower()+' parish') and i["State"]==state:
-            #             return i
-            
-        
+                        result=i
+                    
+            fips=result['fips_code']
+            print(fips)
+            history='https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=integrated_county_timeseries_fips_'+str(fips)+'_external'
+            page = requests.get(history, headers=headers) # get county
+            text = json.loads(page.text)
+            result['History']=text["integrated_county_timeseries_external_data"] 
+            print(result)            
         return result
     
+    elif code==16 :
+        
+        dic_name='integrated_county_latest_external_data'  
+        path = 'json/County/'
+        lastFile=0
+        resultList=[]
+        dir_list = os.listdir(path)
+        for x in dir_list:
+            num=x.rsplit('.', 1)[0]
+            num=int(num)
+            if lastFile<num:
+                lastFile=num
+        lastFile=str(lastFile)
+        print(lastFile)
+        path=Path(path+lastFile+'.json')
+        print(path)
+        
+        if(path.is_file()):
+            f=open(path)
+            data=json.load(f)
+            json_object = json.loads(data)
+            print(type(json_object))
+            dic=json_object[dic_name]
+            print(type(dic))
+            for i in dic:
+                
+                    result={'State':i['State_name'],'County':i['County'],'Level':i['CCL_community_burden_level'],'New Case Past 7 days':i['Cases_7_day_count_change'],
+                        'New Case Rate Past 7 days (100K)':i['cases_per_100K_7_day_count_change'],
+                        'New Case Rate changed':i['new_cases_week_over_week_percent_change'],
+                        'New Death Past 7 days':i['deaths_7_day_count_change'],
+                        '7 days Death rate in 100K':i['deaths_per_100K_7_day_count_change'],
+                        '7 days Death changed ':i['new_deaths_week_over_week_percent_change'],
+                        'Total Postive last week':i['percent_test_results_reported_positive_last_7_days']
+                        ,'Total Postive changed':i['percent_test_results_reported_positive_last_7_days_7_day_count_change'],
+                        'Postive Population rate in 100K':i['total_test_results_reported_7_day_count_change_per_100K'],
+                        'Postive Population rate in 100K changed':i['total_new_test_results_reported_week_over_week_percent_change'],
+                        'New Admissions last 7 days':i['admissions_covid_confirmed_last_7_days'],
+                        'New Admissions changed':i['admissions_covid_confirmed_week_over_week_percent_change'],
+                        'COVID Inpatient Beds Used':i['percent_adult_inpatient_beds_used_confirmed_covid'],
+                        'COVID Inpatient Beds Used changed':i['percent_adult_inpatient_beds_used_confirmed_covid_week_over_week_absolute_change'],
+                        'ICU Beds Used by Covid':i['percent_adult_icu_beds_used_confirmed_covid'],
+                        'ICU Beds Used by Covid changed':i['percent_adult_icu_beds_used_confirmed_covid_week_over_week_absolute_change']}
+                    resultList.append(result)
+            
+            print(resultList)
+            return resultList
+                    
     elif code==15 :
         
         
@@ -178,35 +215,7 @@ def getDataFile(state,county,code):
                         return i
                 elif i["County"].lower()==(county.lower()+' parish') and i["StateAbbr"]==state:
                         return i
-            
-        
-        # else:
-            
-        #     page = requests.get(url, headers=headers)
-    
-        #     text = json.loads(page.text)
-        #     json_string =json.dumps(text)
-            
-        #     with open('json/County_Vac/County_Vac_'+date+'.json', 'w') as outfile:
-        #         json.dump(json_string, outfile)
-        
-                
-        #     dic=text[dic_name]
-            
-        #     for i in dic:
-        #         for i in dic:
-        #             if i["County"].lower()==(county.lower()+' county') and i["StateAbbr"]==state:
-        #                 return i
-        #             elif i["County"].lower()==(county.lower()+' city') and i["StateAbbr"]==state:
-        #                 return i
-        #             elif i["County"].lower()==(county.lower()+' muno') and i["StateAbbr"]==state:
-        #                 return i
-        #             elif i["County"].lower()==(county.lower()+' parish') and i["StateAbbr"]==state:
-        #                 return i
-        #     # print(data)
-
-        
-        
+                    
     elif code==1:
             
             dic_name='statusbar'
@@ -238,6 +247,51 @@ def getDataFile(state,county,code):
                     
             #     dic=text[dic_name][0]
             #     return dic
+    elif code==9:
+        dic_name='integrated_county_latest_external_data'  
+        path = 'json/County/'
+        lastFile=0
+        resultList=[]
+        dir_list = os.listdir(path)
+        for x in dir_list:
+            num=x.rsplit('.', 1)[0]
+            num=int(num)
+            if lastFile<num:
+                lastFile=num
+        lastFile=str(lastFile)
+        print(lastFile)
+        path=Path(path+lastFile+'.json')
+        print(path)
+        
+        if(path.is_file()):
+            f=open(path)
+            data=json.load(f)
+            json_object = json.loads(data)
+            print(type(json_object))
+            dic=json_object[dic_name]
+            print(type(dic))
+            for i in dic:
+                if  i["State"]==state:
+                    result={'State':i['State_name'],'County':i['County'],'Level':i['CCL_community_burden_level'],'New Case Past 7 days':i['Cases_7_day_count_change'],
+                        'New Case Rate Past 7 days (100K)':i['cases_per_100K_7_day_count_change'],
+                        'New Case Rate changed':i['new_cases_week_over_week_percent_change'],
+                        'New Death Past 7 days':i['deaths_7_day_count_change'],
+                        '7 days Death rate in 100K':i['deaths_per_100K_7_day_count_change'],
+                        '7 days Death changed ':i['new_deaths_week_over_week_percent_change'],
+                        'Total Postive last week':i['percent_test_results_reported_positive_last_7_days']
+                        ,'Total Postive changed':i['percent_test_results_reported_positive_last_7_days_7_day_count_change'],
+                        'Postive Population rate in 100K':i['total_test_results_reported_7_day_count_change_per_100K'],
+                        'Postive Population rate in 100K changed':i['total_new_test_results_reported_week_over_week_percent_change'],
+                        'New Admissions last 7 days':i['admissions_covid_confirmed_last_7_days'],
+                        'New Admissions changed':i['admissions_covid_confirmed_week_over_week_percent_change'],
+                        'COVID Inpatient Beds Used':i['percent_adult_inpatient_beds_used_confirmed_covid'],
+                        'COVID Inpatient Beds Used changed':i['percent_adult_inpatient_beds_used_confirmed_covid_week_over_week_absolute_change'],
+                        'ICU Beds Used by Covid':i['percent_adult_icu_beds_used_confirmed_covid'],
+                        'ICU Beds Used by Covid changed':i['percent_adult_icu_beds_used_confirmed_covid_week_over_week_absolute_change']}
+                    resultList.append(result)
+            
+            print(resultList)
+            return resultList
             
     if code==20:
         result={'result':'Can\'t recognize the question'} 

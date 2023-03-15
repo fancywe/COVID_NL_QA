@@ -10,7 +10,17 @@ state_codes = {
     'SC': '45', 'KY': '21', 'OR': '41', 'SD': '46'
 }
 US=['US','United States','America']
+dict_for_regular_data = {
+   'week case info':['case info','total case','weekly case rate per 100k','weekly case rate','case'],
+   'week death info':['total death','death rate','death info','death'],
+   'test info':['test info','positivity','testing'],
+   'Hosp info':['hostpital info','hospitalizations','admissions','hospitals','icu','patients','inpatient','beds'],
+   # 'Comm info':['community characteristics','community info']     
     
+}    
+dict_for_vac={
+   'vaccinations','vac info','vac','dose','boost','vaccination'         
+}
 us_state_to_abbrev = {
     "Alabama": "AL",
     "Alaska": "AK",

@@ -13,6 +13,11 @@ url_county='https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=in
 url_county_vac='https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=vaccination_county_condensed_data'
 url_state='https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=integrated_county_latest_by_state_fips_'
 url_us='https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=statusBar_v2_external_data'
+
+history_1='https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=integrated_county_timeseries_by_state_fips_06'
+history_2='https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=integrated_county_timeseries_fips_06033_external'
+vac_detail='https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=vaccination_data'
+
 headers = {'Accept': 'application/json'}
 
 
@@ -47,7 +52,7 @@ json_string =json.dumps(text)
 with open('json/County_Vac/'+runid+'.json', 'w') as outfile:
             json.dump(json_string, outfile)    
 
-for i in range(1,54):  
+for i in range(1,57):  
         
     stateNum=format(i, '02d')   
     url=url_state+stateNum

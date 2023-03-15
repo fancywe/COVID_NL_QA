@@ -5,7 +5,7 @@ import altair as alt
 
 st.set_page_config(
     
-    page_title="Ex-stream-ly Cool App",
+    page_title="Covid QA",
     page_icon="🧊",
     layout="centered",
     initial_sidebar_state="expanded",
@@ -15,7 +15,15 @@ st.markdown('<h1 style="text-align: center">Covid QA</h1>', unsafe_allow_html=Tr
 st.markdown('<h3>Question</h3>', unsafe_allow_html=True)
 question = st.text_input("Put your query", value="What are the new case in La Crosse WI")
 button = st.button('Get Result')
-st.text("")
+
+with st.sidebar:
+    st.markdown('<h1>COVID info QA</h3>', unsafe_allow_html=True)
+    add_radio = st.radio(
+        "Navigation",
+        ("COVID Statistics Data QA", "COVID Thesis QA")
+    )
+    st.markdown('<h3>About</h3>', unsafe_allow_html=True)
+    st.text('')
 
 if button:
     headers = {
@@ -31,7 +39,7 @@ if button:
     # print(result)
     
     if result['code']==1:
-        
+         
         
         for k,v in result['result'].items():
             
@@ -155,33 +163,223 @@ if button:
     # st.write(result['result']['Admissions'])
     # st.altair_chart(c3)
     # st.write(result['result']['Booster'])
-    else:
-        print(result)
-        print(type(result['result']))
-        
-        if isinstance(result['result'], dict): 
-            key=''
-            value=0
-            last=0  
-            for k,v in result['result'].items():  
-                
-                if 'changed' in k:
-                    last=v
-                else:
-                    if last!=0:
-                        st.metric(key,value,last) 
-                        key=k
-                        value=v 
-                        last=0
-                    elif key!='':
-                        st.metric(key,value)
-                        key=k
-                        value=v
-                    else:
-                        key=k
-                        value=v
-                        
-            st.metric(key,value)            
-        elif isinstance(result['result'], list):
+    elif result['code']==9:
             df=pd.DataFrame(result['result'])
+            df['New Case Past 7 days']=df['New Case Past 7 days'].astype('Int64')
+            df=df.set_index('State')
+            for (columnName, columnData) in df.items():
+                if df.dtypes[columnName]=='float64':
+                    df[columnName]=df[columnName].round(decimals =2)
+            df=df.sort_values(by=['New Case Past 7 days'],ascending=False)
+            print(df.dtypes)        
             st.write(df)
+    elif result['code']==16:
+        
+            df=pd.DataFrame(result['result'])
+            df['New Case Past 7 days']=df['New Case Past 7 days'].astype('Int64')
+            df=df.set_index('State')
+            for (columnName, columnData) in df.items():
+                if df.dtypes[columnName]=='float64':
+                    df[columnName]=df[columnName].round(decimals =2)
+            df=df.sort_values(by=['New Case Past 7 days'],ascending=False)
+            print(df.dtypes)        
+            st.write(df)
+            
+    elif result['code']==8: # rank
+            
+            df=pd.DataFrame(result['result'])
+            df['new_cases_07']=df['new_cases_07'].astype('Int64')
+            df['new_deaths_07']=df['new_deaths_07'].astype('Int64')
+            df['sum_previous_day_pediatric_and_adult_7DayAvg']=df['sum_previous_day_pediatric_and_adult_7DayAvg'].astype('float16')
+            df['Series_Complete_12PlusPop_Pct']=df['Series_Complete_12PlusPop_Pct'].astype('float16')
+            df['Series_Complete_5PlusPop_Pct']=df['Series_Complete_5PlusPop_Pct'].astype('float16')
+            df=df.rename(columns={'state':'State','date':"Date",'statename':'State Full Name',"new_cases_07": "New Case last week", "new_deaths_07": "New Death last week",
+                               'percent_positive_7_day_range':'Positivity','Series_Complete_12PlusPop_Pct':'Vaccine Series Completed Rate in Population over 12',
+                               'Series_Complete_5PlusPop_Pct':'Vaccine Series Completed Rate in Population over 5'
+                               })
+            
+            df=df.drop(labels="Date", axis=1)
+            df=df.set_index('State')
+            for (columnName, columnData) in df.iteritems():
+                if df.dtypes[columnName]=='float16':
+                    df[columnName]=df[columnName].round(decimals =2)
+            
+            print(df.dtypes)
+            print(df)
+            st.write(df.sort_values(by=['New Case last week'],ascending=False))
+            
+    elif(result['code']==7):
+           
+                col1, col2 = st.columns(2)
+                if isinstance(result['result'], dict): 
+                    # result['result']
+                    key=''
+                    value=0
+                    last=0
+                    i=0  
+                    
+                    for k,v in result['result'].items():  
+                        if k=='History':
+                            break
+                        if 'changed' in k:
+                            last=v
+                        else:
+                            if k=='State':
+                                col1.metric(k,v)
+                                
+                            elif last!=0:
+                                if i%2==1:
+                                    col1.metric(key,value,last) 
+                                    key=k
+                                    value=v 
+                                    last=0
+                                else:
+                                    col1.metric(key,value,last) 
+                                    key=k
+                                    value=v 
+                                    last=0
+                            elif key!='':
+                                if i%2==1:
+                                    col1.metric(key,value)
+                                    key=k
+                                    value=v
+                                else:
+                                    col2.metric(key,value)
+                                    key=k
+                                    value=v
+                            else:
+                                    key=k
+                                    value=v
+                        i=i+1
+                    if i%2==1:       
+                        col1.metric(key,value) 
+                    else:
+                        col2.metric(key,value) 
+    else:
+            tab1, tab2 = st.tabs(["Current Data", "History Chart"])
+            
+            with tab1:
+                col1, col2 = st.columns(2)
+                if isinstance(result['result'], dict): 
+                    # result['result']
+                    key=''
+                    value=0
+                    last=0
+                    i=0  
+                    
+                    for k,v in result['result'].items():  
+                        if k=='History':
+                            break
+                        if 'changed' in k:
+                            last=v
+                        else:
+                            if k=='State':
+                                col1.metric(k,v)
+                                
+                            elif last!=0:
+                                if i%2==1:
+                                    col1.metric(key,value,last) 
+                                    key=k
+                                    value=v 
+                                    last=0
+                                else:
+                                    col1.metric(key,value,last) 
+                                    key=k
+                                    value=v 
+                                    last=0
+                            elif key!='':
+                                if i%2==1:
+                                    col1.metric(key,value)
+                                    key=k
+                                    value=v
+                                else:
+                                    col2.metric(key,value)
+                                    key=k
+                                    value=v
+                            else:
+                                    key=k
+                                    value=v
+                        i=i+1
+                    if i%2==1:       
+                        col1.metric(key,value) 
+                    else:
+                        col2.metric(key,value) 
+                with tab2:
+                    date=[]
+                    case=[]
+                    death=[]
+                    test=[]
+                    admission=[]
+                    if(15>result['code']>=10):
+                        for x in result['result']['History']: 
+                                date.append(x['date'])
+                                case.append(x['cases_7_day_count_change'])
+                                death.append(x['deaths_7_day_count_change'])
+                                test.append(x['new_test_results_reported_7_day_rolling_average'])
+                                admission=x["admissions_covid_confirmed_last_7_days_per_100k_population"]
+                                
+                        date=pd.to_datetime(date)  
+                        
+                        df = pd.DataFrame({'Case':case,'Date':date,'Death':death,'Test':test,'Admission':admission})
+                        df=df.dropna()
+                        print(df)
+                        if(result['code']==11 or result['code']==10):
+                            chart = alt.Chart(df).mark_line().encode(
+                            x=alt.X('Date'),
+                            y=alt.Y('Case:Q'),
+                            ).properties(title="Case History")
+                            st.altair_chart(chart, use_container_width=True)
+                            
+                        if(result['code']==12 or result['code']==10):   
+                            chart = alt.Chart(df).mark_line().encode(
+                            x=alt.X('Date'),
+                            y=alt.Y('Death:Q'),
+                            ).properties(title="Death History")
+                            st.altair_chart(chart, use_container_width=True)
+                        if(result['code']==13 or result['code']==10):
+                            chart = alt.Chart(df).mark_line().encode(
+                            x=alt.X('Date'),
+                            y=alt.Y('Test:Q'),
+                            ).properties(title="Test History")
+                            st.altair_chart(chart, use_container_width=True)
+                        if(result['code']==14 or result['code']==10):    
+                            st.altair_chart(chart, use_container_width=True)
+                            chart = alt.Chart(df).mark_line().encode(
+                            x=alt.X('Date'),
+                            y=alt.Y('Admission:Q'),
+                            ).properties(title="Admission History")
+                            st.altair_chart(chart, use_container_width=True)
+                            
+                    if(result['code']<10):
+                        
+                        for x in result['result']['History']: 
+                                date.append(x['submission_date'])
+                                case.append(x['new_case'])
+                                death.append(x['new_death'])
+                                test.append(x['new_test_results_reported_7_day_rolling_average'])
+                                
+                        date=pd.to_datetime(date)
+                        df = pd.DataFrame({'Case':case,'Date':date,'Death':death,'Test':test})
+                        df=df.df=df.dropna()
+                        if(result['code']==3 or result['code']==2):
+                            chart = alt.Chart(df).mark_line().encode(
+                            x=alt.X('Date'),
+                            y=alt.Y('Case:Q'),
+                            ).properties(title="Case History")
+                            st.altair_chart(chart, use_container_width=True)
+                            
+                        if(result['code']==4 or result['code']==2):   
+                            chart = alt.Chart(df).mark_line().encode(
+                            x=alt.X('Date'),
+                            y=alt.Y('Death:Q'),
+                            ).properties(title="Death History")
+                            st.altair_chart(chart, use_container_width=True)
+                        if(result['code']==5 or result['code']==2):
+                            chart = alt.Chart(df).mark_line().encode(
+                            x=alt.X('Date'),
+                            y=alt.Y('Test:Q'),
+                            ).properties(title="Test History")
+                            st.altair_chart(chart, use_container_width=True)
+                        
+                          
+            
