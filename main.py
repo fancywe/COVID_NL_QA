@@ -13,6 +13,8 @@ import zipcodes
 from Q_handler import Handle
 #import jamspell
 
+from spellchecker import SpellChecker
+
 from fastapi import FastAPI
 
 from county_code import countyName
@@ -43,22 +45,42 @@ async def read_Q(Q):
 #     Q=corrector.FixFragment(Q) #spell check
     doc = nlp(Q)
     gpe = []
+    geo=0
     state=''
     county=''
     code=0
+    key=0
+    history=None
+    wordList=[]
+    spell = SpellChecker()
+    spell.word_frequency.load_text_file('items.txt')                                        
     if Q.isdigit():
         if len(Q)==5:
             if zipcodes.is_real(Q):
                 county=zipcodes.matching(Q)[0]['city'].lower()
                 state=zipcodes.matching(Q)[0]['state']
                 code=10
+            else:
+                result='This is not a valid zip code'     
         else:
             result='This is not a valid zip code' 
-    else:               
+    else:       
+        Q=''
+        for token in doc:
+                Q=Q+spell.correction(token.text)+' '
+                print(Q)
+                
+        for ent in doc.ents:
+                print(doc.ents)
+                if (ent.label_ == 'GPE'):
+                        gpe.append(ent.text)
+                        
+                           
+                
         for stateName in stateCode:
                 if stateName in Q:
                         state=stateName
-                
+
         for name in countyName:    
                 x=Q.lower()   
                 if(name in x) and (len(name)>len(county)):
@@ -68,70 +90,75 @@ async def read_Q(Q):
                 if state=='':      
                         if(stateName in Q.lower()):
                                 state=state_code.us_state_to_abbrev[stateName.capitalize()] 
-                                        
-        for ent in doc.ents:
-                
-                if (ent.label_ == 'GPE'):
-                        gpe.append(ent.text)
+
+                        
         for word in weekCase:
                 if word in Q.lower():
                         Q+=' case'
+                        key=1
                         break
         for word in weekDeath :
                 if word in Q.lower(): 
                         Q+=' death'
+                        key=1
                         break
         for word in weekTest :
                 if word in Q.lower() : 
                         Q+=' test'
+                        key=1
                         break
         for word in vac :
                 if word in Q.lower(): 
                         Q+=' vac'
+                        key=1
                         break
         for word in weekHosp :
                 if word in Q.lower() : 
-                        Q+='Hosp'
+                        Q+='hosp'
+                        key=1
                         break        
         if state!='':
                 Q+=' state'
+                geo=1
         if county!='':
                 Q+=' county' 
+                geo=1
                    
     
-          
-        
-
-    if code==0:
-            code=Handle(Q).item()
-    print(code)
-    print(type(code))
-                                               
-    result=getDataDetail(getDataFile(state,county,code),code)
-           
+    if len(gpe)==0:
+        code=20
+        result='no place detected'    
+    elif code==0:
+                code=Handle(Q).item()
+                print(code)
+                print(type(code))
+                print(gpe)                                           
+                result=getDataDetail(getDataFile(state,county,code),code)
+                history=result.pop("History", None)  
+                print(result)    
     if result==None:
-        result='No result'        
+        result='No query result found'        
     
                 
-    return {"State name": state,'county name':county,'code':code,'result':result,'Q':Q.casefold(),'Gpe':gpe}
+    return {"State name": state,'county name':county,'code':code,'result':result,'Q':Q.casefold(),'History':history,'Gpe':gpe}
       
     
    
 
 def getDataDetail(dic,code):
-   print(dic)
+   
    if dic==None:
        result={'result':'null'}
        return result
    else:
-    if code==1:
+    if code==0:
         result={'US Total Cases':dic['us_total_cases'],'US Total Deaths':dic['us_total_deaths'],'Booster Pop Pct':dic['Bivalent_Booster_Pop_Pct']
                 ,'us_trend_new_case':dic['us_trend_new_case'],'us_trend_new_death':dic['us_trend_new_death'],'US_case_graph':dic['new_case'],
                 'US_death_graph':dic['new_death'],'US_pediatric_graph':dic['sum_previous_day_pediatric_and_adult_7DayAvg'],
                 'Booster':dic['Bivalent_Booster'],'Admissions':dic['sum_inpatient_beds_used_clean']
                 }   
         return result
-    elif code==7:
+    elif code==6:
             
                 result={'State':dic['StateName'],'At least 1 Dose Population':dic['Administered_Dose1_Recip'],
                         'At Least One Dose rate of Total Population':dic['Administered_Dose1_Pop_Pct'],
@@ -149,10 +176,10 @@ def getDataDetail(dic,code):
                         'Booster Dose received population':dic['Booster_Doses']}
                 
                 return result 
-    elif code==8:
+    elif code==7:
                 result=dic
                 return dic
-    elif code==9:
+    elif code==8:
                 result=dic
                 print(dic)
                 print(type(dic))
@@ -163,7 +190,7 @@ def getDataDetail(dic,code):
                 print(type(dic))
                 return dic                 
         
-    elif code==2:
+    elif code==1:
                 result={'State':dic['StateName'],'New Case Last Week':dic['new_cases_past_7_days'],
                         'New Case Rate Last Week 100K':dic['Seven_day_cum_new_cases_per_100k']
                         ,'New Death Past 7 days':dic['new_deaths_past_7_days'],
@@ -206,12 +233,12 @@ def getDataDetail(dic,code):
                 return result
             
        
-    elif code==3:
+    elif code==2:
                 result={'State':dic['StateName'],'New Case Last Week':dic['new_cases_past_7_days'],
                         'New Case Rate Last Week 100K':dic['Seven_day_cum_new_cases_per_100k'],'History':dic['History']}
                 return result
     elif code==11:
-                print(dic)
+                
                 result={'State':dic['State_name'],'County':dic['County'],'Level':dic['CCL_community_burden_level'].capitalize(),'New Case Past 7 days':dic['Cases_7_day_count_change'],
                         'New Case Rate Past 7 days (100K)':dic['cases_per_100K_7_day_count_change'],
                         'New Case Rate changed':dic['new_cases_week_over_week_percent_change'],
@@ -219,7 +246,7 @@ def getDataDetail(dic,code):
                 return result
             
             
-    elif code==4:
+    elif code==3:
             
             
                 result={'State':dic['StateName'],'New Death Past 7 days':dic['new_deaths_past_7_days'],
@@ -232,7 +259,7 @@ def getDataDetail(dic,code):
                         'Start date':dic['case_death_start_date'],'End Date':dic['case_death_end_date'],'History':dic['History']}
                 return result
                 
-    elif code==5:
+    elif code==4:
                 
                 
                     result={'State':dic['StateName'],'Postive ':dic['percent_positive_7_day_range'],
@@ -250,7 +277,7 @@ def getDataDetail(dic,code):
                     
                     return result
                     
-    elif code==6:
+    elif code==5:
             
                 result={'State':dic['StateName'],'Pediatric adult number':dic['sum_previous_day_pediatric_and_adult_7DayAvg']}
                 return result  
@@ -262,7 +289,8 @@ def getDataDetail(dic,code):
                         'COVID Inpatient Beds Used':dic['percent_adult_inpatient_beds_used_confirmed_covid'],
                         'COVID Inpatient Beds Used changed':dic['percent_adult_inpatient_beds_used_confirmed_covid_week_over_week_absolute_change'],
                         'ICU Beds Used by Covid':dic['percent_adult_icu_beds_used_confirmed_covid'],
-                        'ICU Beds Used by Covid changed':dic['percent_adult_icu_beds_used_confirmed_covid_week_over_week_absolute_change']
+                        'ICU Beds Used by Covid changed':dic['percent_adult_icu_beds_used_confirmed_covid_week_over_week_absolute_change'],'History':dic['History']
+                        
                         }
                 return result
             

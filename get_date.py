@@ -30,20 +30,20 @@ def getDataFile(state,county,code):
     headers = {'Accept': 'application/json'}
     
     
-    if 2<=code<8:
+    if 1<=code<9:
                 
         stateNum=state_codes[state]
         
         dic_name='integrated_county_latest_by_state_fips_'+stateNum
         path = 'json/State/'+stateNum+'/'
-        lastFile=0
-        dir_list = os.listdir(path)
-        for x in dir_list:
-            num=x.rsplit('.', 1)[0]
-            num=int(num)
-            if lastFile<num:lastFile=num
-        lastFile=str(lastFile)    
-        path=Path(path+lastFile+'.json')
+        # lastFile=0
+        # dir_list = os.listdir(path)
+        # for x in dir_list:
+        #     num=x.rsplit('.', 1)[0]
+        #     num=int(num)
+        #     if lastFile<num:lastFile=num
+        # lastFile=str(lastFile)    
+        path=Path(path+'state'+'.json')
         
             
         if(path.is_file()):
@@ -58,7 +58,7 @@ def getDataFile(state,county,code):
         text = json.loads(page.text)
         dic_name="integrated_county_timeseries_by_state_fips_"+str(stateNum)
         result['History']=text[dic_name] 
-        print(result['History'])    
+          
         return result
         
         # else:
@@ -75,15 +75,15 @@ def getDataFile(state,county,code):
         dic_name='county_view_state_data'
         path='json/Allstate/'
         lastFile=0
-        dir_list = os.listdir(path)
-        for x in dir_list:
-            num=x.rsplit('.', 1)[0]
-            num=int(num)
-            if lastFile<num:
-                lastFile=num
-        lastFile=str(lastFile)
-        print(lastFile)
-        path=Path(path+lastFile+'.json')
+        # dir_list = os.listdir(path)
+        # for x in dir_list:
+        #     num=x.rsplit('.', 1)[0]
+        #     num=int(num)
+        #     if lastFile<num:
+        #         lastFile=num
+        # lastFile=str(lastFile)
+        # print(lastFile)
+        path=Path(path+'AllState'+'.json')
         print(path)
         if(path.is_file()):
             with open(path) as json_file:
@@ -101,15 +101,15 @@ def getDataFile(state,county,code):
         dic_name='integrated_county_latest_external_data'  
         path = 'json/County/'
         lastFile=0
-        dir_list = os.listdir(path)
-        for x in dir_list:
-            num=x.rsplit('.', 1)[0]
-            num=int(num)
-            if lastFile<num:
-                lastFile=num
-        lastFile=str(lastFile)
-        print(lastFile)
-        path=Path(path+lastFile+'.json')
+        # dir_list = os.listdir(path)
+        # for x in dir_list:
+        #     num=x.rsplit('.', 1)[0]
+        #     num=int(num)
+        #     if lastFile<num:
+        #         lastFile=num
+        # lastFile=str(lastFile)
+        # print(lastFile)
+        path=Path(path+'County'+'.json')
         print(path)
         
         if(path.is_file()):
@@ -135,24 +135,24 @@ def getDataFile(state,county,code):
             page = requests.get(history, headers=headers) # get county
             text = json.loads(page.text)
             result['History']=text["integrated_county_timeseries_external_data"] 
-            print(result)            
+                       
         return result
     
-    elif code==16 :
+    elif code==9 :
         
         dic_name='integrated_county_latest_external_data'  
         path = 'json/County/'
         lastFile=0
         resultList=[]
-        dir_list = os.listdir(path)
-        for x in dir_list:
-            num=x.rsplit('.', 1)[0]
-            num=int(num)
-            if lastFile<num:
-                lastFile=num
-        lastFile=str(lastFile)
-        print(lastFile)
-        path=Path(path+lastFile+'.json')
+        # dir_list = os.listdir(path)
+        # for x in dir_list:
+        #     num=x.rsplit('.', 1)[0]
+        #     num=int(num)
+        #     if lastFile<num:
+        #         lastFile=num
+        # lastFile=str(lastFile)
+        # print(lastFile)
+        path=Path(path+'County'+'.json')
         print(path)
         
         if(path.is_file()):
@@ -190,15 +190,15 @@ def getDataFile(state,county,code):
         
         dic_name='vaccination_county_condensed_data'
         path ='json/County_Vac/'
-        lastFile=0
-        dir_list = os.listdir(path)
-        for x in dir_list:
-            num=x.rsplit('.', 1)[0]
-            num=int(num)
-            if lastFile<num:
-             lastFile=num
-        lastFile=str(lastFile)
-        path=Path(path+lastFile+'.json')
+        # lastFile=0
+        # dir_list = os.listdir(path)
+        # for x in dir_list:
+        #     num=x.rsplit('.', 1)[0]
+        #     num=int(num)
+        #     if lastFile<num:
+        #      lastFile=num
+        # lastFile=str(lastFile)
+        path=Path(path+'County_Vac'+'.json')
         
         if(path.is_file()):
             f=open(path)
@@ -216,19 +216,19 @@ def getDataFile(state,county,code):
                 elif i["County"].lower()==(county.lower()+' parish') and i["StateAbbr"]==state:
                         return i
                     
-    elif code==1:
+    elif code==0:
             
             dic_name='statusbar'
             path ='json/US/'
             lastFile=0
             dir_list = os.listdir(path)
-            for x in dir_list:
-                num=x.rsplit('.', 1)[0]
-                num=int(num)
-                if lastFile<num:
-                    lastFile=num
-            lastFile=str(lastFile)
-            path=Path(path+lastFile+'.json')
+            # for x in dir_list:
+            #     num=x.rsplit('.', 1)[0]
+            #     num=int(num)
+            #     if lastFile<num:
+            #         lastFile=num
+            # lastFile=str(lastFile)
+            path=Path(path+'US'+'.json')
             
             if(path.is_file()):
                 f=open(path)
@@ -252,15 +252,15 @@ def getDataFile(state,county,code):
         path = 'json/County/'
         lastFile=0
         resultList=[]
-        dir_list = os.listdir(path)
-        for x in dir_list:
-            num=x.rsplit('.', 1)[0]
-            num=int(num)
-            if lastFile<num:
-                lastFile=num
-        lastFile=str(lastFile)
-        print(lastFile)
-        path=Path(path+lastFile+'.json')
+        # dir_list = os.listdir(path)
+        # for x in dir_list:
+        #     num=x.rsplit('.', 1)[0]
+        #     num=int(num)
+        #     if lastFile<num:
+        #         lastFile=num
+        # lastFile=str(lastFile)
+        # print(lastFile)
+        path=Path(path+'County'+'.json')
         print(path)
         
         if(path.is_file()):

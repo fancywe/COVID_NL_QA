@@ -37,10 +37,10 @@ if button:
     result = response.json()
 
     # print(result)
-    
-    if result['code']==1:
-         
-        
+    if result['code']==20:
+        st.write(result['result'])
+    elif result['code']==0:
+          
         for k,v in result['result'].items():
             
             if k=='US_case_graph' :
@@ -163,7 +163,7 @@ if button:
     # st.write(result['result']['Admissions'])
     # st.altair_chart(c3)
     # st.write(result['result']['Booster'])
-    elif result['code']==9:
+    elif result['code']==8:
             df=pd.DataFrame(result['result'])
             df['New Case Past 7 days']=df['New Case Past 7 days'].astype('Int64')
             df=df.set_index('State')
@@ -173,7 +173,7 @@ if button:
             df=df.sort_values(by=['New Case Past 7 days'],ascending=False)
             print(df.dtypes)        
             st.write(df)
-    elif result['code']==16:
+    elif result['code']==9:
         
             df=pd.DataFrame(result['result'])
             df['New Case Past 7 days']=df['New Case Past 7 days'].astype('Int64')
@@ -185,7 +185,7 @@ if button:
             print(df.dtypes)        
             st.write(df)
             
-    elif result['code']==8: # rank
+    elif result['code']==7: # rank
             
             df=pd.DataFrame(result['result'])
             df['new_cases_07']=df['new_cases_07'].astype('Int64')
@@ -208,7 +208,7 @@ if button:
             print(df)
             st.write(df.sort_values(by=['New Case last week'],ascending=False))
             
-    elif(result['code']==7):
+    elif(result['code']==6):
            
                 col1, col2 = st.columns(2)
                 if isinstance(result['result'], dict): 
@@ -266,10 +266,10 @@ if button:
                     value=0
                     last=0
                     i=0  
-                    
+                    start=''
+                    end=''
                     for k,v in result['result'].items():  
-                        if k=='History':
-                            break
+                        
                         if 'changed' in k:
                             last=v
                         else:
@@ -303,7 +303,9 @@ if button:
                     if i%2==1:       
                         col1.metric(key,value) 
                     else:
-                        col2.metric(key,value) 
+                        col2.metric(key,value)
+                    
+                        
                 with tab2:
                     date=[]
                     case=[]
@@ -311,12 +313,12 @@ if button:
                     test=[]
                     admission=[]
                     if(15>result['code']>=10):
-                        for x in result['result']['History']: 
+                        for x in result['History']: 
                                 date.append(x['date'])
                                 case.append(x['cases_7_day_count_change'])
                                 death.append(x['deaths_7_day_count_change'])
                                 test.append(x['new_test_results_reported_7_day_rolling_average'])
-                                admission=x["admissions_covid_confirmed_last_7_days_per_100k_population"]
+                                admission.append(x["admissions_covid_confirmed_last_7_days_per_100k_population"])
                                 
                         date=pd.to_datetime(date)  
                         
@@ -336,14 +338,16 @@ if button:
                             y=alt.Y('Death:Q'),
                             ).properties(title="Death History")
                             st.altair_chart(chart, use_container_width=True)
+                            
                         if(result['code']==13 or result['code']==10):
                             chart = alt.Chart(df).mark_line().encode(
                             x=alt.X('Date'),
                             y=alt.Y('Test:Q'),
                             ).properties(title="Test History")
                             st.altair_chart(chart, use_container_width=True)
+                            
                         if(result['code']==14 or result['code']==10):    
-                            st.altair_chart(chart, use_container_width=True)
+                            
                             chart = alt.Chart(df).mark_line().encode(
                             x=alt.X('Date'),
                             y=alt.Y('Admission:Q'),
@@ -352,7 +356,7 @@ if button:
                             
                     if(result['code']<10):
                         
-                        for x in result['result']['History']: 
+                        for x in result['History']: 
                                 date.append(x['submission_date'])
                                 case.append(x['new_case'])
                                 death.append(x['new_death'])
@@ -360,21 +364,21 @@ if button:
                                 
                         date=pd.to_datetime(date)
                         df = pd.DataFrame({'Case':case,'Date':date,'Death':death,'Test':test})
-                        df=df.df=df.dropna()
-                        if(result['code']==3 or result['code']==2):
+                        df=df.dropna()
+                        if(result['code']==2 or result['code']==1):
                             chart = alt.Chart(df).mark_line().encode(
                             x=alt.X('Date'),
                             y=alt.Y('Case:Q'),
                             ).properties(title="Case History")
                             st.altair_chart(chart, use_container_width=True)
                             
-                        if(result['code']==4 or result['code']==2):   
+                        if(result['code']==3 or result['code']==1):   
                             chart = alt.Chart(df).mark_line().encode(
                             x=alt.X('Date'),
                             y=alt.Y('Death:Q'),
                             ).properties(title="Death History")
                             st.altair_chart(chart, use_container_width=True)
-                        if(result['code']==5 or result['code']==2):
+                        if(result['code']==4 or result['code']==1):
                             chart = alt.Chart(df).mark_line().encode(
                             x=alt.X('Date'),
                             y=alt.Y('Test:Q'),

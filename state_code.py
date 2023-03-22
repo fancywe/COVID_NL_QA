@@ -14,12 +14,12 @@ dict_for_regular_data = {
    'week case info':['case info','total case','weekly case rate per 100k','weekly case rate','case'],
    'week death info':['total death','death rate','death info','death'],
    'test info':['test info','positivity','testing'],
-   'Hosp info':['hostpital info','hospitalizations','admissions','hospitals','icu','patients','inpatient','beds'],
+   'Hosp info':['hostpital info','hospitalizations','admissions','hospitals','icu','patients','inpatient','beds','Hospital','hospital'],
    # 'Comm info':['community characteristics','community info']     
     
 }    
 dict_for_vac={
-   'vaccinations','vac info','vac','dose','boost','vaccination'         
+   'vaccinations','vac info','vac','dose','boost','vaccination' ,'booster'       
 }
 us_state_to_abbrev = {
     "Alabama": "AL",
@@ -62,7 +62,7 @@ us_state_to_abbrev = {
     "Pennsylvania": "PA",
     "Rhode island": "RI",
     "South carolina": "SC",
-    "South cakota": "SD",
+    "South dakota": "SD",
     "Tennessee": "TN",
     "Texas": "TX",
     "Utah": "UT",

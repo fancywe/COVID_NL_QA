@@ -1,45 +1,45 @@
 Question,Type
-What's the overall COVID status in US,1
-NY state,2
-IL state,2
-How's the Covid going in American this week,1
-How many new case in United States today,1
-Show me the COVID trend in American,1
-How's everything goes in Wisconsin state this week,2
-Wisconsin,2
-The overall data of Illinois state,2
-what's the Covid data overview in California,2
-The Covid status in Miami,2
-MN state,2
-How many new case in Ohio this week,3
-Show me the case trend in New York state this week,3
-The case graph in South Dekota these days,3
-The case trend in Minnesota,3
-NY new case,3
-WI new cases,3
-How many death in Alaska this week,4
-How many people died in LA these days,4
-New deaths in New Hampshire,4
-The number of new covid deaths in the Dakota  States this month,4
-"in Carolina state,how many people died this week?",4
-How many new death in MN this week,4
-what's the postive rate in  Missouri,5
-What's the test situation in Florida this week,5
-Nucleic acid detection of Iowa state,5
-How many people are negative in the nucleic acid test of Arizona  in the United States,5
-The proportion of children participating in nucleic acid testing in MT is in the whole state.,5
-COVID Inpatient Beds Used in South Carolina,6
-What's the hospital usage in NJ state,6
-Are there many people in hospitals in Kansas about COVID-19's case?,6
-Are all the severe cases in COVID in  New Hampshire hospitals old people?,6
-How many doctors are there in Colorado Hospital?,6
-How's the Vaccine situation in NY state now,7
-Show me the vaccination in US Pennsylvania,7
-Do we need to count the vaccination situation in Kansas ?,7
-How does the vaccination rate in Louisiana compare with other states?,7
-the rate for have at least one dose vaccined in Georgia,7
-how many people inject booster in New Mexico state,7
-What is the vaccination rate in Maryland?,7
+What's the overall COVID status in US,0
+NY state,1
+IL state,1
+How's the Covid going in American this week,0
+How many new case in United States today,0
+Show me the COVID trend in American,0
+How's everything goes in Wisconsin state this week,1
+Wisconsin,1
+The overall data of Illinois state,1
+what's the Covid data overview in California,1
+The Covid status in Miami,1
+MN state,1
+How many new case in Ohio this week,2
+Show me the case trend in New York state this week,2
+The case graph in South Dekota these days,2
+The case trend in Minnesota,2
+NY new case,2
+WI new cases,2
+How many death in Alaska this week,3
+How many people died in LA these days,3
+New deaths in New Hampshire,3
+The number of new covid deaths in the South Dakota States this month,3
+"in Carolina state,how many people died this week?",3
+How many new death in MN this week,3
+what's the postive rate in  Missouri,4
+What's the test situation in Florida this week,4
+Nucleic acid detection of Iowa state,4
+How many people are negative in the nucleic acid test of Arizona  in the United States,4
+The proportion of children participating in nucleic acid testing in MT is in the whole state.,4
+COVID Inpatient Beds Used in South Carolina,5
+What's the hospital usage in NJ state,5
+Are there many people in hospitals in Kansas about COVID-19's case?,5
+Are all the severe cases in COVID in  New Hampshire hospitals old people?,5
+How many doctors are there in Colorado Hospital?,5
+How's the Vaccine situation in NY state now,6
+Show me the vaccination in US Pennsylvania,6
+Do we need to count the vaccination situation in Kansas ?,6
+How does the vaccination rate in Louisiana compare with other states?,6
+the rate for have at least one dose vaccined in Georgia,6
+how many people inject booster in New Mexico state,6
+What is the vaccination rate in Maryland?,6
 La Crosse county WI,10
 Covid Level in Union of Iowa,10
 Tell me something about the Covid in Madison Wisconsin,10
@@ -58,41 +58,43 @@ how many death cause of Coivd in WI Clark county,12
 I want to know the Test info of Valley county Idaho,13
 How many postive we have in St. Charles Louisiana,13
 Postive rate in Clay county Arkansas,13
-Hospitality in Clay county North Carolina,14
-Hospital usage in La Crosse county Wisconsin,14
-ICU occupation in Davis county Utah,14
-"The number of COVID-19 patients in County Nowata, Oklahoma",14
-The number of COVID-19 patients in Bolivar county of Mississippi state.,14
-vaccination in La Crosse WI,15
-How many people recived boost dose in Lee Kentucky,15
-what's the vaccination rate in Lincoln county Louisiana,15
-"hey,what's the weather today",20
+Hospitality in Clay county North Carolina hosp,14
+Hospital usage in La Crosse county Wisconsin hosp,14
+ICU occupation in Davis county Utah hosp,14
+"The number of COVID-19 patients in County Nowata, Oklahoma hosp" ,14
+The number of COVID-19 patients in Bolivar county of Mississippi state hosp.,14
+vaccination in La Crosse WI vac,15
+How many people recived boost dose in Lee Kentucky vac,15
+what's the vaccination rate in Lincoln county Louisiana vac,15
+hey what's the weather today,20
 do we have taco for lunch?,20
 hey you little shit,20
 overall data of Orange Indiana,10
 how many people have full dose vaccined in Scott Indiana ,15
-US,1
-the rank of all state county,8
-US all state status county,8
-the table of all US states county,8
-show me the infomation of all States county,8
-State Rank,8
-State Rank in US,8
-County rank in WI state,9
-Sort all the county in Wisconsin state,9
-Sort the counties in New York state,9
-County rank in WI state level,9
+US,0
+the rank of all state county,7
+US all state status county,7
+the table of all US states county,7
+show me the infomation of all States county,7
+State Rank,7
+State Rank in US,7
+County rank in WI state,8
+Sort all the county in Wisconsin state,8
+Sort the counties in New York state,8
+County rank in WI state level,8
 Allegany counties in New York state,10
-New case in WI,3
-New case in NY,3
-New case in IL,3
+New case in WI,2
+New case in NY,2
+New case in IL,2
 new death in la crosse WI county state,12
-county rank in WI,9
-county rank in IL,9
+county rank in WI,8
+county rank in IL,8
 What are the new death in La Crosse WI,12
 death Madison WI,12
-Rank in NY,9
-rank in all county,16
-rank in all the county,16
-sort all the county from high to low,16
-sort all the county by case,16
+Rank in NY,8
+rank in all county,9
+rank in all the county,9
+sort all the county from high to low,9
+sort all the county by case,9
+What are death in WI death state,3
+What are the new case in wisconsin case state,3

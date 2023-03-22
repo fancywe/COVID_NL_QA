@@ -24,10 +24,10 @@ headers = {'Accept': 'application/json'}
 page = requests.get(url_all_state, headers=headers) # get all state
 text = json.loads(page.text)
 
-runid=str(text["runid"])
+# runid=str(text["runid"])
 json_string =json.dumps(text)
 
-with open('json/AllState/'+runid+'.json', 'w') as outfile:
+with open('json/AllState/AllState.json', 'w') as outfile:
             json.dump(json_string, outfile)   
 time.sleep(2)
 
@@ -38,7 +38,7 @@ print(type(text))
 runid=str(text["runid"])
 json_string =json.dumps(text)
 
-with open('json/County/'+runid+'.json', 'w') as outfile:
+with open('json/County/County.json', 'w') as outfile:
             json.dump(json_string, outfile)  
 time.sleep(2)
 
@@ -46,17 +46,17 @@ time.sleep(2)
 page = requests.get(url_county_vac, headers=headers) # get county
 text = json.loads(page.text)
 
-runid=str(text["runid"])
+# runid=str(text["runid"])
 json_string =json.dumps(text)
 
-with open('json/County_Vac/'+runid+'.json', 'w') as outfile:
+with open('json/County_Vac/County_Vac.json', 'w') as outfile:
             json.dump(json_string, outfile)    
 
 for i in range(1,57):  
         
     stateNum=format(i, '02d')   
     url=url_state+stateNum
-    filename='json/State/'+stateNum+'/'+runid+'.json'
+    filename='json/State/'+stateNum+'/state.json'
     path = Path(filename)
     
     if(path.is_file()): continue
@@ -66,7 +66,7 @@ for i in range(1,57):
     if page.ok:
         text = json.loads(page.text)
         print(text)
-        runid=str(text["runid"])
+        # runid=str(text["runid"])
         json_string =json.dumps(text)
         
         with open(filename, 'w') as outfile:
@@ -76,10 +76,10 @@ for i in range(1,57):
 page = requests.get(url_us, headers=headers) # get url_us
 text = json.loads(page.text)
 
-runid=str(text["runid"])
+# runid=str(text["runid"])
 json_string =json.dumps(text)
 
-with open('json/US/'+runid+'.json', 'w') as outfile:
+with open('json/US/US.json', 'w') as outfile:
             json.dump(json_string, outfile)                                        
                                                                
                       
