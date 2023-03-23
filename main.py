@@ -125,7 +125,7 @@ async def read_Q(Q):
                 geo=1
                    
     
-    if len(gpe)==0:
+    if len(gpe)==0 and state=='' and county=='':
         code=20
         result='no place detected'    
     elif code==0:

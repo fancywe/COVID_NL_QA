@@ -269,12 +269,13 @@ if button:
                     start=''
                     end=''
                     for k,v in result['result'].items():  
-                        
+                        i=i+1
                         if 'changed' in k:
                             last=v
                         else:
                             if k=='State':
                                 col1.metric(k,v)
+                                
                                 
                             elif last!=0:
                                 if i%2==1:
@@ -299,7 +300,7 @@ if button:
                             else:
                                     key=k
                                     value=v
-                        i=i+1
+                       
                     if i%2==1:       
                         col1.metric(key,value) 
                     else:
@@ -323,14 +324,25 @@ if button:
                         date=pd.to_datetime(date)  
                         
                         df = pd.DataFrame({'Case':case,'Date':date,'Death':death,'Test':test,'Admission':admission})
-                        df=df.dropna()
+                    
+                        # d 
+                        df.sort_values(by='Date',ascending=False,inplace = True)
+                        print(type(df.Date[0]))
                         print(df)
+                        startdate=df.head(1).Date.values[0]
+                        enddate=df.tail(1).Date.values[0]
+                        print(startdate,type(startdate))
+                        print(enddate,type(enddate))
                         if(result['code']==11 or result['code']==10):
+                            
                             chart = alt.Chart(df).mark_line().encode(
                             x=alt.X('Date'),
                             y=alt.Y('Case:Q'),
                             ).properties(title="Case History")
                             st.altair_chart(chart, use_container_width=True)
+                            cols1, _ = st.columns((1,2))
+                            format="MM/DD/YY -hh:mm"
+                            slider = cols1.slider('Select date', min_value=startdate, value=(startdate, enddate), max_value=enddate, format=format)
                             
                         if(result['code']==12 or result['code']==10):   
                             chart = alt.Chart(df).mark_line().encode(
