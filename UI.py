@@ -340,9 +340,7 @@ if button:
                             y=alt.Y('Case:Q'),
                             ).properties(title="Case History")
                             st.altair_chart(chart, use_container_width=True)
-                            cols1, _ = st.columns((1,2))
-                            format="MM/DD/YY -hh:mm"
-                            slider = cols1.slider('Select date', min_value=startdate, value=(startdate, enddate), max_value=enddate, format=format)
+                            
                             
                         if(result['code']==12 or result['code']==10):   
                             chart = alt.Chart(df).mark_line().encode(

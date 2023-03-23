@@ -127,7 +127,10 @@ async def read_Q(Q):
     
     if len(gpe)==0 and state=='' and county=='':
         code=20
-        result='no place detected'    
+        result='no place detected'
+    if state=='' and county!='':
+        code=20
+        result='Please input State name'            
     elif code==0:
                 code=Handle(Q).item()
                 print(code)
