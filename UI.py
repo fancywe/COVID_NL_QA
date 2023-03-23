@@ -10,7 +10,13 @@ st.set_page_config(
     layout="centered",
     initial_sidebar_state="expanded",
 )
-
+# def makeChart(Y,df,title):
+#     chart = alt.Chart(df).mark_line().encode(
+#                             x=alt.X('Date'),
+#                             y=alt.Y(Y),
+#                             ).properties(title=title)
+#     st.altair_chart(chart, use_container_width=True)
+    
 st.markdown('<h1 style="text-align: center">Covid QA</h1>', unsafe_allow_html=True)
 st.markdown('<h3>Question</h3>', unsafe_allow_html=True)
 question = st.text_input("Put your query", value="What are the new case in La Crosse WI")
@@ -326,21 +332,30 @@ if button:
                         df = pd.DataFrame({'Case':case,'Date':date,'Death':death,'Test':test,'Admission':admission})
                     
                         # d 
-                        df.sort_values(by='Date',ascending=False,inplace = True)
+                        df.sort_values(by='Date',ascending=True,inplace = True)
+                        df=df.reset_index(drop=True)
                         print(type(df.Date[0]))
                         print(df)
-                        startdate=df.head(1).Date.values[0]
-                        enddate=df.tail(1).Date.values[0]
-                        print(startdate,type(startdate))
-                        print(enddate,type(enddate))
+                        max=len(df.index)
+                        min=0
+                        print(max)
+                        
                         if(result['code']==11 or result['code']==10):
-                            
-                            chart = alt.Chart(df).mark_line().encode(
-                            x=alt.X('Date'),
-                            y=alt.Y('Case:Q'),
-                            ).properties(title="Case History")
-                            st.altair_chart(chart, use_container_width=True)
-                            
+                            while True:
+                                k=0
+                                chart = alt.Chart(df.iloc[min:max,:]).mark_line().encode(
+                                x=alt.X('Date'),
+                                y=alt.Y('Case:Q'),
+                                ).properties(title='Case History')
+                                values = st.slider(
+                                'Select a range ',
+                                0, max, (0, max),key=k)
+                                st.write('Values:', values)
+                                st.altair_chart(chart, use_container_width=True)
+                                min=values[0]
+                                max=values[1]
+                                k=k+1
+
                             
                         if(result['code']==12 or result['code']==10):   
                             chart = alt.Chart(df).mark_line().encode(
