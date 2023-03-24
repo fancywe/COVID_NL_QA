@@ -30,7 +30,7 @@ text = json.loads(page.text)
 # runid=str(text["runid"])
 json_string =json.dumps(text)
 
-with open('json/AllState/AllState.json', 'w') as outfile:
+with open('/home/joydivision0301/COVID_NL_QA/json/AllState/AllState.json', 'w') as outfile:
             json.dump(json_string, outfile)   
 time.sleep(2)
 
@@ -41,7 +41,7 @@ print(type(text))
 runid=str(text["runid"])
 json_string =json.dumps(text)
 
-with open('json/County/County.json', 'w') as outfile:
+with open('/home/joydivision0301/COVID_NL_QA/json/County/County.json', 'w') as outfile:
             json.dump(json_string, outfile)  
 time.sleep(2)
 
@@ -52,14 +52,14 @@ text = json.loads(page.text)
 # runid=str(text["runid"])
 json_string =json.dumps(text)
 
-with open('json/County_Vac/County_Vac.json', 'w') as outfile:
+with open('/home/joydivision0301/COVID_NL_QA/json/County_Vac/County_Vac.json', 'w') as outfile:
             json.dump(json_string, outfile)    
 
 for i in range(1,57):  
         
     stateNum=format(i, '02d')   
     url=url_state+stateNum
-    filename='json/State/'+stateNum+'/state.json'
+    filename='/home/joydivision0301/COVID_NL_QA/json/State/'+stateNum+'/state.json'
     path = Path(filename)
     
     if(path.is_file()): continue
@@ -82,7 +82,7 @@ text = json.loads(page.text)
 # runid=str(text["runid"])
 json_string =json.dumps(text)
 
-with open('json/US/US.json', 'w') as outfile:
+with open('/home/joydivision0301/COVID_NL_QA/json/US/US.json', 'w') as outfile:
             json.dump(json_string, outfile)                                        
                                                                
                       

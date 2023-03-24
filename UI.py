@@ -10,16 +10,28 @@ st.set_page_config(
     layout="centered",
     initial_sidebar_state="expanded",
 )
+
+# @st.cache_data # history
+# def history(question):
+#     his=[]
+#     his.append(question)
+#     return his
 # def makeChart(Y,df,title):
 #     chart = alt.Chart(df).mark_line().encode(
 #                             x=alt.X('Date'),
 #                             y=alt.Y(Y),
 #                             ).properties(title=title)
 #     st.altair_chart(chart, use_container_width=True)
-    
+col1, col2 = st.columns([4, 1])    
 st.markdown('<h1 style="text-align: center">Covid QA</h1>', unsafe_allow_html=True)
 st.markdown('<h3>Question</h3>', unsafe_allow_html=True)
+
 question = st.text_input("Put your query", value="What are the new case in La Crosse WI")
+my_expander=st.expander(label='history',expanded=True)
+
+# for q in his:
+#         st.write(q)
+#         st.write('123')
 button = st.button('Get Result')
 
 with st.sidebar:
@@ -41,6 +53,7 @@ if button:
     }
     response = requests.get('http://127.0.0.1:8000/question/'+question, headers=headers)
     result = response.json()
+    # history(question)
 
     # print(result)
     if result['code']==20:
@@ -341,20 +354,19 @@ if button:
                         print(max)
                         
                         if(result['code']==11 or result['code']==10):
-                            while True:
-                                k=0
+                            
                                 chart = alt.Chart(df.iloc[min:max,:]).mark_line().encode(
                                 x=alt.X('Date'),
                                 y=alt.Y('Case:Q'),
                                 ).properties(title='Case History')
                                 values = st.slider(
                                 'Select a range ',
-                                0, max, (0, max),key=k)
-                                st.write('Values:', values)
+                                0, max, (0, max))
+                                # st.write('Values:', values)
                                 st.altair_chart(chart, use_container_width=True)
-                                min=values[0]
-                                max=values[1]
-                                k=k+1
+                                # min=values[0]
+                                # max=values[1]
+                                # k=k+1
 
                             
                         if(result['code']==12 or result['code']==10):   
