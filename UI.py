@@ -359,9 +359,9 @@ if button:
                                 x=alt.X('Date'),
                                 y=alt.Y('Case:Q'),
                                 ).properties(title='Case History')
-                                values = st.slider(
-                                'Select a range ',
-                                0, max, (0, max))
+                                # values = st.slider(
+                                # 'Select a range ',
+                                # 0, max, (0, max))
                                 # st.write('Values:', values)
                                 st.altair_chart(chart, use_container_width=True)
                                 # min=values[0]
