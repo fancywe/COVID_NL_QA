@@ -2,7 +2,7 @@
 import streamlit as st
 from PIL import Image
 
-st.set_page_config(page_title='Covid NL QA', page_icon=':💊:', layout='centered')
+st.set_page_config(page_title='Covid NL QA', page_icon='random', layout='centered')
 
 # Title
 st.title('🦠 Covid QA 🧫')
@@ -32,6 +32,6 @@ st.write(
     """
     Well this part is more like a plug-in of an existing project, the ML model is from someone else (well it is also not that accurate LOL)
     But the main issue of this part is the datasource [The COVID-19 Open Research Dataset](https://github.com/allenai/cord19) is completely stopped updating,
-    and I didn't find appropriate substitute, so I just leave it there without further improved
+    and I didn't find appropriate substitute, so I just leave it there.
     """
 )

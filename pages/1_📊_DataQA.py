@@ -35,13 +35,23 @@ my_expander=st.expander(label='history',expanded=True)
 button = st.button('Get Result')
 
 with st.sidebar:
-    st.markdown('<h1>COVID info QA</h3>', unsafe_allow_html=True)
+    st.markdown('<h2>COVID Statistics QA</h2>', unsafe_allow_html=True)
     # add_radio = st.radio(
     #     "Navigation",
     #     ("COVID Statistics Data QA", "COVID Thesis QA")
     # )
     # st.markdown('<h3>About</h3>', unsafe_allow_html=True)
-    st.text('')
+    st.markdown('<h3>Some Instructions</h3>', unsafe_allow_html=True)
+    st.write('''For the county level data, you just need to type the county name and the state name(capital abbr. works), 
+    then it will return you the latest statistics(usually last week's). Same to State level. Currently we support five main features based on our data source,
+    Case,Death,Test,Hospital and Vaccine. You can also refine your question with the feature you want to know ,then it will 
+    just return that feature's info, like 'How many new case in new york city last week'. You might find some of data displayed as 'suppressed'(usually Death info),
+    that just because the loacl offical stop to collect that part of data, I can't help with this. You can also take a glance of 
+    all the states' Covid statistics in a table form by type something like 'State rank'. County table works in the same way, like 
+    'Rank in NY'. If you want to take a look of the US Covid dashboard, try 'US'.
+    For the people too lazy to type a word, just input a zip code,yea we support that.
+
+    ''')
 
 if button:
     headers = {
