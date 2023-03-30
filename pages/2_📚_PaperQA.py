@@ -1,6 +1,7 @@
 import streamlit as st
 import requests, json
 from annotated_text import annotated_text
+
 st.set_page_config(
     page_title="Naturalangue",
     page_icon=":shark:",
