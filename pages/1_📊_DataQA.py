@@ -6,7 +6,7 @@ import altair as alt
 st.set_page_config(
     
     page_title="Covid QA",
-    page_icon="🧊",
+    page_icon="📊",
     layout="centered",
     initial_sidebar_state="expanded",
 )
@@ -50,7 +50,6 @@ with st.sidebar:
     all the states' Covid statistics in a table form by type something like 'State rank'. County table works in the same way, like 
     'Rank in NY'. If you want to take a look of the US Covid dashboard, try 'US'.
     For the people too lazy to type a word, just input a zip code,yea we support that.
-
     ''')
 
 if button:
@@ -67,7 +66,8 @@ if button:
 
     # print(result)
     if result['code']==20:
-        st.write(result['result'])
+        st.write('')
+        st.markdown('<h4>'+result['result']+'</h4>', unsafe_allow_html=True)
     elif result['code']==0:
           
         for k,v in result['result'].items():
