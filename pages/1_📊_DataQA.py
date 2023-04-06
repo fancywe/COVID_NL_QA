@@ -3,73 +3,8 @@ import requests, json
 import pandas as pd
 import altair as alt
 
-st.set_page_config(
-    
-    page_title="Covid QA",
-    page_icon="📊",
-    layout="centered",
-    initial_sidebar_state="expanded",
-)
-
-# @st.cache_data # history
-# def history(question):
-#     his=[]
-#     his.append(question)
-#     return his
-# def makeChart(Y,df,title):
-#     chart = alt.Chart(df).mark_line().encode(
-#                             x=alt.X('Date'),
-#                             y=alt.Y(Y),
-#                             ).properties(title=title)
-#     st.altair_chart(chart, use_container_width=True)
-col1, col2 = st.columns([4, 1])    
-st.markdown('<h1 style="text-align: center">Covid QA</h1>', unsafe_allow_html=True)
-st.markdown('<h3>Question</h3>', unsafe_allow_html=True)
-
-question = st.text_input("Put your query", value="What are the new case in La Crosse WI")
-my_expander=st.expander(label='history',expanded=True)
-
-# for q in his:
-#         st.write(q)
-#         st.write('123')
-button = st.button('Get Result')
-
-with st.sidebar:
-    st.markdown('<h2>COVID Statistics QA</h2>', unsafe_allow_html=True)
-    # add_radio = st.radio(
-    #     "Navigation",
-    #     ("COVID Statistics Data QA", "COVID Thesis QA")
-    # )
-    # st.markdown('<h3>About</h3>', unsafe_allow_html=True)
-    st.markdown('<h3>Some Instructions</h3>', unsafe_allow_html=True)
-    st.write('''For the county level data, you just need to type the county name and the state name(capital abbr. works), 
-    then it will return you the latest statistics(usually last week's). Same to State level. Currently we support five main features based on our data source,
-    Case,Death,Test,Hospital and Vaccine. You can also refine your question with the feature you want to know ,then it will 
-    just return that feature's info, like 'How many new case in new york city last week'. You might find some of data displayed as 'suppressed'(usually Death info),
-    that just because the loacl offical stop to collect that part of data, I can't help with this. You can also take a glance of 
-    all the states' Covid statistics in a table form by type something like 'State rank'. County table works in the same way, like 
-    'Rank in NY'. If you want to take a look of the US Covid dashboard, try 'US'.
-    For the people too lazy to type a word, just input a zip code,yea we support that.
-    ''')
-
-if button:
-    headers = {
-        'accept': 'application/json',
-        'Content-Type': 'application/json',
-    }
-    data = {
-         'question': question
-    }
-    response = requests.get('http://35.225.219.221:1145/question/'+question, headers=headers)
-    result = response.json()
-    # history(question)
-
-    # print(result)
-    if result['code']==20:
+def displayUS(result):
         st.write('')
-        st.markdown('<h4>'+result['result']+'</h4>', unsafe_allow_html=True)
-    elif result['code']==0:
-          
         for k,v in result['result'].items():
             
             if k=='US_case_graph' :
@@ -187,6 +122,86 @@ if button:
         st.markdown(Str,unsafe_allow_html=True)
         col1, col2 = st.columns([1, 3])
         col1.progress(BoosterPct/100)
+
+st.set_page_config(
+    
+    page_title="Covid QA",
+    page_icon="📊",
+    layout="centered",
+    initial_sidebar_state="expanded",
+)
+
+# @st.cache_data # history
+# def history(question):
+#     his=[]
+#     his.append(question)
+#     return his
+# def makeChart(Y,df,title):
+#     chart = alt.Chart(df).mark_line().encode(
+#                             x=alt.X('Date'),
+#                             y=alt.Y(Y),
+#                             ).properties(title=title)
+#     st.altair_chart(chart, use_container_width=True)
+col1, col2 = st.columns([4, 1])    
+st.markdown('<h1 style="text-align: center">Covid QA</h1>', unsafe_allow_html=True)
+st.markdown('<h3>Question</h3>', unsafe_allow_html=True)
+
+question = st.text_input("Put your query", value="What are the new case in La Crosse WI")
+my_expander=st.expander(label='history',expanded=True)
+
+# for q in his:
+#         st.write(q)
+#         st.write('123')
+button = st.button('Get Result')
+headers = {
+        'accept': 'application/json',
+        'Content-Type': 'application/json',
+    }
+response = requests.get('http://35.225.219.221:1145/question/US', headers=headers)
+result = response.json()
+container=st.empty()
+col1, col2,col3,col4= container.columns(4) 
+col1.metric('US Total Cases',result['result']['US Total Cases'])  
+col2.metric('US Total Deaths',result['result']['US Total Deaths'])
+col3.metric('Admissions',result['result']['Admissions'])
+col4.metric('Booster',result['result']['Booster'])
+
+with st.sidebar:
+    
+    st.markdown('<h2>Features Support</h2>', unsafe_allow_html=True)
+    
+    
+    st.markdown(''' - Covid New Case info''', unsafe_allow_html=True)
+    st.markdown(''' - Covid Death indo''', unsafe_allow_html=True)
+    st.markdown(''' - Covid Test info''', unsafe_allow_html=True)
+    st.markdown(''' - Covid Hospital info''', unsafe_allow_html=True)
+    st.markdown(''' - Covid Vaccine info''', unsafe_allow_html=True)
+    
+    st.markdown('<h2>How to ask</h3>', unsafe_allow_html=True)
+    st.markdown(''' - County level info: Type the county name,state name(Abbr. works) and the feature you want to know, or skip it to get the overview''', unsafe_allow_html=True)
+    st.markdown(''' - State level info: Type the state name(Abbr. works) and the feature you want to know, or skip it to get the overview''', unsafe_allow_html=True)
+    st.markdown(''' - US level info: Well, just tpye 'US' should works''', unsafe_allow_html=True)
+    st.markdown(''' - County/State Rank: Type Like 'Rank the county in WI',or'State rank'.''', unsafe_allow_html=True)
+    
+    
+    
+if button:
+    container.empty()
+    headers = {
+        'accept': 'application/json',
+        'Content-Type': 'application/json',
+    }
+    data = {
+         'question': question
+    }
+    response = requests.get('http://35.225.219.221:1145/question/'+question, headers=headers)
+    result = response.json()
+    
+    if result['code']==20:
+        st.write('')
+        st.markdown('<h4>'+result['result']+'</h4>', unsafe_allow_html=True)
+    elif result['code']==0:
+          displayUS(result)
     # st.write(result['result']['US Total Deaths'])
     # st.altair_chart(c2)
     # st.write(result['result']['Admissions'])
@@ -285,7 +300,7 @@ if button:
                     else:
                         col2.metric(key,value) 
     else:
-            tab1, tab2 = st.tabs(["Current Data", "History Chart"])
+            tab1, tab2,tab3= st.tabs(["Current Data", "History Chart",'About'])
             
             with tab1:
                 col1, col2 = st.columns(2)
@@ -431,6 +446,17 @@ if button:
                             y=alt.Y('Test:Q'),
                             ).properties(title="Test History")
                             st.altair_chart(chart, use_container_width=True)
+    #             with tab3:
+    #                 st.write('''For the county level data, you just need to type the county name and the state name(capital abbr. works), 
+    # then it will return you the latest statistics(usually last week's). Same to State level. Currently we support five main features based on our data source,
+    # Case,Death,Test,Hospital and Vaccine. You can also refine your question with the feature you want to know ,then it will 
+    # just return that feature's info, like 'How many new case in new york city last week'. You might find some of data displayed as 'suppressed'(usually Death info),
+    # that just because the loacl offical stop to collect that part of data, I can't help with this. You can also take a glance of 
+    # all the states' Covid statistics in a table form by type something like 'State rank'. County table works in the same way, like 
+    # 'Rank in NY'. If you want to take a look of the US Covid dashboard, try 'US'.
+    # For the people too lazy to type a word, just input a zip code,yea we support that.
+    # ''')
+
                         
                           
             

@@ -19,7 +19,7 @@ dict_for_regular_data = {
     
 }    
 dict_for_vac={
-   'vaccinations','vac info','vac','dose','boost','vaccination' ,'booster'       
+   'vaccinations','vac info','vac','dose','boost','vaccination' ,'booster','vaccine','Vaccine'      
 }
 us_state_to_abbrev = {
     "Alabama": "AL",

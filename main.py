@@ -24,6 +24,7 @@ weekCase=state_code.dict_for_regular_data['week case info']
 weekDeath=state_code.dict_for_regular_data['week death info']
 weekTest=state_code.dict_for_regular_data['test info']
 weekHosp=state_code.dict_for_regular_data['Hosp info']
+
 # sys.stdout = open(sys.stdout.fileno(), mode='w', encoding='unicode ', buffering=1)
 # filename="fips-codes-covid-tracker.csv"
 # csvfile=open("fips-codes-covid-tracker.csv")
@@ -130,7 +131,8 @@ async def read_Q(Q):
         result='no place detected'
     if state=='' and county!='':
         code=20
-        result='Please input State name'            
+        result='Please input State name'     
+               
     elif code==0:
                 code=Handle(Q).item()
                 print(code)
