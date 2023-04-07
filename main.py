@@ -140,8 +140,9 @@ def read_Q(Q):
                 print(type(code))
                 print(gpe)                                           
                 result=getDataDetail(getDataFile(state,county,code),code)
-                history=result.pop("History", None)  
-                print(result)    
+                if 'History' in result:
+                        history=result.pop("History", None)  
+                        print(result)    
     if result==None:
         result='No query result found'        
     
