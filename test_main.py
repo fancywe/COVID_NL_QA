@@ -8,6 +8,7 @@ client = TestClient(app)
 def test_read_main():
     response = client.get("/question/Hi")
     assert response.status_code == 200
-    assert response.json() == {"msg": "Hello World"}
+    json=response.json()
+    assert json["code"]==20
     
     
