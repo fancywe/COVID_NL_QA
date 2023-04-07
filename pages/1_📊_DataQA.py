@@ -125,7 +125,7 @@ def displayUS(result):
 
 st.set_page_config(
     
-    page_title="Covid QA",
+    page_title="Covid Data QA",
     page_icon="📊",
     layout="centered",
     initial_sidebar_state="expanded",

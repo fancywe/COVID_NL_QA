@@ -12,6 +12,7 @@ from pathlib import Path
 import zipcodes
 from Q_handler import Handle
 #import jamspell
+import unittest
 
 from spellchecker import SpellChecker
 
@@ -41,7 +42,7 @@ app = FastAPI()
 
 @app.get("/question/{Q}")
 
-async def read_Q(Q):
+def read_Q(Q):
         
 #     Q=corrector.FixFragment(Q) #spell check
     doc = nlp(Q)
