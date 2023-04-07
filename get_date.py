@@ -73,7 +73,7 @@ def getDataFile(state,county,code):
                 
     elif code==7:
         dic_name='county_view_state_data'
-        path='json/Allstate/'
+        path='json/AllState/'
         lastFile=0
         # dir_list = os.listdir(path)
         # for x in dir_list:
