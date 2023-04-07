@@ -86,6 +86,7 @@ def getDataFile(state,county,code):
         path=Path(path+'AllState'+'.json')
         print(path)
         if(path.is_file()):
+            print('hi')
             with open(path) as json_file:
                 data=json.load(json_file)
                 json_object = json.loads(data)
