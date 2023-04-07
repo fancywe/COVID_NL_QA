@@ -30,7 +30,7 @@ def getDataFile(state,county,code):
     headers = {'Accept': 'application/json'}
     
     
-    if 1<=code<9:
+    if 1<=code<7:
                 
         stateNum=state_codes[state]
         
@@ -71,7 +71,7 @@ def getDataFile(state,county,code):
         #         json.dump(json_string, outfile)
                 
                 
-    elif code==8:
+    elif code==7:
         dic_name='county_view_state_data'
         path='json/Allstate/'
         lastFile=0
@@ -138,7 +138,7 @@ def getDataFile(state,county,code):
                        
         return result
     
-    elif code==9 :
+    elif code==8 :
         
         dic_name='integrated_county_latest_external_data'  
         path = 'json/County/'

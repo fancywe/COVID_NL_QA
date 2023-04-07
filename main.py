@@ -185,6 +185,9 @@ def getDataDetail(dic,code):
     elif code==7:
                 result=dic
                 return dic
+    elif code==9:
+                result=dic
+                return dic
     elif code==8:
                 result=dic
                 print(dic)
@@ -211,6 +214,7 @@ def getDataDetail(dic,code):
                         ,'History':dic['History']
                         }
                 return result
+
     elif code==10:
                 
                 result={'State':dic['State_name'],'County':dic['County'],'Level':dic['CCL_community_burden_level'],'New Case Past 7 days':dic['Cases_7_day_count_change'],
