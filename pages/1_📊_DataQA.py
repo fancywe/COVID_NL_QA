@@ -157,14 +157,14 @@ headers = {
         'accept': 'application/json',
         'Content-Type': 'application/json',
     }
-response = requests.get('http://35.225.219.221:1145/question/US', headers=headers)
-result = response.json()
-container=st.empty()
-col1, col2,col3,col4= container.columns(4) 
-col1.metric('US Total Cases',result['result']['US Total Cases'])  
-col2.metric('US Total Deaths',result['result']['US Total Deaths'])
-col3.metric('Admissions',result['result']['Admissions'])
-col4.metric('Booster',result['result']['Booster'])
+# response = requests.get('http://35.225.219.221:1145/question/US', headers=headers)
+# result = response.json()
+# container=st.empty()
+# col1, col2,col3,col4= container.columns(4) 
+# col1.metric('US Total Cases',result['result']['US Total Cases'])  
+# col2.metric('US Total Deaths',result['result']['US Total Deaths'])
+# col3.metric('Admissions',result['result']['Admissions'])
+# col4.metric('Booster',result['result']['Booster'])
 
 with st.sidebar:
     
@@ -186,7 +186,7 @@ with st.sidebar:
     
     
 if button:
-    container.empty()
+    # container.empty()
     headers = {
         'accept': 'application/json',
         'Content-Type': 'application/json',

@@ -17,20 +17,27 @@ from state_code import state_codes
 # url_state='https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=integrated_county_latest_by_state_fips_'
 # url_us='https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=statusBar_v2_external_data'
 
-
+headers = {'Accept': 'application/json'}
 
 def getDataFile(state,county,code):
     result={}
     data={}
     # date=datetime.today().strftime('%Y-%m-%d')   
     dic_name=''
-
-    
+    if code==0: us()
+    elif 0<code<7 and state!='' and county=='': get_stateinfo(state)
+    elif 0<code<7 and state!='' and county!='':get_countyinfo(state,county)
+    elif code==7:get_staterank()
+    elif code==8:get_countyrank(state)
+    elif code==9:get_allcountyrank()
+    elif 9<code<15:get_countyinfo(state,county)
+    elif code==15 and state!='' and county!='':get_countyinfo(state,county)
+    else: unknow()
     print(state,county,code)    
-    headers = {'Accept': 'application/json'}
     
     
-    if 1<=code<7:
+    
+def get_stateinfo(state):
                 
         stateNum=state_codes[state]
         
@@ -60,33 +67,14 @@ def getDataFile(state,county,code):
         result['History']=text[dic_name] 
           
         return result
-        
-        # else:
-        #     page = requests.get(url, headers=headers)
-
-        #     text = json.loads(page.text)
-        #     json_string =json.dumps(text)
-            
-        #     with open('json/State/State_'+stateNum+'_'+date+'.json', 'w') as outfile:
-        #         json.dump(json_string, outfile)
                 
-                
-    elif code==7:
+def get_staterank():
         dic_name='county_view_state_data'
-        path='json/AllState/'
-        lastFile=0
-        # dir_list = os.listdir(path)
-        # for x in dir_list:
-        #     num=x.rsplit('.', 1)[0]
-        #     num=int(num)
-        #     if lastFile<num:
-        #         lastFile=num
-        # lastFile=str(lastFile)
-        # print(lastFile)
+        path='json/Allstate/'
+ 
         path=Path(path+'AllState'+'.json')
         print(path)
         if(path.is_file()):
-            print('hi')
             with open(path) as json_file:
                 data=json.load(json_file)
                 json_object = json.loads(data)
@@ -96,20 +84,13 @@ def getDataFile(state,county,code):
        
         return result
     
-    elif 10<=code<15:
+def get_countyinfo(state,county):
         
         
         dic_name='integrated_county_latest_external_data'  
         path = 'json/County/'
         lastFile=0
-        # dir_list = os.listdir(path)
-        # for x in dir_list:
-        #     num=x.rsplit('.', 1)[0]
-        #     num=int(num)
-        #     if lastFile<num:
-        #         lastFile=num
-        # lastFile=str(lastFile)
-        # print(lastFile)
+
         path=Path(path+'County'+'.json')
         print(path)
         
@@ -139,7 +120,7 @@ def getDataFile(state,county,code):
                        
         return result
     
-    elif code==8 :
+def get_allcountyrank():
         
         dic_name='integrated_county_latest_external_data'  
         path = 'json/County/'
@@ -186,19 +167,12 @@ def getDataFile(state,county,code):
             print(resultList)
             return resultList
                     
-    elif code==15 :
+def county_vac(state,county) :
         
         
         dic_name='vaccination_county_condensed_data'
         path ='json/County_Vac/'
-        # lastFile=0
-        # dir_list = os.listdir(path)
-        # for x in dir_list:
-        #     num=x.rsplit('.', 1)[0]
-        #     num=int(num)
-        #     if lastFile<num:
-        #      lastFile=num
-        # lastFile=str(lastFile)
+
         path=Path(path+'County_Vac'+'.json')
         
         if(path.is_file()):
@@ -217,7 +191,7 @@ def getDataFile(state,county,code):
                 elif i["County"].lower()==(county.lower()+' parish') and i["StateAbbr"]==state:
                         return i
                     
-    elif code==0:
+def us():
             
             dic_name='statusbar'
             path ='json/US/'
@@ -238,17 +212,8 @@ def getDataFile(state,county,code):
                 dic=json_object[dic_name][0]
             return dic
                     
-            # else:         
-            #     page = requests.get(url, headers=headers)
-        
-            #     text = json.loads(page.text)
-            #     json_string =json.dumps(text)
-            #     with open(path, 'w') as outfile:
-            #         json.dump(json_string, outfile)
-                    
-            #     dic=text[dic_name][0]
-            #     return dic
-    elif code==9:
+
+def get_countyrank(state):
         dic_name='integrated_county_latest_external_data'  
         path = 'json/County/'
         lastFile=0
@@ -294,35 +259,7 @@ def getDataFile(state,county,code):
             print(resultList)
             return resultList
             
-    if code==20:
+def unknow():
         result={'result':'Can\'t recognize the question'} 
         return result         
             
-    # else:
-        
-    #     stateNum=state_codes[state]
-    #     url=+stateNum
-    #     dic_name='integrated_county_latest_by_state_fips_'+stateNum
-    #     path = Path('json/State_Vac/State_Vac'+date+'.json')
-        
-    #     if(path.is_file()):
-    #         data=json.load(path)
-    #         dic=data[dic_name]
-            
-    #         return dic
-        
-    #     else:
-            
-    #         page = requests.get(url, headers=headers)
-    
-    #         data = json.loads(page.text)
-    #         json_string =json.dumps(data)
-            
-    #         with open('json/State_Vac/State_Vac'+date+'.json', 'w') as outfile:
-    #             json.dump(json_string, outfile)
-    #         # print(data)
-            
-    #         dic=data[dic_name]
-    #         # result=dict(filter(lambda x:x["County"]==county and x['StateAbbr']==state,dic))
-    #         return dic 
-           

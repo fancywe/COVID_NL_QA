@@ -1,8 +1,21 @@
 Question,Type
-US,0
-us,0
-USA,0
-United State's overview,0
+Ask for whole US info,0
+Ask for State info,1
+Ask for State case info,2
+Ask for State death info,3
+Ask for State test info,4
+Ask for State hospital info,5
+Ask for State vaccine info,6
+Ask for US State rank,7
+Ask for county rank in a state,8
+Ask for US all county rank,9
+Ask for a county info,10
+Ask for a county case info,11
+Ask for a county death info,12
+Ask for a county test info,13
+Ask for a county hospital info,14
+Ask for a county vac info,15
+Inrelevent,20
 What's the overall COVID status in US,0
 NY state,1
 IL state,1
@@ -77,7 +90,8 @@ overall data of Orange Indiana,10
 how many people have full dose vaccined in Scott Indiana ,15
 US,0
 the rank of all state county,7
-the table of all US states,7
+US all state status county,7
+the table of all US states county,7
 show me the infomation of all States county,7
 State Rank,7
 State Rank in US,7
@@ -102,5 +116,5 @@ sort all the county by case,9
 What are death in WI death state,3
 What are the new case in wisconsin case state,3
 rank the county in WI,8
+rank the state in US,7
 vaccine in La crosse WI vac,15
-US,0
