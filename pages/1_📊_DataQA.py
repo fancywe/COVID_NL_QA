@@ -160,7 +160,7 @@ headers = {
 # response = requests.get('http://35.225.219.221:1145/question/US', headers=headers)
 # result = response.json()
 # container=st.empty()
-# col1, col2,col3,col4= container.columns(4) 
+# col1, col2,col3= container.columns(3) 
 # col1.metric('US Total Cases',result['result']['US Total Cases'])  
 # col2.metric('US Total Deaths',result['result']['US Total Deaths'])
 # col3.metric('Admissions',result['result']['Admissions'])
