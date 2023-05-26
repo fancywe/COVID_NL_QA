@@ -16,7 +16,7 @@ from sklearn.tree import DecisionTreeClassifier
 
 
 warnings.simplefilter("ignore")
-data = pd.read_csv('Training set.csv')
+data = pd.read_csv('new_training set.csv')
 data = data.sample(frac=1).reset_index(drop=True)
 # print(data)
 
