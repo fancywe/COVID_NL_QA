@@ -1,0 +1,383 @@
+Question,Type
+Ask for whole US info,0
+Ask for State info,1
+Ask for State case info,2
+Ask for State death info,3
+Ask for State test info,4
+Ask for State hospital info,5
+Ask for State vaccine info,6
+Ask for US State rank,7
+Ask for county rank in a state,8
+Ask for US all county rank,9
+Ask for a county info,10
+Ask for a county case info,11
+Ask for a county death info,12
+Ask for a county test info,13
+Ask for a county hospital info,14
+Ask for a county vac info,15
+Inrelevent,20
+What's the overall COVID status in US,0
+NY state,1
+IL state,1
+How's the Covid going in American this week,0
+How many new case in United States today,0
+Show me the COVID trend in American,0
+How's everything goes in Wisconsin state this week,1
+Wisconsin state,1
+The overall data of Illinois state,1
+What's the Covid data overview in California state,1
+The Covid status in Miami state,1
+MN state,1
+How many new case in Ohio this week,2
+Show me the case trend in New York state this week,2
+The case graph in South Dekota state these days,2
+The case trend in Minnesota state,2
+NY new case state,2
+WI new cases state,2
+How many death in Alaska this week state,3
+How many people died in LA these days state,3
+New deaths in New Hampshire state,3
+The number of new covid deaths in the South Dakota States this month state,3
+"in Carolina state,how many people died this week state?",3
+How many new death in MN this week state,3
+What's the postive rate in Missouri state,4
+What's the test situation in Florida this week state,4
+Nucleic acid detection of Iowa state,4
+How many people are negative in the nucleic acid test of Arizona state in the United States,4
+The proportion of children participating in nucleic acid testing in MT is in the whole state.,4
+COVID Inpatient Beds Used in South Carolina,5
+What's the hospital usage in NJ state,5
+Are there many people in hospitals in Kansas state about COVID-19's case?,5
+Are all the severe cases in COVID in  New Hampshire state hospitals old people?,5
+How many doctors are there in Colorado state Hospital?,5
+How's the Vaccine situation in NY state now,6
+Show me the vaccination in US Pennsylvania state,6
+Do we need to count the vaccination situation in Kansas state?,6
+How does the vaccination rate in Louisiana state compare with other states?,6
+the rate for have at least one dose vaccined in Georgia state,6
+how many people inject booster in New Mexico state,6
+What is the vaccination rate in Maryland state?,6
+La Crosse county WI,10
+Covid Level in Union of Iowa county,10
+Tell me something about the Covid in Madison county Wisconsin,10
+The overall data of Chicago city Illinois,10
+Covid going in La Crosse county WI,10
+What are the new case in La Crosse WI,11
+How many new case in Adams county of Colorado,11
+How many new cases in Irion county of Texas this week,11
+Show me the case trend in AL Bethel county this week,11
+What's new case in St.Paul county MN,11
+New case in New York county NY state,11
+New case in Tomas county Wisconsin state,11
+New case in Chicago county IL state,11
+Death status in Washington Vermont county,12
+how many death cause of Coivd in WI Clark county,12
+I want to know the Test info of Valley county Idaho,13
+How many postive we have in St. Charles Louisiana,13
+Postive rate in Clay county Arkansas,13
+Hospitality in Clay county North Carolina hosp,14
+Hospital usage in La Crosse county Wisconsin hosp,14
+ICU occupation in Davis county Utah hosp,14
+The number of COVID-19 patients in County Nowata Oklahoma hosp,14
+The number of COVID-19 patients in Bolivar county of Mississippi state hosp.,14
+vaccination in La Crosse WI vac,15
+How many people recived boost dose in Lee Kentucky vac,15
+what's the vaccination rate in Lincoln county Louisiana vac,15
+hey what's the weather today,20
+do we have taco for lunch?,20
+hey you little shit,20
+overall data of Orange county Indiana,10
+how many people have full dose vaccined in Scott county Indiana,15
+US,0
+WI state,1
+the rank of all state,7
+US all state status,7
+the table of all US states,7
+show me the infomation of all States,7
+State Rank,7
+State Rank in US,7
+County rank in WI state,8
+Sort all the county in Wisconsin state,8
+Sort the counties in New York state,8
+County rank in WI state level,8
+Allegany counties in New York state,10
+New case in WI state,2
+New case in NY state,2
+New case in IL state,2
+new death in la crosse WI county state,12
+counties rank in WI state,8
+counties rank in IL state,8
+What are the new death in La Crosse county WI state,12
+death Madison county WI,12
+Rank table in NY state,8
+rank all county,9
+rank all the county,9
+sort all the counties from high to low,9
+sort all the counties by case,9
+What are death in WI death state,3
+What are the new case in wisconsin case state,3
+rank the county in WI,8
+rank the state in US,7
+vaccine in La crosse county WI vac,15
+How many new cases in Georgia state today?,2
+Tell me about the case trend in New Jersey state,2
+What is the death toll in Massachusetts state this week?,3
+Are there any testing facilities in North Carolina state?,4
+How many people are hospitalized in Tennessee state?,5
+What is the vaccination progress in Alabama state?,6
+Tell me about the COVID situation in Kansas state,1
+How many new cases in Colorado state this week?,2
+What is the positive rate in Maryland state?,4
+How many tests were conducted in Nevada state?,4
+Tell me about the hospital occupancy in Virginia state,5
+What is the vaccination rate in Washington state?,6
+How many new cases in Maine state today?,2
+Tell me about the case trend in Wisconsin state,2
+What is the death toll in Florida state this week?,3
+Are there any testing facilities in Arizona state?,4
+How many people are hospitalized in Ohio state?,5
+What is the vaccination progress in Texas state?,6
+Tell me about the COVID situation in Illinois state,1
+How many new cases in Michigan state this week?,2
+What is the positive rate in Pennsylvania state?,4
+How many tests were conducted in New York state?,4
+Tell me about the hospital occupancy in California state,5
+What is the vaccination rate in New Jersey state?,6
+How many new cases in North Carolina state today?,2
+Tell me about the case trend in Georgia state,2
+What is the death toll in Tennessee state this week?,3
+Are there any testing facilities in Massachusetts state?,4
+How many people are hospitalized in Illinois state?,5
+What is the vaccination progress in Florida state?,6
+Tell me about the COVID situation in Virginia state,1
+How many new cases in Pennsylvania state this week?,2
+What is the positive rate in Texas state?,4
+How many tests were conducted in California state?,4
+Tell me about the hospital occupancy in New York state,5
+What is the vaccination rate in Illinois state?,6
+How many new cases in Ohio state today?,2
+Tell me about the case trend in Michigan state,2
+What is the death toll in Arizona state this week?,3
+Are there any testing facilities in Wisconsin state?,4
+How many people are hospitalized in Washington state?,5
+What is the vaccination progress in Ohio state?,6
+Tell me about the COVID situation in New Jersey state,1
+How many new cases in Illinois state this week?,2
+What is the positive rate in Florida state?,4
+How many tests were conducted in Texas state?,4
+Tell me about the hospital occupancy in Pennsylvania state,5
+What is the vaccination rate in New York state?,6
+How many new cases in California state today?,2
+Tell me about the case trend in North Carolina state,2
+What is the death toll in Virginia state this week?,3
+Are there any testing facilities in Georgia state?,4
+How many people are hospitalized in Massachusetts state?,5
+What is the vaccination progress in Arizona state?,6
+Tell me about the COVID situation in Wisconsin state,1
+How many new cases in New York state this week?,2
+What is the positive rate in Illinois state?,4
+How many tests were conducted in Michigan state?,4
+Tell me about the hospital occupancy in Florida state,5
+What is the vaccination rate in Texas state?,6
+How many new cases in Pennsylvania state today?,2
+Tell me about the case trend in California state,2
+What is the death toll in New Jersey state this week?,3
+Are there any testing facilities in Ohio state?,4
+How many people are hospitalized in Illinois state?,5
+What is the vaccination progress in New York state?,6
+Tell me about the COVID situation in Michigan state,1
+How many new cases in Texas state this week?,2
+What is the positive rate in Florida state?,4
+How many tests were conducted in Pennsylvania state?,4
+Tell me about the hospital occupancy in California state,5
+What is the vaccination rate in New Jersey state?,6
+How many new cases in Illinois state today?,2
+Tell me about the case trend in Ohio state,2
+What is the death toll in New York state this week?,3
+Are there any testing facilities in California state?,4
+How many people are hospitalized in Florida state?,5
+What is the vaccination progress in Texas state?,6
+Tell me about the COVID situation in Pennsylvania state,1
+How many new cases in New Jersey state this week?,2
+What is the positive rate in Illinois state?,4
+How many tests were conducted in Michigan state?,4
+Tell me about the hospital occupancy in New York state,5
+What is the vaccination rate in Florida state?,6
+How many new cases in California state today?,2
+Tell me about the case trend in Texas state,2
+What is the death toll in Pennsylvania state this week?,3
+Are there any testing facilities in Illinois state?,4
+How many people are hospitalized in New York state?,5
+What is the vaccination progress in California state?,6
+Tell me about the COVID situation in Florida state,1
+How many new cases in Pennsylvania state this week?,2
+What is the positive rate in Texas state?,4
+How many tests were conducted in New Jersey state?,4
+Tell me about the hospital occupancy in Illinois state,5
+What is the vaccination rate in New York state?,6
+How many new cases in California state today?,2
+Tell me about the case trend in Florida state,2
+What is the death toll in Texas state this week?,3
+Are there any testing facilities in Pennsylvania state?,4
+How many people are hospitalized in California state?,5
+What is the vaccination progress in New Jersey state?,6
+What is the COVID status in Wisconsin state?,1
+Tell me about the cases in Ohio state.,2
+How many deaths have occurred in New York state?,3
+What is the testing situation in Florida state?,4
+Are there any hospitals overwhelmed in California state?,5
+What is the vaccination progress in Texas state?,6
+Can you provide an update on the COVID situation in Pennsylvania state?,1
+How many new cases were reported in Illinois state today?,2
+What is the death toll in Michigan state?,3
+Are there any testing centers available in New Jersey state?,4
+How many people are currently hospitalized in Florida state?,5
+What is the vaccination rate in California state?,6
+Tell me about the COVID restrictions in New York state.,1
+How many new cases were reported in Texas state this week?,2
+What is the positivity rate in Pennsylvania state?,4
+Are there any testing facilities in Ohio state?,4
+How many people are currently hospitalized in Illinois state?,5
+What is the vaccination progress in Michigan state?,6
+Can you provide an update on the COVID situation in Florida state?,1
+How many new cases were reported in California state today?,2
+What is the death toll in New Jersey state?,3
+Are there any testing centers available in Texas state?,4
+How many people are currently hospitalized in Pennsylvania state?,5
+What is the vaccination rate in Ohio state?,6
+Tell me about the COVID status in Illinois state.,1
+How many new cases were reported in New York state this week?,2
+What is the positivity rate in Michigan state?,4
+Are there any testing facilities in Florida state?,4
+How many people are currently hospitalized in California state?,5
+What is the vaccination progress in New Jersey state?,6
+Can you provide an update on the COVID situation in Texas state?,1
+How many new cases were reported in Pennsylvania state today?,2
+What is the death toll in Ohio state?,3
+Are there any testing centers available in Illinois state?,4
+How many people are currently hospitalized in New York state?,5
+What is the vaccination rate in Florida state?,6
+Tell me about the COVID restrictions in California state.,1
+How many new cases were reported in Michigan state this week?,2
+What is the positivity rate in New Jersey state?,4
+Are there any testing facilities in Texas state?,4
+How many people are currently hospitalized in Ohio state?,5
+What is the vaccination progress in Pennsylvania state?,6
+Can you provide an update on the COVID situation in Illinois state?,1
+How many new cases were reported in Florida state today?,2
+What is the death toll in California state?,3
+Are there any testing centers available in New York state?,4
+How many people are currently hospitalized in Michigan state?,5
+What is the vaccination rate in Texas state?,6
+Tell me about the COVID status in Pennsylvania state.,1
+How many new cases were reported in Ohio state this week?,2
+What is the positivity rate in New York state?,4
+Are there any testing facilities in Illinois state?,4
+How many people are currently hospitalized in Florida state?,5
+What is the vaccination progress in California state?,6
+Can you provide an update on the COVID situation in New Jersey state?,1
+How many new cases were reported in Texas state today?,2
+What is the death toll in Pennsylvania state?,3
+Are there any testing centers available in Michigan state?,4
+How many people are currently hospitalized in Ohio state?,5
+What is the vaccination rate in Illinois state?,6
+Tell me about the COVID status in Florida state.,1
+How many new cases were reported in California state this week?,2
+What is the positivity rate in Michigan state?,4
+Are there any testing facilities in New Jersey state?,4
+How many people are currently hospitalized in Texas state?,5
+What is the vaccination progress in Pennsylvania state?,6
+Can you provide an update on the COVID situation in Ohio state?,1
+How many new cases were reported in New York state today?,2
+What is the death toll in Illinois state?,3
+Are there any testing centers available in Florida state?,4
+How many people are currently hospitalized in California state?,5
+What is the vaccination rate in Michigan state?,6
+Tell me about the COVID restrictions in Texas state.,1
+How many new cases were reported in Pennsylvania state this week?,2
+What is the positivity rate in Ohio state?,4
+Are there any testing facilities in New York state?,4
+How many people are currently hospitalized in Illinois state?,5
+What is the vaccination progress in Florida state?,6
+What's the COVID situation in Texas state?,1
+Tell me about the COVID data in Arizona state,1
+How many new deaths in California state this week?,3
+What is the positive rate in New York state?,4
+How many hospital beds are occupied in Illinois state?,5
+Show me the vaccination progress in Michigan state,6
+What is the vaccination rate in Ohio state?,6
+How many COVID cases in Cook county Illinois?,11
+Tell me about the death toll in Maricopa county Arizona,12
+What is the testing situation in Harris county Texas?,13
+How many people are hospitalized in Miami-Dade county Florida?,14
+What is the vaccination rate in King county Washington?,15
+What is the COVID status in New Jersey state?,1
+Tell me about the COVID data in Georgia state,1
+What is the death toll in Illinois state?,3
+How many hospital beds are occupied in Texas state?,5
+Show me the vaccination progress in California state,6
+What is the vaccination rate in Florida state?,6
+How many COVID cases in King county Washington?,11
+Tell me about the death toll in Maricopa county Arizona,12
+What is the testing situation in Harris county Texas?,13
+How many people are hospitalized in Miami-Dade county Florida?,14
+What is the vaccination rate in Cook county Illinois?,15
+What's the COVID situation in Michigan state?,1
+Tell me about the COVID data in Virginia state,1
+How many new deaths in New York state this week?,3
+What is the positive rate in Texas state?,4
+How many hospital beds are occupied in California state?,5
+Show me the vaccination progress in Illinois state,6
+What is the vaccination rate in Pennsylvania state?,6
+How many COVID cases in Maricopa county Arizona?,11
+Tell me about the death toll in Los Angeles county California,12
+What is the testing situation in Miami-Dade county Florida?,13
+How many people are hospitalized in Cook county Illinois?,14
+What is the vaccination rate in King county Washington?,15
+What's the COVID status in North Carolina state?,1
+Tell me about the COVID data in Tennessee state,1
+What is the death toll in Florida state?,3
+How many hospital beds are occupied in New York state?,5
+Show me the vaccination progress in Texas state,6
+What is the vaccination rate in Arizona state?,6
+How many COVID cases in Cook county Illinois?,11
+Tell me about the death toll in Harris county Texas,12
+What is the testing situation in Orange county California?,13
+How many people are hospitalized in Clark county Nevada?,14
+What is the vaccination rate in Maricopa county Arizona?,15
+What's the COVID situation in Pennsylvania state?,1
+Tell me about the COVID data in Ohio state,1
+How many new deaths in California state this week?,3
+What is the positive rate in Illinois state?,4
+How many hospital beds are occupied in Florida state?,5
+Show me the vaccination progress in New York state,6
+What is the vaccination rate in Texas state?,6
+How many COVID cases in Los Angeles county California?,11
+Tell me about the death toll in Clark county Nevada,12
+What is the testing situation in Maricopa county Arizona?,13
+How many people are hospitalized in King county Washington?,14
+What is the vaccination rate in Cook county Illinois?,15
+What's the COVID status in Arizona state?,1
+Tell me about the COVID data in North Carolina state,1
+How many new deaths in Texas state this week?,3
+What is the positive rate in Florida state?,4
+How many hospital beds are occupied in California state?,5
+Show me the vaccination progress in Illinois state,6
+What is the vaccination rate in Pennsylvania state?,6
+How many COVID cases in Cook county Illinois?,11
+Tell me about the death toll in Harris county Texas,12
+What is the testing situation in Orange county California?,13
+How many people are hospitalized in Clark county Nevada?,14
+What is the vaccination rate in Maricopa county Arizona?,15
+What's the COVID situation in Pennsylvania state?,1
+Tell me about the COVID data in Ohio state,1
+How many new deaths in California state this week?,3
+What is the positive rate in Illinois state?,4
+How many hospital beds are occupied in Florida state?,5
+Show me the vaccination progress in New York state,6
+What is the vaccination rate in Texas state?,6
+How many COVID cases in Los Angeles county California?,11
+Tell me about the death toll in Clark county Nevada,12
+What is the testing situation in Maricopa county Arizona?,13
+How many people are hospitalized in King county Washington?,14
+What is the vaccination rate in Cook county Illinois?,15

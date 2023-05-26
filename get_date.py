@@ -30,8 +30,9 @@ def getDataFile(state,county,code):
     elif code==7:get_staterank()
     elif code==8:get_countyrank(state)
     elif code==9:get_allcountyrank()
-    elif 9<code<15:get_countyinfo(state,county)
-    elif code==15 and state!='' and county!='':get_countyinfo(state,county)
+    elif 9<code<15 and state!='' and county!='':get_countyinfo(state,county)
+    elif 9<code<15 and state!='' and county=='':get_stateinfo(state)
+    elif code==15 and state!='' and county!='':county_vac(state,county)
     else: unknow()
     print(state,county,code)    
     
