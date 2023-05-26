@@ -67,7 +67,7 @@ def read_Q(Q):
         else:
             result='This is not a valid zip code' 
     else:       
-        Q=''
+        
         for stateName in stateCode:
                 if stateName in Q:
                         state=stateName
@@ -76,7 +76,7 @@ def read_Q(Q):
                 if state=='':      
                         if(stateName in Q.lower()):
                                 state=state_code.us_state_to_abbrev[stateName.capitalize()] 
-                                
+        Q=''                        
         for token in doc:
                 Q=Q+spell.correction(token.text)+' '
                 print(Q)
