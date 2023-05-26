@@ -44,7 +44,7 @@ app = FastAPI()
 
 def read_Q(Q):
         
-#     Q=corrector.FixFragment(Q) #spell check
+#   Q=corrector.FixFragment(Q) #spell check
     doc = nlp(Q)
     gpe = []
     geo=0
@@ -68,6 +68,15 @@ def read_Q(Q):
             result='This is not a valid zip code' 
     else:       
         Q=''
+        for stateName in stateCode:
+                if stateName in Q:
+                        state=stateName
+                        
+        for stateName in stateFullName:
+                if state=='':      
+                        if(stateName in Q.lower()):
+                                state=state_code.us_state_to_abbrev[stateName.capitalize()] 
+                                
         for token in doc:
                 Q=Q+spell.correction(token.text)+' '
                 print(Q)
@@ -76,13 +85,6 @@ def read_Q(Q):
                 print(doc.ents)
                 if (ent.label_ == 'GPE'):
                         gpe.append(ent.text)
-                        
-                           
-                
-        for stateName in stateCode:
-                if stateName in Q:
-                        state=stateName
-
         for name in countyName:    
                 x=Q.lower()   
                 if(name in x) and (len(name)>len(county)):
@@ -91,7 +93,13 @@ def read_Q(Q):
         for stateName in stateFullName:
                 if state=='':      
                         if(stateName in Q.lower()):
-                                state=state_code.us_state_to_abbrev[stateName.capitalize()] 
+                                state=state_code.us_state_to_abbrev[stateName.capitalize()]                             
+                
+        for stateName in stateCode:
+                if stateName in Q:
+                        state=stateName
+
+        
 
                         
         for word in weekCase:
