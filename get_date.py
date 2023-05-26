@@ -24,6 +24,7 @@ def getDataFile(state,county,code):
     data={}
     # date=datetime.today().strftime('%Y-%m-%d')   
     dic_name=''
+    print('state:',state,'county:',county)
     if code==0: us()
     elif 0<code<7 and state!='' and county=='': get_stateinfo(state)
     elif 0<code<7 and state!='' and county!='':get_countyinfo(state,county)
