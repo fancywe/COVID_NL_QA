@@ -149,6 +149,7 @@ def read_Q(Q):
                 
                                                           
                 result=getDataDetail(getDataFile(state,county,code),code)
+                print(result)
                 if 'History' in result:
                         history=result.pop("History", None)  
                         print(result)    
