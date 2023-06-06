@@ -214,9 +214,9 @@ def us():
                 f=open(path)
                 data=json.load(f)
                 json_object = json.loads(data)
-                print('there is')
+                
                 dic=json_object[dic_name][0]
-            
+                print(dic)
             return dic
                     
 
