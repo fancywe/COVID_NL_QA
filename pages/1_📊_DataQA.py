@@ -257,14 +257,12 @@ if button:
                 col1, col2 = st.columns(2)
                 if isinstance(result['result'], dict): 
                     i=1    
-                    
                     for k,v in result['result'].items():  
-                        if k=='History':
-                            break
-                        else:
-                            if i%2==1:
+                        
+                        
+                        if i%2==1:
                                 col1.metric(k,v)
-                            else: col2.metric(k,v)       
+                        else: col2.metric(k,v)       
                         i=i+1
                     
     else:
@@ -275,12 +273,11 @@ if button:
                 if isinstance(result['result'], dict): 
                     i=1    
                     for k,v in result['result'].items():  
-                        if k=='History':
-                            break
-                        else:
-                            if i%2==1:
+                        
+                        
+                        if i%2==1:
                                 col1.metric(k,v)
-                            else: col2.metric(k,v)       
+                        else: col2.metric(k,v)       
                         i=i+1
                     
                         

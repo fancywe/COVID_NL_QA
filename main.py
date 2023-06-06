@@ -140,10 +140,14 @@ def read_Q(Q):
         result='Please input State name'     
                
     elif code==0:
+                #Pass the preprocessed question text to the ML model
                 code=Handle(Q).item()
+                #Print the predict result
                 print(code)
-                print(type(code))
-                print(gpe)                                           
+                #Print the place name in the question (for test)
+                print(gpe) 
+                
+                                                          
                 result=getDataDetail(getDataFile(state,county,code),code)
                 if 'History' in result:
                         history=result.pop("History", None)  
@@ -152,7 +156,7 @@ def read_Q(Q):
         result='No query result found'        
     
                 
-    return {"State name": state,'County name':county,'Code':code,'result':result,'Q':Q.casefold(),'History':history,'Gpe':gpe}
+    return {"State name": state,'County name':county,'code':code,'result':result,'Q':Q.casefold(),'History':history,'Gpe':gpe}
       
     
    
@@ -239,7 +243,7 @@ def getDataDetail(dic,code):
                         'COVID Inpatient Beds Used changed':dic['percent_adult_inpatient_beds_used_confirmed_covid_week_over_week_absolute_change'],
                         'ICU Beds Used by Covid':dic['percent_adult_icu_beds_used_confirmed_covid'],
                         'ICU Beds Used by Covid changed':dic['percent_adult_icu_beds_used_confirmed_covid_week_over_week_absolute_change'],
-                        'History':dic['History']
+                        # 'History':dic['History']
                         # ,'Completed Primary Series Population':dic['Series_Complete_Yes'],
                         # 'Completed Primary Series Population':dic['Series_Complete_Pop_Pct'],
                         # 'Completed Primary Series Rate':dic['Completeness_pct'],
@@ -258,7 +262,7 @@ def getDataDetail(dic,code):
                 result={'State':dic['State_name'],'County':dic['County'],'Level':dic['CCL_community_burden_level'].capitalize(),'New Case Past 7 days':dic['Cases_7_day_count_change'],
                         'New Case Rate Past 7 days (100K)':dic['cases_per_100K_7_day_count_change'],
                         'New Case Rate changed':dic['new_cases_week_over_week_percent_change'],
-                        'Start Date':dic['positivity_start_date'],'End Date':dic['positivity_end_date'],'History':dic['History']}
+                        'Start Date':dic['positivity_start_date'],'End Date':dic['positivity_end_date']}
                 return result
             
             
@@ -272,7 +276,9 @@ def getDataDetail(dic,code):
                 result={'State':dic['State_name'],'County':dic['County'],'Level':dic['CCL_community_burden_level'].capitalize(),'New Death Past 7 days':dic['deaths_7_day_count_change'],
                         '7 days Death rate in 100K':dic['deaths_per_100K_7_day_count_change'],
                         '7 days Death change from last week':dic['new_deaths_week_over_week_percent_change'],
-                        'Start date':dic['case_death_start_date'],'End Date':dic['case_death_end_date'],'History':dic['History']}
+                        'Start date':dic['case_death_start_date'],'End Date':dic['case_death_end_date']
+                        #,'History':dic['History']
+                        }
                 return result
                 
     elif code==4:
@@ -289,7 +295,7 @@ def getDataDetail(dic,code):
                             ,'Total Postive changed':dic['percent_test_results_reported_positive_last_7_days_7_day_count_change'],
                             'Postive Population rate in 100K':dic['total_test_results_reported_7_day_count_change_per_100K'],
                             'Postive Population rate in 100K changed':dic['total_new_test_results_reported_week_over_week_percent_change'],
-                            'Start date':dic['testing_start_date'],'End date':dic['testing_end_date'],'History':dic['History']}
+                            'Start date':dic['testing_start_date'],'End date':dic['testing_end_date']}
                     
                     return result
                     
@@ -305,7 +311,7 @@ def getDataDetail(dic,code):
                         'COVID Inpatient Beds Used':dic['percent_adult_inpatient_beds_used_confirmed_covid'],
                         'COVID Inpatient Beds Used changed':dic['percent_adult_inpatient_beds_used_confirmed_covid_week_over_week_absolute_change'],
                         'ICU Beds Used by Covid':dic['percent_adult_icu_beds_used_confirmed_covid'],
-                        'ICU Beds Used by Covid changed':dic['percent_adult_icu_beds_used_confirmed_covid_week_over_week_absolute_change'],'History':dic['History']
+                        'ICU Beds Used by Covid changed':dic['percent_adult_icu_beds_used_confirmed_covid_week_over_week_absolute_change']
                         
                         }
                 return result
