@@ -25,7 +25,10 @@ def getDataFile(state,county,code):
     # date=datetime.today().strftime('%Y-%m-%d')   
     dic_name=''
     print('state:',state,'county:',county)
-    if code==0: us()
+    if code==0: 
+        print('here')
+        us()
+        
     elif 0<code<7 and state!='' and county=='': return get_stateinfo(state)
 #     elif 0<code<7 and state!='' and county!='':get_countyinfo(state,county)
     elif code==7: return get_staterank()
@@ -206,12 +209,14 @@ def us():
             #         lastFile=num
             # lastFile=str(lastFile)
             path=Path(path+'US'+'.json')
-            
+            print(path)
             if(path.is_file()):
                 f=open(path)
                 data=json.load(f)
                 json_object = json.loads(data)
+                print('there is')
                 dic=json_object[dic_name][0]
+            
             return dic
                     
 
