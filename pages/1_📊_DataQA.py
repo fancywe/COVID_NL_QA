@@ -256,99 +256,32 @@ if button:
            
                 col1, col2 = st.columns(2)
                 if isinstance(result['result'], dict): 
-                    # result['result']
-                    key=''
-                    value=0
-                    last=0
-                    i=0  
+                    i=1    
                     
                     for k,v in result['result'].items():  
                         if k=='History':
                             break
-                        if 'changed' in k:
-                            last=v
                         else:
-                            if k=='State':
+                            if i%2==1:
                                 col1.metric(k,v)
-                                
-                            elif last!=0:
-                                if i%2==1:
-                                    col1.metric(key,value,last) 
-                                    key=k
-                                    value=v 
-                                    last=0
-                                else:
-                                    col1.metric(key,value,last) 
-                                    key=k
-                                    value=v 
-                                    last=0
-                            elif key!='':
-                                if i%2==1:
-                                    col1.metric(key,value)
-                                    key=k
-                                    value=v
-                                else:
-                                    col2.metric(key,value)
-                                    key=k
-                                    value=v
-                            else:
-                                    key=k
-                                    value=v
+                            else: col2.metric(k,v)       
                         i=i+1
-                    if i%2==1:       
-                        col1.metric(key,value) 
-                    else:
-                        col2.metric(key,value) 
+                    
     else:
             tab1, tab2,tab3= st.tabs(["Current Data", "History Chart",'About'])
             
             with tab1:
                 col1, col2 = st.columns(2)
                 if isinstance(result['result'], dict): 
-                    # result['result']
-                    key=''
-                    value=0
-                    last=0
-                    i=0  
-                    start=''
-                    end=''
+                    i=1    
                     for k,v in result['result'].items():  
-                        i=i+1
-                        if 'changed' in k:
-                            last=v
+                        if k=='History':
+                            break
                         else:
-                            if k=='State':
+                            if i%2==1:
                                 col1.metric(k,v)
-                                
-                                
-                            elif last!=0:
-                                if i%2==1:
-                                    col1.metric(key,value,last) 
-                                    key=k
-                                    value=v 
-                                    last=0
-                                else:
-                                    col1.metric(key,value,last) 
-                                    key=k
-                                    value=v 
-                                    last=0
-                            elif key!='':
-                                if i%2==1:
-                                    col1.metric(key,value)
-                                    key=k
-                                    value=v
-                                else:
-                                    col2.metric(key,value)
-                                    key=k
-                                    value=v
-                            else:
-                                    key=k
-                                    value=v
-                       
-                    if i%2==1:       
-                        col1.metric(key,value) 
-                    else:
-                        col2.metric(key,value)
+                            else: col2.metric(k,v)       
+                        i=i+1
                     
                         
                 with tab2:
@@ -369,7 +302,7 @@ if button:
                         
                         df = pd.DataFrame({'Case':case,'Date':date,'Death':death,'Test':test,'Admission':admission})
                     
-                        # d 
+                        
                         df.sort_values(by='Date',ascending=True,inplace = True)
                         df=df.reset_index(drop=True)
                         print(type(df.Date[0]))

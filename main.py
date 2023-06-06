@@ -20,45 +20,42 @@ from fastapi import FastAPI
 
 from county_code import countyName
 
-nlp =spacy.load('en_core_web_sm')
 weekCase=state_code.dict_for_regular_data['week case info']
 weekDeath=state_code.dict_for_regular_data['week death info']
 weekTest=state_code.dict_for_regular_data['test info']
 weekHosp=state_code.dict_for_regular_data['Hosp info']
 
-# sys.stdout = open(sys.stdout.fileno(), mode='w', encoding='unicode ', buffering=1)
-# filename="fips-codes-covid-tracker.csv"
-# csvfile=open("fips-codes-covid-tracker.csv")
-# reader= csv.DictReader(csvfile)
 stateCode=list(state_code.state_codes.keys())
 stateFullName=list(map(str.lower,state_code.states.values()))
 countyName=list(map(str.lower,countyName))
 vac=state_code.dict_for_vac
-# corrector = jamspell.TSpellCorrector()
 
-# corrector.LoadLangModel('json/en_model.bin')
-
+#Load trained pipeline for English
+nlp =spacy.load('en_core_web_sm')
+#Instantiate FastAPI
 app = FastAPI()
-
+#Receives HTTP requests in this paths, Q as the user input
 @app.get("/question/{Q}")
 
+#Function to process question
 def read_Q(Q):
         
-#   Q=corrector.FixFragment(Q) #spell check
-    doc = nlp(Q)
-    gpe = []
-    geo=0
+    #Process the question text  
+    doc = nlp(Q) 
+    #Initialize variables
+    gpe = []     
     state=''
     county=''
     code=0
-    key=0
     history=None
-    wordList=[]
+    #Instantiate SpellChecker
     spell = SpellChecker()
-    spell.word_frequency.load_text_file('items.txt')                                        
+    #Load the whitelist (proper noun)
+    spell.word_frequency.load_text_file('Counties name.txt') 
+    #Check if it is a zip code query                                       
     if Q.isdigit():
         if len(Q)==5:
-            if zipcodes.is_real(Q):
+            if zipcodes.is_real(Q): #if zip code is valid, record the state name and the county name
                 county=zipcodes.matching(Q)[0]['city'].lower()
                 state=zipcodes.matching(Q)[0]['state']
                 code=10
@@ -155,7 +152,7 @@ def read_Q(Q):
         result='No query result found'        
     
                 
-    return {"State name": state,'county name':county,'code':code,'result':result,'Q':Q.casefold(),'History':history,'Gpe':gpe}
+    return {"State name": state,'County name':county,'Code':code,'result':result,'Q':Q.casefold(),'History':history,'Gpe':gpe}
       
     
    
