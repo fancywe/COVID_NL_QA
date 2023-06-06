@@ -115,10 +115,10 @@ def get_countyinfo(state,county):
                     
             fips=result['fips_code']
             print(fips)
-            history='https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=integrated_county_timeseries_fips_'+str(fips)+'_external'
-            page = requests.get(history, headers=headers) # get county
-            text = json.loads(page.text)
-            result['History']=text["integrated_county_timeseries_external_data"] 
+            # history='https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=integrated_county_timeseries_fips_'+str(fips)+'_external'
+            # page = requests.get(history, headers=headers) # get county
+            # text = json.loads(page.text)
+            result['History']='' 
                        
         return result
     
