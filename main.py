@@ -134,7 +134,7 @@ def read_Q(Q):
     
     if len(gpe)==0 and state=='' and county=='':
         code=20
-        result='no place detected'
+        result='No place detected'
     if state=='' and county!='':
         code=20
         result='Please input State name'     

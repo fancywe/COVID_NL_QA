@@ -26,8 +26,7 @@ def getDataFile(state,county,code):
     dic_name=''
     print('state:',state,'county:',county)
     if code==0: 
-        print('here')
-        us()
+        return us()
         
     elif 0<code<7 and state!='' and county=='': return get_stateinfo(state)
 #     elif 0<code<7 and state!='' and county!='':get_countyinfo(state,county)
