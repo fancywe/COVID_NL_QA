@@ -92,38 +92,38 @@ def read_Q(Q):
                         if(stateName in Q.lower()):
                                 state=state_code.us_state_to_abbrev[stateName.capitalize()]                             
                 
-        for stateName in stateCode:
-                if stateName in Q:
-                        state=stateName
+        # for stateName in stateCode:
+        #         if stateName in Q:
+        #                 state=stateName
 
         
 
                         
-        for word in weekCase:
-                if word in Q.lower():
-                        Q+=' case'
-                        key=1
-                        break
-        for word in weekDeath :
-                if word in Q.lower(): 
-                        Q+=' death'
-                        key=1
-                        break
-        for word in weekTest :
-                if word in Q.lower() : 
-                        Q+=' test'
-                        key=1
-                        break
-        for word in vac :
-                if word in Q.lower(): 
-                        Q+=' vac'
-                        key=1
-                        break
-        for word in weekHosp :
-                if word in Q.lower() : 
-                        Q+='hosp'
-                        key=1
-                        break        
+        # for word in weekCase:
+        #         if word in Q.lower():
+        #                 Q+=' case'
+        #                 key=1
+        #                 break
+        # for word in weekDeath :
+        #         if word in Q.lower(): 
+        #                 Q+=' death'
+        #                 key=1
+        #                 break
+        # for word in weekTest :
+        #         if word in Q.lower() : 
+        #                 Q+=' test'
+        #                 key=1
+        #                 break
+        # for word in vac :
+        #         if word in Q.lower(): 
+        #                 Q+=' vac'
+        #                 key=1
+        #                 break
+        # for word in weekHosp :
+        #         if word in Q.lower() : 
+        #                 Q+='hosp'
+        #                 key=1
+        #                 break        
         if state!='':
                 Q+=' state'
                 geo=1
@@ -140,8 +140,12 @@ def read_Q(Q):
         result='Please input State name'     
                
     elif code==0:
+                if state=='': x=1
+                else: x=0
+                if county=='': y=1
+                else: y=0
                 #Pass the preprocessed question text to the ML model
-                code=Handle(Q).item()
+                code=Handle(Q,x,y).item()
                 #Print the predict result
                 print(code)
                 #Print the place name in the question (for test)

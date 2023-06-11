@@ -11,10 +11,10 @@ state_codes = {
 }
 US=['US','United States','America']
 dict_for_regular_data = {
-   'week case info':['case info','total case','weekly case rate per 100k','weekly case rate','case'],
-   'week death info':['total death','death rate','death info','death'],
-   'test info':['test info','positivity','testing'],
-   'Hosp info':['hostpital info','hospitalizations','admissions','hospitals','icu','patients','inpatient','beds','Hospital','hospital'],
+   'week case info':['case info','total case','weekly case rate per 100k','weekly case rate','case','cases'],
+   'week death info':['total death','death rate','death info','death','deathes'],
+   'test info':['test info','positivity','testing','postive','test'],
+   'Hosp info':['hostpital info','hospitalizations','admissions','hospitals','icu','patients','inpatient','beds','hospitals','hospital'],
    # 'Comm info':['community characteristics','community info']     
     
 }    

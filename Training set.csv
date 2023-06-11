@@ -41,37 +41,37 @@ How does the vaccination rate in Louisiana state compare with other states?,6
 the rate for have at least one dose vaccined in Georgia state,6
 how many people inject booster in New Mexico state,6
 What is the vaccination rate in Maryland state?,6
-La Crosse county WI,10
-Covid Level in Union of Iowa county,10
-Tell me something about the Covid in Madison county Wisconsin,10
+La Crosse  WI,10
+Covid Level in Union of Iowa  ,10
+Tell me something about the Covid in Madison   Wisconsin,10
 The overall data of Chicago city Illinois,10
-Covid going in La Crosse county WI,10
+Covid going in La Crosse   WI,10
 What are the new case in La Crosse WI,11
-How many new case in Adams county of Colorado,11
-How many new cases in Irion county of Texas this week,11
-Show me the case trend in AL Bethel county this week,11
-What's new case in St.Paul county MN,11
-New case in New York county NY state,11
-New case in Tomas county Wisconsin state,11
-New case in Chicago county IL state,11
-Death status in Washington Vermont county,12
-how many death cause of Coivd in WI Clark county,12
-I want to know the Test info of Valley county Idaho,13
+How many new case in Adams   of Colorado,11
+How many new cases in Irion   of Texas this week,11
+Show me the case trend in AL Bethel   this week,11
+What's new case in St.Paul   MN,11
+New case in New York   NY state,11
+New case in Tomas   Wisconsin state,11
+New case in Chicago   IL state,11
+Death status in Washington Vermont  ,12
+how many death cause of Coivd in WI Clark  ,12
+I want to know the Test info of Valley   Idaho,13
 How many postive we have in St. Charles Louisiana,13
-Postive rate in Clay county Arkansas,13
-Hospitality in Clay county North Carolina hosp,14
-Hospital usage in La Crosse county Wisconsin hosp,14
-ICU occupation in Davis county Utah hosp,14
-"The number of COVID-19 patients in County Nowata, Oklahoma hosp" ,14
-The number of COVID-19 patients in Bolivar county of Mississippi state hosp.,14
+Postive rate in Clay   Arkansas,13
+Hospitality in Clay   North Carolina hosp,14
+Hospital usage in La Crosse   Wisconsin hosp,14
+ICU occupation in Davis   Utah hosp,14
+"The number of COVID-19 patients in   Nowata, Oklahoma hosp" ,14
+The number of COVID-19 patients in Bolivar   of Mississippi state hosp.,14
 vaccination in La Crosse WI vac,15
 How many people recived boost dose in Lee Kentucky vac,15
-what's the vaccination rate in Lincoln county Louisiana vac,15
+what's the vaccination rate in Lincoln   Louisiana vac,15
 hey what's the weather today,20
 do we have taco for lunch?,20
 hey you little shit,20
-overall data of Orange county Indiana,10
-how many people have full dose vaccined in Scott county Indiana ,15
+overall data of Orange   Indiana,10
+how many people have full dose vaccined in Scott   Indiana ,15
 US,0
 WI state,1
 the rank of all state,7
@@ -80,26 +80,474 @@ the table of all US states,7
 show me the infomation of all States,7
 State Rank,7
 State Rank in US,7
-County rank in WI state,8
-Sort all the county in Wisconsin state,8
+  rank in WI state,8
+Sort all the   in Wisconsin state,8
 Sort the counties in New York state,8
-County rank in WI state level,8
+  rank in WI state level,8
 Allegany counties in New York state,10
 New case in WI state,2
 New case in NY state,2
 New case in IL state,2
-new death in la crosse WI county state,12
+new death in la crosse WI   state,12
 counties rank in WI state,8
 counties rank in IL state,8
-What are the new death in La Crosse county WI state,12
-death Madison county WI,12
+What are the new death in La Crosse   WI state,12
+death Madison   WI,12
 Rank table in NY state,8
-rank all county,9
-rank all the county,9
+rank all  ,9
+rank all the  ,9
 sort all the counties from high to low,9
 sort all the counties by case,9
 What are death in WI death state,3
 What are the new case in wisconsin case state,3
-rank the county in WI,8
+rank the   in WI,8
 rank the state in US,7
-vaccine in La crosse county WI vac,15
+vaccine in La crosse   WI vac,15
+
+"Latest on COVID in AL?",1
+"COVID situation in CT?",1
+"How's COVID in HI?",1
+"Update on COVID in IN?",1
+
+"New COVID cases in KY?",2
+"How many new COVID cases in MA?",2
+"Case numbers for COVID in NV?",2
+"Daily new cases of COVID in RI?",2
+
+"COVID death count in UT?",3
+"How many have died from COVID in VT?",3
+"Total COVID deaths in AK?",3
+"Number of COVID fatalities in DE?",3
+
+"COVID testing numbers in FL?",4
+"COVID tests done in GA?",4
+"How's testing for COVID in MD?",4
+"COVID test status in OK?",4
+
+"Total COVID hospitalizations in OR?",5
+"Hospital bed occupancy due to COVID in SC?",5
+"COVID hospitalization updates in VA?",5
+"COVID hospital capacity in WV?",5
+
+"COVID vaccination rate in ID?",6
+"How many people have been vaccinated in LA?",6
+"How's the COVID vaccination going on in MN?",6
+"Vaccine coverage for COVID in NH?",6
+
+"Rank of US states by COVID cases?",7
+"States rank in US by COVID deaths?",7
+"COVID hospitalization rankings for states in US?",7
+"States rank in US by COVID vaccinations?",7
+
+"Rank of counties in CA by COVID cases?",8
+"COVID case rankings for counties in TX?",8
+"Counties rank in FL by COVID deaths?",8
+"COVID hospitalization rankings for counties in NY?",8
+
+"COVID rank among all US counties?",9
+"All US   rankings for COVID?",9
+"Ranking of all US counties by COVID cases?",9
+"Overall   rank in the US for COVID?",9
+
+"COVID situation in Monroe  , NY?",10
+"Update on COVID in Dallas  , TX?",10
+"COVID info for Fairfax  , VA?",10
+"Current COVID data for King  , WA?",10
+
+"New COVID cases in Clark  , NV?",11
+"COVID case count in Pierce  , WA?",11
+"How many new cases in Miami-Dade  , FL?",11
+"Daily new cases of COVID in Harris  , TX?",11
+
+"COVID death count in Cook  , IL?",12
+"How many have died from COVID in Orange  , CA?",12
+"Total COVID deaths in Suffolk  , MA?",12
+"Number of COVID fatalities in Travis  , TX?",12
+
+"COVID testing numbers in Bexar  , TX?",13
+"COVID tests done in Duval  , FL?",13
+"How's testing for COVID in Fulton  , GA?",13
+"COVID test status in Hillsborough  , FL?",13
+
+"Total COVID hospitalizations in Broward  , FL?",14
+"Hospital bed occupancy due to COVID in Palm Beach  , FL?",14
+"COVID hospitalization updates in Cuyahoga  , OH?",14
+"COVID hospital capacity in Allegheny  , PA?",14
+
+"COVID vaccination rate in Montgomery  , MD?",15
+"How many people have been vaccinated in Maricopa  , AZ?",15
+"How's the COVID vaccination going on in Franklin  , OH?",15
+"Vaccine coverage for COVID in San Diego  , CA?",15
+
+"Who won the last Super Bowl?",20
+"Recommend a good book to read?",20
+"How's the weather today in Seattle?",20
+"What's your favorite color?",20
+
+"COVID-19 status in the whole of United States?",0
+"Tell me about COVID in our country?",0
+"What's the overall situation of COVID in America?",0
+"Update me on the COVID situation in US.",0
+
+"COVID-19 situation in Arkansas?",1
+"How's Kansas doing with COVID?",1
+"Update me on COVID in Maine.",1
+"Tell me about the COVID situation in Rhode Island.",1
+
+"New COVID cases in Alaska?",2
+"How many new COVID cases in Maryland?",2
+"COVID case numbers for Mississippi?",2
+"Daily new COVID cases in Nebraska?",2
+
+"COVID death numbers in Tennessee?",3
+"How many people have died from COVID in Vermont?",3
+"Total COVID deaths in Washington?",3
+"Number of COVID fatalities in Wyoming?",3
+
+"COVID testing numbers in Colorado?",4
+"COVID test statistics in Idaho?",4
+"How's testing for COVID in Minnesota?",4
+"COVID test status in North Dakota?",4
+
+"Total COVID hospitalizations in Oregon?",5
+"Hospital bed occupancy due to COVID in Pennsylvania?",5
+"COVID hospitalization updates in South Dakota?",5
+"COVID hospital capacity in Utah?",5
+
+"COVID vaccination rate in Delaware?",6
+"How many people have been vaccinated in Hawaii?",6
+"How's the COVID vaccination going on in Iowa?",6
+"Vaccine coverage for COVID in Kansas?",6
+
+"Rank of US states by COVID cases?",7
+"States rank in the US by COVID deaths?",7
+"COVID hospitalization rankings for states in the US?",7
+"States rank in US by COVID vaccinations?",7
+
+"Rank of counties in California by COVID cases?",8
+"COVID case rankings for counties in Texas?",8
+"Counties rank in Florida by COVID deaths?",8
+"COVID hospitalization rankings for counties in New York?",8
+
+"COVID rank among all US counties?",9
+"All US   rankings for COVID?",9
+"Ranking of all US counties by COVID cases?",9
+"Overall   rank in the US for COVID?",9
+
+"COVID situation in Harris  , Texas?",10
+"Update on COVID in King  , Washington?",10
+"COVID info for Orange  , California?",10
+"Current COVID data for Cook  , Illinois?",10
+
+"New COVID cases in Snohomish  , Washington?",11
+"COVID case count in Nassau  , New York?",11
+"How many new cases in Miami-Dade  , Florida?",11
+"Daily new cases of COVID in DuPage  , Illinois?",11
+
+"COVID death count in Pierce  , Washington?",12
+"How many have died from COVID in Palm Beach  , Florida?",12
+"Total COVID deaths in Norfolk  , Massachusetts?",12
+"Number of COVID fatalities in Dallas  , Texas?",12
+
+"COVID testing numbers in Hennepin  , Minnesota?",13
+"COVID tests done in Maricopa  , Arizona?",13
+"How's testing for COVID in Multnomah  , Oregon?",13
+"COVID test status in Fairfax  , Virginia?",13
+
+"Total COVID hospitalizations in Los Angeles  , California?",14
+"Hospital bed occupancy due to COVID in Cook  , Illinois?",14
+"COVID hospitalization updates in King  , Washington?",14
+"COVID hospital capacity in Miami-Dade  , Florida?",14
+
+"COVID vaccination rate in Middlesex  , Massachusetts?",15
+"How many people have been vaccinated in Suffolk  , New York?",15
+"How's the COVID vaccination going on in Monroe  , New York?",15
+"Vaccine coverage for COVID in Orange  , Florida?",15
+
+"Do you think it will rain today?",20
+"What is the time?",20
+"Do you like pizza?",20
+"What's your favorite movie?",20
+
+"How's the current COVID scenario across America?",0
+"Provide me the current COVID stats in the United States.",0
+"Can you give a brief on the present COVID condition in the US?",0
+"What's the current COVID count in the United States?",0
+
+"Tell me about COVID situation in Alaska.",1
+"What's the status of COVID in Montana?",1
+"Can you update me on COVID in West Virginia?",1
+"How's North Dakota dealing with COVID?",1
+
+"Daily new COVID cases in Louisiana?",2
+"How many new cases in Oklahoma today?",2
+"New cases update in South Carolina?",2
+"What's the COVID case count in Wisconsin?",2
+
+"Number of COVID deaths in Arizona?",3
+"COVID fatalities in Michigan?",3
+"How many COVID related deaths in Nevada?",3
+"COVID death count in Ohio?",3
+
+"How's COVID testing in Georgia?",4
+"COVID test counts in Illinois?",4
+"Update on COVID testing in Kentucky.",4
+"What's the status of COVID testing in North Carolina?",4
+
+"COVID hospitalizations in Massachusetts?",5
+"How many COVID patients in hospitals in New Hampshire?",5
+"COVID patients count in hospitals in New Jersey.",5
+"Hospital bed occupancy due to COVID in Texas?",5
+
+"Vaccination status in Florida?",6
+"How's the vaccination drive going in New York?",6
+"COVID vaccine coverage in Oregon?",6
+"How many people are vaccinated in Washington?",6
+
+"COVID cases rank for states in America?",7
+"Which state has the highest number of COVID deaths in the US?",7
+"States with highest COVID testing in the US?",7
+"COVID vaccination rank among US states?",7
+
+"Rank of counties by COVID cases in Virginia?",8
+"Which   has the highest number of COVID deaths in Arizona?",8
+"Counties with highest COVID testing in Florida?",8
+"COVID vaccination rank among counties in California?",8
+
+"Ranking of all counties in the US by COVID deaths?",9
+"All   ranks in US by COVID testing?",9
+"  rankings in US by COVID hospitalizations?",9
+"Rank of all US counties by COVID vaccinations?",9
+
+"COVID status in Travis  , Texas?",10
+"Update on COVID in Dane  , Wisconsin?",10
+"Current COVID situation in Johnson  , Iowa?",10
+"COVID data for Clark  , Nevada?",10
+
+"New COVID cases in El Paso  , Colorado?",11
+"Daily COVID cases in Davidson  , Tennessee?",11
+"How many new cases in Montgomery  , Maryland?",11
+"Daily COVID case count in Polk  , Iowa?",11
+
+"Number of COVID deaths in Shelby  , Tennessee?",12
+"COVID death count in Fulton  , Georgia?",12
+"How many people have died from COVID in Tarrant  , Texas?",12
+"COVID death count in Wake  , North Carolina?",12
+
+"COVID testing numbers in Guilford  , North Carolina?",13
+"How many COVID tests done in Douglas  , Nebraska?",13
+"COVID testing stats in Lancaster  , Pennsylvania?",13
+"Status of COVID testing in Kent  , Michigan?",13
+
+"Hospitalized COVID patients in Suffolk  , Massachusetts?",14
+"COVID hospitalization updates in Hillsborough  , Florida?",14
+"Number of COVID patients in hospitals in San Diego  , California?",14
+"Hospital bed occupancy due to COVID in Essex  , New Jersey?",14
+
+"How many people have been vaccinated in Bexar  , Texas?",15
+"COVID vaccination rate in Hamilton  , Ohio?",15
+"Vaccination status in Pierce  , Washington?",15
+"How's the vaccination drive going in St. Louis  , Missouri?",15
+
+"Do dogs meow?",20
+"What's the capital of Mars?",20
+"Are we living inside a computer simulation?",20
+"Is it possible to walk on water?",20
+"Give me the latest COVID updates in America.",0
+"What is the current status of COVID in the US?",0
+"How's the US dealing with COVID?",0
+"Latest COVID stats for the US?",0
+
+"COVID situation in Idaho?",1
+"Latest on COVID in Rhode Island?",1
+"Update me on COVID in Nebraska.",1
+"How is Vermont dealing with COVID?",1
+
+"Daily new COVID cases in Indiana?",2
+"How many new cases in Connecticut today?",2
+"Update on new cases in Delaware.",2
+"What's the COVID case count in South Dakota?",2
+
+"Number of COVID deaths in Hawaii?",3
+"COVID fatalities in Maine?",3
+"How many COVID related deaths in Alabama?",3
+"COVID death count in Mississippi?",3
+
+"How's COVID testing in Pennsylvania?",4
+"COVID test counts in Utah?",4
+"Update on COVID testing in Arkansas.",4
+"What's the status of COVID testing in Kansas?",4
+
+"COVID hospitalizations in Iowa?",5
+"How many COVID patients in hospitals in Minnesota?",5
+"COVID patients count in hospitals in Missouri.",5
+"Hospital bed occupancy due to COVID in Oklahoma?",5
+
+"Vaccination status in Virginia?",6
+"How's the vaccination drive going in New Mexico?",6
+"COVID vaccine coverage in West Virginia?",6
+"How many people are vaccinated in Alaska?",6
+
+"COVID cases rank for states in the US?",7
+"Which state has the highest number of COVID testing in the US?",7
+"States with highest COVID hospitalizations in the US?",7
+"COVID vaccination rank among US states?",7
+
+"Rank of counties by COVID cases in Wyoming?",8
+"Which   has the highest number of COVID testing in Montana?",8
+"Counties with highest COVID hospitalizations in North Dakota?",8
+"COVID vaccination rank among counties in South Dakota?",8
+
+"Ranking of all counties in the US by COVID testing?",9
+"All   ranks in US by COVID hospitalizations?",9
+"  rankings in US by COVID vaccinations?",9
+"Rank of all US counties by COVID cases?",9
+
+"COVID status in Sussex  , Delaware?",10
+"Update on COVID in Fayette  , Kentucky?",10
+"Current COVID situation in Lincoln  , Oregon?",10
+"COVID data for Monroe  , Florida?",10
+
+"New COVID cases in Kern  , California?",11
+"Daily COVID cases in Rockland  , New York?",11
+"How many new cases in Summit  , Ohio?",11
+"Daily COVID case count in Travis  , Texas?",11
+
+"Number of COVID deaths in Merced  , California?",12
+"COVID death count in Maui  , Hawaii?",12
+"How many people have died from COVID in Chatham  , Georgia?",12
+"COVID death count in Dorchester  , South Carolina?",12
+
+"COVID testing numbers in Allegany  , Maryland?",13
+"How many COVID tests done in Anderson  , Tennessee?",13
+"COVID testing stats in Asotin  , Washington?",13
+"Status of COVID testing in Calhoun  , Alabama?",13
+
+"Hospitalized COVID patients in Cameron  , Texas?",14
+"COVID hospitalization updates in Essex  , Massachusetts?",14
+"Number of COVID patients in hospitals in Franklin  , Missouri?",14
+"Hospital bed occupancy due to COVID in Grant  , New Mexico?",14
+
+"How many people have been vaccinated in Hidalgo  , Texas?",15
+"COVID vaccination rate in Kent  , Delaware?",15
+"Vaccination status in Lake  , Illinois?",15
+"How's the vaccination drive going in Madison  , Indiana?",15
+
+"What are my lottery numbers?",20
+"Does Bigfoot really exist?",20
+"Who will win the World Cup?",20
+"What is the meaning of life?",20
+
+"Tell me about COVID situation across the United States?",0
+"How is the USA coping with the pandemic?",0
+"Give me a snapshot of COVID stats for the entire US.",0
+"US COVID overview, please.",0
+
+"How's COVID situation in Washington?",1
+"Current COVID data for Montana?",1
+"Get me COVID updates for Nevada.",1
+"Update me on the COVID situation in Oregon.",1
+
+"New COVID case count in Florida?",2
+"How many fresh COVID cases in Georgia today?",2
+"Tell me about new COVID cases in Maryland.",2
+"COVID new cases data for North Carolina.",2
+
+"Number of COVID deaths in South Carolina today?",3
+"How many people died of COVID in Tennessee today?",3
+"Tell me about COVID death count in Vermont.",3
+"COVID fatality numbers for Wisconsin?",3
+
+"COVID testing stats for Alaska?",4
+"Tell me about COVID testing numbers in Delaware.",4
+"Give me COVID testing data for Idaho.",4
+"COVID testing situation in Kentucky.",4
+
+"How many COVID patients in hospitals in Maine?",5
+"COVID hospital bed usage in Nebraska.",5
+"Tell me about hospital situation for COVID in North Dakota.",5
+"COVID hospitalization stats for South Dakota.",5
+
+"How's the COVID vaccination drive going in Texas?",6
+"Give me COVID vaccine coverage data for Utah.",6
+"Vaccination numbers for COVID in Virginia.",6
+"COVID vaccination situation in West Virginia.",6
+
+"Ranking of states by COVID cases?",7
+"Which state has the most COVID tests done?",7
+"States with highest COVID hospitalizations?",7
+"Vaccination rank among US states for COVID?",7
+
+"How are the counties in Wyoming ranked by COVID cases?",8
+"Counties with highest COVID tests in Montana?",8
+"Hospitalizations rank among counties in North Dakota?",8
+"Vaccination rank among counties in South Dakota?",8
+
+"All US counties ranked by COVID tests?",9
+"Ranking of all US counties by COVID hospitalizations?",9
+"  ranks in US by COVID vaccinations?",9
+"All US counties ranked by COVID cases?",9
+
+"Tell me about COVID in Los Angeles, California?",10
+"Update me on COVID in Orange, Florida.",10
+"COVID situation in Fairfax, Virginia?",10
+"COVID situation in Cook, Illinois?",10
+
+"New COVID case count in Los Angeles, California?",11
+"Tell me about new COVID cases in Clark, Nevada.",11
+"COVID new cases in Miami-Dade, Florida?",11
+"New COVID cases in Kings, New York.",11
+
+"Number of COVID deaths in Queens, New York?",12
+"COVID death numbers in Fulton, Georgia?",12
+"Tell me about COVID death count in Dallas, Texas.",12
+"COVID death stats for Harris, Texas.",12
+
+"COVID testing numbers in Suffolk, New York?",13
+"How many COVID tests done in Hillsborough, Florida?",13
+"Tell me about COVID testing stats in Orange, California.",13
+"COVID testing updates for Maricopa, Arizona.",13
+
+"Hospitalized COVID patients in Cuyahoga, Ohio?",14
+"COVID hospital situation in Oakland, Michigan?",14
+"Tell me about COVID hospitalization in King, Washington.",14
+"COVID hospitalization stats for Wayne, Michigan.",14
+
+"How many people are vaccinated in Philadelphia, Pennsylvania?",15
+"COVID vaccination status in Allegheny, Pennsylvania?",15
+"Tell me about COVID vaccination status in Middlesex, Massachusetts.",15
+"COVID vaccine coverage in Fairfax, Virginia?",15
+
+"How is the COVID situation in Cullman, Alabama?",10
+"Latest COVID stats for Hyde, North Carolina?",10
+"Tell me about COVID in Jennings, Indiana.",10
+"What's happening with COVID in Wilkes, Georgia?",10
+
+"How many new COVID cases in DeKalb, Missouri?",11
+"New case count for COVID in Humboldt, California.",11
+"COVID case stats for Kusilvak Census Area, Alaska.",11
+"Give me the new case count for COVID in Sonoma, California.",11
+
+"Deaths due to COVID in Lawrence, Mississippi?",12
+"How many COVID deaths in Bristol, Massachusetts?",12
+"Tell me about COVID deaths in Assumption, Louisiana.",12
+"COVID death count in Sioux, Nebraska?",12
+
+"COVID testing stats in Kittitas, Washington?",13
+"Testing numbers for COVID in Labette, Kansas.",13
+"How many tests conducted for COVID in Perquimans, North Carolina?",13
+"COVID testing updates in El Paso, Texas.",13
+
+"Hospitalized COVID patients in Dorchester, Maryland?",14
+"COVID hospital situation in Nacogdoches, Texas?",14
+"Hospitalization stats for COVID in Lac qui Parle, Minnesota.",14
+"Tell me about COVID hospitalization in Twiggs, Georgia.",14
+
+"How many people vaccinated in Bottineau, North Dakota?",15
+"COVID vaccination status in Kalamazoo, Michigan?",15
+"Vaccine coverage for COVID in Santa Fe, New Mexico?",15
+"Tell me about COVID vaccination status in Charlotte, North Carolina.",15
+"What's for dinner?",20
+"When is the next full moon?",20
+"Did aliens build the pyramids?",20
+"Who will win the next Super Bowl?",20
