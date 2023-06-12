@@ -46,7 +46,7 @@ def get_stateinfo(state):
         stateNum=state_codes[state]
         
         dic_name='integrated_county_latest_by_state_fips_'+stateNum
-        path = '/json/State/'+stateNum+'/'
+        path = './json/State/'+stateNum+'/'
         # lastFile=0
         # dir_list = os.listdir(path)
         # for x in dir_list:
