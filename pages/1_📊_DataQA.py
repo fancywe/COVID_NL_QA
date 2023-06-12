@@ -188,7 +188,7 @@ if button:
     data = {
          'question': question
     }
-    if bool(question.strip()):
+    if question=='':
         st.write('Please type in question')
     else:
     # Send an HTTP GET request to the specified URL, appending the question to the URL and providing the headers.
