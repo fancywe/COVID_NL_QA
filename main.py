@@ -147,9 +147,9 @@ def read_Q(Q):
                 #Pass the preprocessed question text to the ML model
                 code=Handle(Q,x,y).item()
                 #Print the predict result
-                print(code)
+                print('ML model predict result: ',code)
                 #Print the place name in the question (for test)
-                print(gpe) 
+                print('Place name in the question: ',gpe) 
                 
                                                           
                 result=getDataDetail(getDataFile(state,county,code),code)

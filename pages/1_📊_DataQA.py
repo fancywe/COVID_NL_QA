@@ -189,7 +189,7 @@ if button:
          'question': question
     }
     if question=='':
-        st.write('Please type in question')
+        st.write('Please type in the question.')
     else:
     # Send an HTTP GET request to the specified URL, appending the question to the URL and providing the headers.
         response = requests.get('http://35.225.219.221:1145/question/'+question, headers=headers)
