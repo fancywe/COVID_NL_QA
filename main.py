@@ -124,12 +124,12 @@ def read_Q(Q):
         #                 Q+='hosp'
         #                 key=1
         #                 break        
-        if state!='':
-                Q+=' state'
-                geo=1
-        if county!='':
-                Q+=' county' 
-                geo=1
+        # if state!='':
+        #         Q+=' state'
+        #         geo=1
+        # if county!='':
+        #         Q+=' county' 
+        #         geo=1
                    
     
     if len(gpe)==0 and state=='' and county=='':
