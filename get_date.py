@@ -78,12 +78,12 @@ def get_staterank():
  
         path=Path(path+'AllState'+'.json')
         print(path)
-        if(path.is_file()):
-            with open(path) as json_file:
+        
+        with open(path) as json_file:
                 data=json.load(json_file)
                 json_object = json.loads(data)
            
-            print(type(json_object))
+        print(type(json_object))
         result= json_object[dic_name]
        
         return result
