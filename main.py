@@ -149,7 +149,7 @@ def read_Q(Q):
                 #Print the predict result
                 print('ML model predict result: ',code)
                 #Print the place name in the question (for test)
-                print('Place name in the question: ',gpe) 
+                # print('Place name in the question: ',gpe) 
                 
                                                           
                 result=getDataDetail(getDataFile(state,county,code),code)
