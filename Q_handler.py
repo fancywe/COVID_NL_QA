@@ -125,45 +125,45 @@ model_pipeline.fit(trainX, trainY)
 valid_predictions = model_pipeline.predict(validX)
 print(f"Validation Accuracy of Random Forest Classifier is: {(model_pipeline.score(validX, validY))*100:.2f}%")
 
-model_pipeline = Pipeline(steps=[
-  ('preprocessor', preprocessor),
-  ('classifier', LogisticRegression(C=1.))
-])
-model_pipeline.fit(trainX, trainY)
-
-# validate the model
-valid_predictions = model_pipeline.predict(validX)
-print(f"Validation Accuracy of Logistic Regression is: {(model_pipeline.score(validX, validY))*100:.2f}%")
-
 # model_pipeline = Pipeline(steps=[
 #   ('preprocessor', preprocessor),
-#   ('classifier', MultinomialNB())
+#   ('classifier', LogisticRegression(C=1.))
 # ])
 # model_pipeline.fit(trainX, trainY)
 
 # # validate the model
 # valid_predictions = model_pipeline.predict(validX)
-# print(f"Validation Accuracy of MultinomialNB is: {(model_pipeline.score(validX, validY))*100:.2f}%")
+# print(f"Validation Accuracy of Logistic Regression is: {(model_pipeline.score(validX, validY))*100:.2f}%")
 
-model_pipeline = Pipeline(steps=[
-  ('preprocessor', preprocessor),
-  ('classifier', DecisionTreeClassifier())
-])
-model_pipeline.fit(trainX, trainY)
+# # model_pipeline = Pipeline(steps=[
+# #   ('preprocessor', preprocessor),
+# #   ('classifier', MultinomialNB())
+# # ])
+# # model_pipeline.fit(trainX, trainY)
 
-# validate the model
-valid_predictions = model_pipeline.predict(validX)
-print(f"Validation Accuracy of DecisionTree Classifier is: {(model_pipeline.score(validX, validY))*100:.2f}%")
+# # # validate the model
+# # valid_predictions = model_pipeline.predict(validX)
+# # print(f"Validation Accuracy of MultinomialNB is: {(model_pipeline.score(validX, validY))*100:.2f}%")
 
-model_pipeline = Pipeline(steps=[
-  ('preprocessor', preprocessor),
-  ('classifier', KNeighborsClassifier())
-])
-model_pipeline.fit(trainX, trainY)
+# model_pipeline = Pipeline(steps=[
+#   ('preprocessor', preprocessor),
+#   ('classifier', DecisionTreeClassifier())
+# ])
+# model_pipeline.fit(trainX, trainY)
 
-# validate the model
-valid_predictions = model_pipeline.predict(validX)
-print(f"Validation Accuracy of KNeighbors Classifier is: {(model_pipeline.score(validX, validY))*100:.2f}%")
+# # validate the model
+# valid_predictions = model_pipeline.predict(validX)
+# print(f"Validation Accuracy of DecisionTree Classifier is: {(model_pipeline.score(validX, validY))*100:.2f}%")
+
+# model_pipeline = Pipeline(steps=[
+#   ('preprocessor', preprocessor),
+#   ('classifier', KNeighborsClassifier())
+# ])
+# model_pipeline.fit(trainX, trainY)
+
+# # validate the model
+# valid_predictions = model_pipeline.predict(validX)
+# print(f"Validation Accuracy of KNeighbors Classifier is: {(model_pipeline.score(validX, validY))*100:.2f}%")
 
 # model_pipeline = Pipeline(steps=[
 #   ('preprocessor', preprocessor),
