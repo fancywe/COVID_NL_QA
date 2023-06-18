@@ -350,35 +350,35 @@ if button:
                             #     st.altair_chart(chart, use_container_width=True)
                                 
                         if(result['code']<10):
-                            
-                            for x in result['History']: 
-                                    date.append(x['submission_date'])
-                                    case.append(x['new_case'])
-                                    death.append(x['new_death'])
-                                    test.append(x['new_test_results_reported_7_day_rolling_average'])
+                            st.write('Well, this part is no longer available')
+                            # for x in result['History']: 
+                            #         date.append(x['submission_date'])
+                            #         case.append(x['new_case'])
+                            #         death.append(x['new_death'])
+                            #         test.append(x['new_test_results_reported_7_day_rolling_average'])
                                     
-                            date=pd.to_datetime(date)
-                            df = pd.DataFrame({'Case':case,'Date':date,'Death':death,'Test':test})
-                            df=df.dropna()
-                            if(result['code']==2 or result['code']==1):
-                                chart = alt.Chart(df).mark_line().encode(
-                                x=alt.X('Date'),
-                                y=alt.Y('Case:Q'),
-                                ).properties(title="Case History")
-                                st.altair_chart(chart, use_container_width=True)
+                            # date=pd.to_datetime(date)
+                            # df = pd.DataFrame({'Case':case,'Date':date,'Death':death,'Test':test})
+                            # df=df.dropna()
+                            # if(result['code']==2 or result['code']==1):
+                            #     chart = alt.Chart(df).mark_line().encode(
+                            #     x=alt.X('Date'),
+                            #     y=alt.Y('Case:Q'),
+                            #     ).properties(title="Case History")
+                            #     st.altair_chart(chart, use_container_width=True)
                                 
-                            if(result['code']==3 or result['code']==1):   
-                                chart = alt.Chart(df).mark_line().encode(
-                                x=alt.X('Date'),
-                                y=alt.Y('Death:Q'),
-                                ).properties(title="Death History")
-                                st.altair_chart(chart, use_container_width=True)
-                            if(result['code']==4 or result['code']==1):
-                                chart = alt.Chart(df).mark_line().encode(
-                                x=alt.X('Date'),
-                                y=alt.Y('Test:Q'),
-                                ).properties(title="Test History")
-                                st.altair_chart(chart, use_container_width=True)
+                            # if(result['code']==3 or result['code']==1):   
+                            #     chart = alt.Chart(df).mark_line().encode(
+                            #     x=alt.X('Date'),
+                            #     y=alt.Y('Death:Q'),
+                            #     ).properties(title="Death History")
+                            #     st.altair_chart(chart, use_container_width=True)
+                            # if(result['code']==4 or result['code']==1):
+                            #     chart = alt.Chart(df).mark_line().encode(
+                            #     x=alt.X('Date'),
+                            #     y=alt.Y('Test:Q'),
+                            #     ).properties(title="Test History")
+                            #     st.altair_chart(chart, use_container_width=True)
     #             with tab3:
     #                 st.write('''For the county level data, you just need to type the county name and the state name(capital abbr. works), 
     # then it will return you the latest statistics(usually last week's). Same to State level. Currently we support five main features based on our data source,
