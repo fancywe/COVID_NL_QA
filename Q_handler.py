@@ -89,7 +89,7 @@ def create_features_single(Q,state,county):
 warnings.simplefilter("ignore")
 
 #Load training set
-data = pd.read_csv('Training set.csv')
+data = pd.read_csv('new_training set.csv')
 
 # create features
 data = create_features(data)
