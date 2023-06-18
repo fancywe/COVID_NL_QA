@@ -48,11 +48,13 @@ def read_Q(Q):
     county=''
     code=0
     history=None
+    us=0
     #Instantiate SpellChecker
     spell = SpellChecker()
     #Load the whitelist (proper noun)
     spell.word_frequency.load_text_file('Counties name.txt') 
-    #Check if it is a zip code query                                       
+    #Check if it is a zip code query 
+    if Q=='US': us=1                                      
     if Q.isdigit():
         if len(Q)==5:
             if zipcodes.is_real(Q): #if zip code is valid, record the state name and the county name
@@ -142,9 +144,7 @@ def read_Q(Q):
         result='Please input State name'     
                
     elif code==0:
-            print(Q)
-            if Q=='US':
-                code=0
+            if us==1:
                 result=getDataDetail(getDataFile(state,county,code),code)
             else:
                 if state=='': x=1
