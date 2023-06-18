@@ -74,7 +74,7 @@ def get_stateinfo(state):
                 
 def get_staterank():
         dic_name='county_view_state_data'
-        path='json/Allstate/'
+        path='./json/Allstate/'
  
         path=Path(path+'AllState'+'.json')
         print(path)
@@ -92,7 +92,7 @@ def get_countyinfo(state,county):
         
         
         dic_name='integrated_county_latest_external_data'  
-        path = 'json/County/'
+        path = './json/County/'
         lastFile=0
 
         path=Path(path+'County'+'.json')
@@ -127,7 +127,7 @@ def get_countyinfo(state,county):
 def get_allcountyrank():
         
         dic_name='integrated_county_latest_external_data'  
-        path = 'json/County/'
+        path = './json/County/'
         lastFile=0
         resultList=[]
         # dir_list = os.listdir(path)
@@ -175,7 +175,7 @@ def county_vac(state,county) :
         
         
         dic_name='vaccination_county_condensed_data'
-        path ='json/County_Vac/'
+        path ='./json/County_Vac/'
 
         path=Path(path+'County_Vac'+'.json')
         
@@ -198,7 +198,7 @@ def county_vac(state,county) :
 def us():
             
             dic_name='statusbar'
-            path ='json/US/'
+            path ='./json/US/'
             lastFile=0
             dir_list = os.listdir(path)
             # for x in dir_list:
@@ -221,7 +221,7 @@ def us():
 
 def get_countyrank(state):
         dic_name='integrated_county_latest_external_data'  
-        path = 'json/County/'
+        path = './json/County/'
         lastFile=0
         resultList=[]
         # dir_list = os.listdir(path)
