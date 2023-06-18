@@ -1,10 +1,8 @@
-Question,Type,haveState,
+Question,Type,
+La Crosse WI,10
 What's the overall COVID status in US,0
 NY state,1
 IL state,1
-How's the Covid going in American this week,0
-How many new case in United States today,0
-Show me the COVID trend in American,0
 How's everything goes in Wisconsin state this week,1
 Wisconsin state,1
 The overall data of Illinois state,1
@@ -40,35 +38,34 @@ How does the vaccination rate in Louisiana state compare with other states?,6
 the rate for have at least one dose vaccined in Georgia state,6
 how many people inject booster in New Mexico state,6
 What is the vaccination rate in Maryland state?,6
-La Crosse county WI,10
-Covid Level in Union of Iowa county,10
-Tell me something about the Covid in Madison county Wisconsin,10
+La Crosse  WI,10
+Covid Level in Union of Iowa ,10
+Tell me something about the Covid in Madison Wisconsin,10
 The overall data of Chicago city Illinois,10
-Covid going in La Crosse county WI,10
+Covid going in La Crosse WI,10
 What are the new case in La Crosse WI,11
-How many new case in Adams county of Colorado,11
-How many new cases in Irion county of Texas this week,11
-Show me the case trend in AL Bethel county this week,11
-What's new case in St.Paul county MN,11
-New case in New York county NY state,11
-New case in Tomas county Wisconsin state,11
-New case in Chicago county IL state,11
-Death status in Washington Vermont county,12
-how many death cause of Coivd in WI Clark county,12
-I want to know the Test info of Valley county Idaho,13
+How many new case in Adams of Colorado,11
+How many new cases in Irion of Texas this week,11
+Show me the case trend in AL Bethel this week,11
+What's new case in St.Paul MN,11
+New case in New York  NY state,11
+New case in Tomas  Wisconsin state,11
+New case in Chicago IL state,11
+Death status in Washington Vermont ,12
+how many death cause of Coivd in WI Clark ,12
+I want to know the Test info of Valley  Idaho,13
 How many postive we have in St. Charles Louisiana,13
-Postive rate in Clay county Arkansas,13
-Hospitality in Clay county North Carolina hosp,14
-Hospital usage in La Crosse county Wisconsin hosp,14
-ICU occupation in Davis county Utah hosp,14
-"The number of COVID-19 patients in County Nowata, Oklahoma hosp" ,14
-The number of COVID-19 patients in Bolivar county of Mississippi state hosp.,14
-vaccination in La Crosse WI vac,15
-How many people recived boost dose in Lee Kentucky vac,15
-what's the vaccination rate in Lincoln county Louisiana vac,15
-
-overall data of Orange county Indiana,10
-how many people have full dose vaccined in Scott county Indiana ,15
+Postive rate in Clay  Arkansas,13
+Hospitality in Clay North Carolina ,14
+Hospital usage in La Crosse Wisconsin ,14
+ICU occupation in Davis Utah ,14
+"The number of COVID-19 patients in County Nowata, Oklahoma" ,14
+The number of COVID-19 patients in Bolivar county of Mississippi .,14
+vaccination in La Crosse WI ,15
+How many people recived boost dose in Lee Kentucky ,15
+what's the vaccination rate in Lincoln Louisiana vac,15
+overall data of Orange Indiana,10
+how many people have full dose vaccined in Scott Indiana ,15
 US,0
 WI state,1
 the rank of all state,7
@@ -88,10 +85,10 @@ New case in IL state,2
 new death in la crosse WI county state,12
 counties rank in WI state,8
 counties rank in IL state,8
-What are the new death in La Crosse county WI state,12
-death Madison county WI,12
-Rank table in NY state,8
-rank all county,9
+What are the new death in La Crosse  WI,12
+death Madison WI,12
+Rank table in NY ,8
+rank all counties,9
 rank all the county,9
 sort all the counties from high to low,9
 sort all the counties by case,9
@@ -100,10 +97,6 @@ What are the new case in wisconsin case state,3
 rank the county in WI,8
 rank the state in US,7
 vaccine in La crosse county WI vac,15
-"How is COVID in the US right now?",0
-"COVID updates in the US?",0
-"Total COVID case count in the US?",0
-"COVID-19 situation in the US?",0
 
 "Latest on COVID in AL?",1
 "COVID situation in CT?",1
