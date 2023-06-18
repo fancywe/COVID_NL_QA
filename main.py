@@ -130,8 +130,9 @@ def read_Q(Q):
         # if county!='':
         #         Q+=' county' 
         #         geo=1
-                   
-    
+#     rank=0
+#     if 'rank' in Q:
+#             rank=1               
     if len(gpe)==0 and state=='' and county=='':
         code=20
         result='No place detected'
