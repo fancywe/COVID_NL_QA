@@ -64,8 +64,7 @@ def read_Q(Q):
         else:
             result='This is not a valid zip code' 
     else:       
-        if Q=='US':
-                code=0
+        
         for stateName in stateCode:
                 if stateName in Q:
                         state=stateName
@@ -143,6 +142,10 @@ def read_Q(Q):
         result='Please input State name'     
                
     elif code==0:
+            if Q=='US':
+                code=0
+                result=getDataDetail(getDataFile(state,county,code),code)
+            else:
                 if state=='': x=1
                 else: x=0
                 if county=='': y=1
@@ -157,9 +160,9 @@ def read_Q(Q):
                                                           
                 result=getDataDetail(getDataFile(state,county,code),code)
                 print(result)
-                if 'History' in result:
-                        history=result.pop("History", None)  
-                        print(result)    
+                # if 'History' in result:
+                #         history=result.pop("History", None)  
+                #         print(result)    
     if result==None:
         result='No query result found'        
     
