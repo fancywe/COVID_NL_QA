@@ -74,7 +74,7 @@ def get_stateinfo(state):
                 
 def get_staterank():
         dic_name='county_view_state_data'
-        path='./json/Allstate/'
+        path='./json/AllState/'
  
         path=Path(path+'AllState'+'.json')
         print(path)
