@@ -1,11 +1,12 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-from haystack.document_store.elasticsearch import ElasticsearchDocumentStore
+from haystack.document_stores.elasticsearch import ElasticsearchDocumentStore
 import os
 from haystack.pipeline import ExtractiveQAPipeline
 from haystack.reader.farm import FARMReader
 from haystack.retriever.sparse import ElasticsearchRetriever
+
 Username="weweztms"
 Password="?/xij7n#bk4HeS?"
 Port=9200
