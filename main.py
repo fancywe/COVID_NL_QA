@@ -226,7 +226,7 @@ def getDataDetail(dic,code):
                         'Completed Primary Series Population':dic['Series_Complete_Yes'],
                         'Completed Primary Series Rate':   dic["Series_Complete_Pop_Pct"],
                         'Booster Received':dic['Bivalent_Booster'],'Booster Received Rate':dic['Bivalent_Booster_Pop_Pct']
-                        ,'History':dic['History']
+                        # ,'History':dic['History']
                         }
                 return result
 
@@ -260,7 +260,9 @@ def getDataDetail(dic,code):
        
     elif code==2:
                 result={'State':dic['StateName'],'New Case Last Week':dic['new_cases_past_7_days'],
-                        'New Case Rate Last Week 100K':dic['Seven_day_cum_new_cases_per_100k'],'History':dic['History']}
+                        'New Case Rate Last Week 100K':dic['Seven_day_cum_new_cases_per_100k']
+                        # ,'History':dic['History']
+                        }
                 return result
     elif code==11:
                 
@@ -275,7 +277,9 @@ def getDataDetail(dic,code):
             
             
                 result={'State':dic['StateName'],'New Death Past 7 days':dic['new_deaths_past_7_days'],
-                        '7 days Death rate in 100K':dic['seven_day_cum_new_deaths_per_100k'],'History':dic['History']}
+                        '7 days Death rate in 100K':dic['seven_day_cum_new_deaths_per_100k']
+                        #,'History':dic['History']
+                        }
                 return result
     elif code==12:
                 result={'State':dic['State_name'],'County':dic['County'],'Level':dic['CCL_community_burden_level'].capitalize(),'New Death Past 7 days':dic['deaths_7_day_count_change'],
@@ -291,7 +295,8 @@ def getDataDetail(dic,code):
                 
                     result={'State':dic['StateName'],'Postive ':dic['percent_positive_7_day_range'],
                             'Total Postive last week':dic['total_test_results_reported_7_day_count_change']
-                            ,'Postive Population rate in 100K':dic['total_test_results_reported_7_day_count_change_per_100K'],'History':dic['History']
+                            ,'Postive Population rate in 100K':dic['total_test_results_reported_7_day_count_change_per_100K']
+                        #     ,'History':dic['History']
                             }
                     
                     return result
