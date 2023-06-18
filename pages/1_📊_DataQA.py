@@ -246,9 +246,9 @@ if button:
                 
                 df=df.drop(labels="Date", axis=1)
                 df=df.set_index('State')
-                for (columnName, columnData) in df.iteritems():
-                    if df.dtypes[columnName]=='float16':
-                        df[columnName]=df[columnName].round(decimals =2)
+                # for (columnName, columnData) in df.iteritems():
+                #     if df.dtypes[columnName]=='float16':
+                #         df[columnName]=df[columnName].round(decimals =2)
                 
                 print(df.dtypes)
                 print(df)
