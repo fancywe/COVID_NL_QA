@@ -64,7 +64,8 @@ def read_Q(Q):
         else:
             result='This is not a valid zip code' 
     else:       
-        
+        if Q=='US':
+                code=0
         for stateName in stateCode:
                 if stateName in Q:
                         state=stateName
