@@ -130,13 +130,13 @@ def read_Q(Q):
         # if county!='':
         #         Q+=' county' 
         #         geo=1
-#     rank=0
-#     if 'rank' in Q:
-#             rank=1               
-    if len(gpe)==0 and state=='' and county=='':
+    rank=0
+    if 'rank' in Q:
+            rank=1               
+    if len(gpe)==0 and state=='' and county=='' and rank==0:
         code=20
         result='No place detected'
-    if state=='' and county!='':
+    if state=='' and county!='' and rank==0:
         print(county)
         code=20
         result='Please input State name'     
