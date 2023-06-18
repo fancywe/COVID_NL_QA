@@ -142,6 +142,7 @@ def read_Q(Q):
         result='Please input State name'     
                
     elif code==0:
+            print(Q)
             if Q=='US':
                 code=0
                 result=getDataDetail(getDataFile(state,county,code),code)
