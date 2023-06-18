@@ -137,6 +137,7 @@ def read_Q(Q):
         code=20
         result='No place detected'
     if state=='' and county!='':
+        print(county)
         code=20
         result='Please input State name'     
                
