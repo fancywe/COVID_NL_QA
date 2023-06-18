@@ -64,11 +64,11 @@ def get_stateinfo(state):
            
             print(type(json_object))
             result= json_object[dic_name][0]
-        history='https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=integrated_county_timeseries_by_state_fips_'+str(stateNum)
-        page = requests.get(history, headers=headers) # get county
-        text = json.loads(page.text)
-        dic_name="integrated_county_timeseries_by_state_fips_"+str(stateNum)
-        result['History']=text[dic_name] 
+        # history='https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=integrated_county_timeseries_by_state_fips_'+str(stateNum)
+        # page = requests.get(history, headers=headers) # get county
+        # text = json.loads(page.text)
+        # dic_name="integrated_county_timeseries_by_state_fips_"+str(stateNum)
+        # result['History']=text[dic_name] 
           
         return result
                 
