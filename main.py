@@ -75,10 +75,10 @@ def read_Q(Q):
                 if state=='':      
                         if(stateName in Q.lower()):
                                 state=state_code.us_state_to_abbrev[stateName.capitalize()] 
-        Q=''                        
-        for token in doc:
-                Q=Q+spell.correction(token.text)+' '
-                print(Q)
+        # Q=''                        
+        # for token in doc:
+        #         Q=Q+spell.correction(token.text)+' '
+        #         print(Q)
                 
         for ent in doc.ents:
                 print(doc.ents)
