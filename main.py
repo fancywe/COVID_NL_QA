@@ -49,6 +49,7 @@ def read_Q(Q):
     code=0
     history=None
     us=0
+    result=''
     #Instantiate SpellChecker
     spell = SpellChecker()
     #Load the whitelist (proper noun)
@@ -61,6 +62,7 @@ def read_Q(Q):
                 county=zipcodes.matching(Q)[0]['city'].lower()
                 state=zipcodes.matching(Q)[0]['state']
                 code=10
+                result=getDataDetail(getDataFile(state,county,code),code)
             else:
                 result='This is not a valid zip code'     
         else:
@@ -164,8 +166,8 @@ def read_Q(Q):
                         # if 'History' in result:
                         #         history=result.pop("History", None)  
                         #         print(result)    
-    if result==None:
-        result='No query result found'        
+        if result==None:
+                result='No query result found'        
     
                 
     return {"State name": state,'County name':county,'code':code,'result':result,'Q':Q.casefold(),'History':history,'Gpe':gpe}
