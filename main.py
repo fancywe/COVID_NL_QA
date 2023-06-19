@@ -132,38 +132,38 @@ def read_Q(Q):
         # if county!='':
         #         Q+=' county' 
         #         geo=1
-    rank=0
-    if 'rank' in Q:
-            rank=1               
-    if len(gpe)==0 and state=='' and county=='' and rank==0:
-        code=20
-        result='No place detected'
-    if state=='' and county!='' and rank==0:
-        print(county)
-        code=20
-        result='Please input State name'     
-               
-    elif code==0:
-            if us==1:
-                result=getDataDetail(getDataFile(state,county,code),code)
-            else:
-                if state=='': x=1
-                else: x=0
-                if county=='': y=1
-                else: y=0
-                #Pass the preprocessed question text to the ML model
-                code=Handle(Q,x,y).item()
-                #Print the predict result
-                print('ML model predict result: ',code)
-                #Print the place name in the question (for test)
-                # print('Place name in the question: ',gpe) 
+        rank=0
+        if 'rank' in Q:
+                rank=1               
+        if len(gpe)==0 and state=='' and county=='' and rank==0:
+                code=20
+                result='No place detected'
+        if state=='' and county!='' and rank==0:
+                print(county)
+                code=20
+                result='Please input State name'     
                 
-                                                          
-                result=getDataDetail(getDataFile(state,county,code),code)
-                print(result)
-                # if 'History' in result:
-                #         history=result.pop("History", None)  
-                #         print(result)    
+        elif code==0:
+                if us==1:
+                        result=getDataDetail(getDataFile(state,county,code),code)
+                else:
+                        if state=='': x=1
+                        else: x=0
+                        if county=='': y=1
+                        else: y=0
+                        #Pass the preprocessed question text to the ML model
+                        code=Handle(Q,x,y).item()
+                        #Print the predict result
+                        print('ML model predict result: ',code)
+                        #Print the place name in the question (for test)
+                        # print('Place name in the question: ',gpe) 
+                        
+                                                                
+                        result=getDataDetail(getDataFile(state,county,code),code)
+                        print(result)
+                        # if 'History' in result:
+                        #         history=result.pop("History", None)  
+                        #         print(result)    
     if result==None:
         result='No query result found'        
     
