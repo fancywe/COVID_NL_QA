@@ -82,7 +82,7 @@ def create_features_single(Q,state,county):
     features['Question'] = Q
     features['comma'] = 1 if ',' in Q else 0
     features['length'] = len(Q)
-    features['word_count'] = Q.apply(lambda x: len(str(x).split(" ")))
+    features['word_count'] =len(str(Q).split(" "))
     features['have_state'] = state
     features['have_county'] = county
     features['week_case_info'] = 1 if any(word in Q.lower() for word in weekCase) else 0
