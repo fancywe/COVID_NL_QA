@@ -39,6 +39,7 @@ def getDataFile(state,county,code):
     elif 9<code<15 and state!='' and county!='': return get_countyinfo(state,county)
     elif 9<code<15 and state!='' and county=='': 
             code=code-9
+            print(code)
             return get_stateinfo(state)
     elif code==15 and state!='' and county!='': return county_vac(state,county)
     elif code==20 and state!='' and county!='': 
