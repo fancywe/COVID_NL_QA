@@ -79,9 +79,9 @@ Sort all the county in Wisconsin state,8
 Sort the counties in New York state,8
 County rank in WI state level,8
 Allegany counties in New York state,10
-New case in WI state,2
-New case in NY state,2
-New case in IL state,2
+New case in WI,2
+New case in NY,2
+New case in IL,2
 new death in la crosse WI county state,12
 counties rank in WI state,8
 counties rank in IL state,8
@@ -172,3 +172,4 @@ vaccine in La crosse county WI vac,15
 "How many people have been vaccinated in Maricopa county, AZ?",15
 "How's the COVID vaccination going on in Franklin county, OH?",15
 "Vaccine coverage for COVID in San Diego county, CA?",15
+Counties Rank in US,9

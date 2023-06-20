@@ -66,6 +66,9 @@ def check_county(Q):
     
 def create_features(data):
     # Check if the text contains corresponding keywords
+    data['length'] = data['Question'].apply(len)
+    data['comma'] = data['Question'].apply(lambda x: 1 if ',' in x else 0)
+    data['word_count'] = data['Question'].apply(lambda x: len(str(x).split(" ")))
     data['have_state'] = data['Question'].apply(lambda x:check_state(x))
     data['have_county'] = data['Question'].apply(lambda x:check_county(x))
     data['week_case_info'] = data['Question'].apply(lambda x: 1 if any(word in x.lower() for word in weekCase) else 0)
@@ -77,7 +80,9 @@ def create_features(data):
 def create_features_single(Q,state,county):
     features = {}
     features['Question'] = Q
-    # features['length'] = len(Q)
+    features['comma'] = 1 if ',' in Q else 0
+    features['length'] = len(Q)
+    features['word_count'] = Q.apply(lambda x: len(str(x).split(" ")))
     features['have_state'] = state
     features['have_county'] = county
     features['week_case_info'] = 1 if any(word in Q.lower() for word in weekCase) else 0
@@ -89,7 +94,7 @@ def create_features_single(Q,state,county):
 warnings.simplefilter("ignore")
 
 #Load training set
-data = pd.read_csv('new_training set.csv')
+data = pd.read_csv('Training set.csv')
 
 # create features
 data = create_features(data)
@@ -109,7 +114,7 @@ validY = valid['Type'].values
 preprocessor = ColumnTransformer(
     transformers=[
         ('tfidf', TfidfVectorizer(), 'Question'),
-        ('num', StandardScaler(), ['have_state','have_county', 'week_case_info', 'week_death_info', 'test_info', 'hosp_info'])
+        ('num', StandardScaler(), ['length','word_count','have_state','have_county', 'week_case_info', 'week_death_info', 'test_info', 'hosp_info'])
     ])
 
 #Combine vectorizer with classifier in a pipeline

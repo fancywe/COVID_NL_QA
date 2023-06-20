@@ -1,35 +1,32 @@
 Question,Type
 What's the overall COVID status in US,0
 US,0
-NY ,1
-IL ,1
+NY,1
+IL,1
 WI,1
 How's the Covid going in American this week,0
 How many new case in United States today,0
 Show me the COVID trend in American,0
 How's everything goes in Wisconsin  this week,1
 Wisconsin ,1
-The overall data of Illinois state,1
+The overall data of Illinois,1
 what's the Covid data overview in California ,1
 The Covid status in Miami ,1
 MN ,1
 How many new case in Ohio this week,2
-Show me the case trend in New York state this week,2
-The case graph in South Dekota  state these days,2
-The case trend in Minnesota state,2
+Show me the case trend in New York this week,2
+The case graph in South Dekota these days,2
+The case trend in Minnesota,2
 NY new case ,2
 WI new cases ,2
 How many death in Alaska this week ,3
 How many people died in LA these days ,3
 New deaths in New Hampshire ,3
-The number of new covid deaths in the South Dakota States this month ,3
+The number of new covid deaths in the South Dakota this month ,3
 "in Carolina state,how many people died this week ?",3
 How many new death in MN this week,3
 what's the postive rate in  Missouri ,4
 What's the test situation in Florida this week ,4
-Nucleic acid detection of Iowa ,4
-How many people are negative in the nucleic acid test of Arizona  in the United States,4
-The proportion of children participating in nucleic acid testing in MT is in the whole state.,4
 COVID Inpatient Beds Used in South Carolina,5
 What's the hospital usage in NJ ,5
 Are there many people in hospitals in Kansas  about COVID-19's case?,5
@@ -43,64 +40,62 @@ the rate for have at least one dose vaccined in Georgia state,6
 how many people inject booster in New Mexico state,6
 What is the vaccination rate in Maryland state?,6
 La Crosse  WI,10
-Covid Level in Union of Iowa  ,10
+Covid Level in Union of Iowa ,10
 Tell me something about the Covid in Madison   Wisconsin,10
 The overall data of Chicago city Illinois,10
-Covid going in La Crosse   WI,10
+Covid going in La Crosse WI,10
 What are the new case in La Crosse WI,11
-How many new case in Adams   of Colorado,11
-How many new cases in Irion   of Texas this week,11
-Show me the case trend in AL Bethel   this week,11
-What's new case in St.Paul   MN,11
-New case in New York   NY state,11
-New case in Tomas   Wisconsin state,11
-New case in Chicago   IL state,11
+How many new case in Adams of Colorado,11
+How many new cases in Irion of Texas this week,11
+Show me the case trend in AL Bethel this week,11
+What's new case in St.Paul MN,11
+New case in New York   NY ,11
+New case in Tomas  Wisconsin ,11
+New case in Chicago   IL ,11
 Death status in Washington Vermont  ,12
 how many death cause of Coivd in WI Clark  ,12
-I want to know the Test info of Valley   Idaho,13
+I want to know the Test info of Valley  Idaho,13
 How many postive we have in St. Charles Louisiana,13
-Postive rate in Clay   Arkansas,13
-Hospitality in Clay   North Carolina hosp,14
-Hospital usage in La Crosse   Wisconsin hosp,14
-ICU occupation in Davis   Utah hosp,14
-"The number of COVID-19 patients in   Nowata, Oklahoma hosp" ,14
-The number of COVID-19 patients in Bolivar   of Mississippi state hosp.,14
-vaccination in La Crosse WI vac,15
-How many people recived boost dose in Lee Kentucky vac,15
-what's the vaccination rate in Lincoln   Louisiana vac,15
+Postive rate in Clay Arkansas,13
+Hospitality in Clay  North Carolina ,14
+Hospital usage in La Crosse  Wisconsin ,14
+ICU occupation in Davis  Utah ,14
+"The number of COVID-19 patients in   Nowata, Oklahoma" ,14
+The number of COVID-19 patients in Bolivar of Mississippi.,14
+vaccination in La Crosse WI,15
+How many people recived boost dose in Lee Kentucky,15
+what's the vaccination rate in Lincoln Louisiana,15
 hey what's the weather today,20
 do we have taco for lunch?,20
 hey you little shit,20
-overall data of Orange   Indiana,10
-how many people have full dose vaccined in Scott   Indiana ,15
+overall data of Orange  Indiana,10
+how many people have full dose vaccined in Scott  Indiana ,15
 US,0
-WI state,1
+WI ,1
 the rank of all state,7
 US all state status,7
 the table of all US states,7
 show me the infomation of all States,7
 State Rank,7
 State Rank in US,7
-  rank in WI state,8
-Sort all the   in Wisconsin state,8
-Sort the counties in New York state,8
-  rank in WI state level,8
-Allegany counties in New York state,10
-New case in WI state,2
-New case in NY state,2
-New case in IL state,2
-new death in la crosse WI   state,12
+rank in WI ,8
+Sort all the in Wisconsin ,8
+Sort the counties in New York,8
+rank in WI state level,8
+Allegany counties in New York,10
+New case in WI ,2
+New case in NY ,2
+New case in IL,2
+new death in la crosse WI,12
 counties rank in WI state,8
 counties rank in IL state,8
-What are the new death in La Crosse   WI state,12
-death Madison   WI,12
+What are the new death in La Crosse WI ,12
+death Madison WI,12
 Rank table in NY state,8
-rank all  ,9
-rank all the  ,9
 sort all the counties from high to low,9
 sort all the counties by case,9
-What are death in WI death state,3
-What are the new case in wisconsin case state,3
+What are death in WI death ,3
+What are the new case in wisconsin case ,3
 rank the   in WI,8
 rank the state in US,7
 vaccine in La crosse   WI vac,15
@@ -146,7 +141,7 @@ vaccine in La crosse   WI vac,15
 "COVID hospitalization rankings for counties in NY?",8
 
 "COVID rank among all US counties?",9
-"All US   rankings for COVID?",9
+"All US  counties rankings for COVID?",9
 "Ranking of all US counties by COVID cases?",9
 "Overall   rank in the US for COVID?",9
 
@@ -552,3 +547,53 @@ vaccine in La crosse   WI vac,15
 "When is the next full moon?",20
 "Did aliens build the pyramids?",20
 "Who will win the next Super Bowl?",20
+
+"AK",1
+    "AZ",1
+    "AR",1
+    "CA",1
+    "CO",1
+    "CT",1
+    "DE",1
+    "FL",1
+    "GA",1
+    "HI",1
+    "ID",1
+    "IL",1
+    "IN",1
+    "IA",1
+    "KS",1
+    "KY",1
+    "LA",1
+    "ME",1
+    "MD",1
+    "MA",1
+    "MI",1
+    "MN",1
+    "MS",1
+    "MO",1
+    "MT",1
+    "NE",1
+    "NV",1
+    "NH",1
+    "NJ",1
+    "NM",1
+    "NY",1
+    "NC",1
+    "ND",1
+    "OH",1
+    "OK",1
+    "OR",1
+    "PA",1
+    "RI",1
+    "SC",1
+    "SD",1
+    "TN",1
+    "TX",1
+    "UT",1
+    "VT",1
+    "VA",1
+    "WA",1
+    "WV",1
+    "WI",1
+    "WY",1
