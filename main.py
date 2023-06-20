@@ -152,7 +152,7 @@ def read_Q(Q):
                 print(county)
                 code=20
                 result='Please input State name'     
-                
+        
         elif code==0:
                 if us==1:
                         result=getDataDetail(getDataFile(state,county,code),code)
@@ -167,8 +167,11 @@ def read_Q(Q):
                         print('ML model predict result: ',code)
                         #Print the place name in the question (for test)
                         # print('Place name in the question: ',gpe) 
-                        
-                                                                
+                        if code==8 and state=='': 
+                                code=7      
+                        if 9<code<15 and state!='' and county=='': 
+                                code=code-9  
+                        print('Adjust predict result: ',code)                                        
                         result=getDataDetail(getDataFile(state,county,code),code)
                         print(result)
                         # if 'History' in result:
