@@ -80,12 +80,13 @@ def read_Q(Q):
         Q=''                        
         for token in doc:
                 
-                if len(token)==2:
+                if len(token.text)==2:
+                        Q=Q+token.text
                         continue
                 else:
                         Q=Q+spell.correction(token.text)+' '
                         print(Q)
-                        print(len(Q))
+                        print(len(token))
                 
         for ent in doc.ents:
                 print(doc.ents)
