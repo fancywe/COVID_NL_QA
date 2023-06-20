@@ -81,7 +81,7 @@ def read_Q(Q):
         for token in doc:
                 
                 if len(token.text)==2:
-                        Q=Q+token.text
+                        Q=Q+token.text+' '
                         continue
                 else:
                         Q=Q+spell.correction(token.text)+' '
