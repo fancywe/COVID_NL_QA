@@ -32,13 +32,21 @@ def getDataFile(state,county,code):
 #     elif 0<code<7 and state!='' and county!='':get_countyinfo(state,county)
     elif code==7: return get_staterank()
     elif code==8 and state!='': return get_countyrank(state)
-    elif code==8 and state=='': return get_staterank()
+    elif code==8 and state=='': 
+            code=7
+            return get_staterank()
     elif code==9: return get_allcountyrank()
     elif 9<code<15 and state!='' and county!='': return get_countyinfo(state,county)
-    elif 9<code<15 and state!='' and county=='': return get_stateinfo(state)
+    elif 9<code<15 and state!='' and county=='': 
+            code=1
+            return get_stateinfo(state)
     elif code==15 and state!='' and county!='': return county_vac(state,county)
-    elif code==20 and state!='' and county!='': return get_countyinfo(state,county)
-    elif code==20 and state!='' and county=='': return get_stateinfo(state)
+    elif code==20 and state!='' and county!='': 
+            code=10
+            return get_countyinfo(state,county)
+    elif code==20 and state!='' and county=='': 
+            code=1
+            return get_stateinfo(state)
     else: unknow()
     print(state,county,code)    
     
