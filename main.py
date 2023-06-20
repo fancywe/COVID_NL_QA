@@ -64,8 +64,10 @@ def read_Q(Q):
                 code=10
                 result=getDataDetail(getDataFile(state,county,code),code)
             else:
+                code=20
                 result='This is not a valid zip code'     
         else:
+            code=20
             result='This is not a valid zip code' 
     else:       
         
