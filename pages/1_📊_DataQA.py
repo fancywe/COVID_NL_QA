@@ -167,11 +167,12 @@ with st.sidebar:
     st.markdown(''' - Covid Vaccine info''', unsafe_allow_html=True)
     
     st.markdown('<h2>How to ask</h3>', unsafe_allow_html=True)
+    
     st.markdown(''' - County level info: Type the county name,state name(Abbr. works) and the feature you want to know, or skip it to get the overview''', unsafe_allow_html=True)
     st.markdown(''' - State level info: Type the state name(Abbr. works) and the feature you want to know, or skip it to get the overview''', unsafe_allow_html=True)
     st.markdown(''' - US level info: Well, just tpye 'US' should works''', unsafe_allow_html=True)
     st.markdown(''' - County/State Rank: Type Like 'Rank the county in WI',or'State rank'.''', unsafe_allow_html=True)
-    
+    st.markdown(''' - Try ZIP code?''', unsafe_allow_html=True)
     
     
 # If the button is clicked or activated:

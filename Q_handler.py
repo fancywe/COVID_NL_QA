@@ -98,7 +98,7 @@ data = pd.read_csv('Training set.csv')
 
 # create features
 data = create_features(data)
-
+print(data.to_string())
 #Shuffle and split the Training set
 train, valid = train_test_split(data, test_size=0.2,shuffle=True)
 
