@@ -277,6 +277,6 @@ def get_countyrank(state):
             return resultList
             
 def unknow():
-        result={'result':'Can\'t recognize the question'} 
+        result={'result':'Can\'t recognize the question, sry'} 
         return result         
             
