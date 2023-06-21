@@ -201,7 +201,7 @@ if button:
         
         if result['code']==20:
             st.write('')
-            st.markdown('<h4>'+result['result']+'</h4>', unsafe_allow_html=True)
+            st.markdown('<h3>'+result['result']+'</h3>', unsafe_allow_html=True)
         elif result['code']==0:
             displayUS(result)
         # st.write(result['result']['US Total Deaths'])
