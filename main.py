@@ -71,12 +71,7 @@ def read_Q(Q):
             result='This is not a valid zip code' 
     else:       
         
-        for stateName in stateCode:
-                if state=='':
-                        if stateName in Q:
-                                state=stateName
-                                print(state)
-                                break
+        
         if state=='':                
                 for stateName in stateFullName:
                         
@@ -92,7 +87,19 @@ def read_Q(Q):
                         Q=Q+spell.correction(token.text)+' '
                         print(Q)
                         print(len(token))
-                
+        x = Q.split() 
+        for word in x:
+                if state=='':  
+                        for stateName in stateCode:
+                                if state=='':
+                                        if stateName == word:
+                                                state=stateName
+                                                print(state)
+                                                break              
+                        # for stateName in stateFullName:      
+                        #         if(stateName == word.lower()):
+                        #                 state=state_code.us_state_to_abbrev[stateName.capitalize()]  
+                        #                 break          
         for ent in doc.ents:
                 print(doc.ents)
                 if (ent.label_ == 'GPE'):
@@ -102,11 +109,10 @@ def read_Q(Q):
                 if(name in x) and (len(name)>len(county)):
                         county=name 
         if state=='':                
-                for stateName in stateFullName:
-                        if state=='':      
-                                if(stateName in Q.lower()):
-                                        state=state_code.us_state_to_abbrev[stateName.capitalize()]  
-                                        break                           
+                for stateName in stateFullName:      
+                        if(stateName in Q.lower()):
+                                state=state_code.us_state_to_abbrev[stateName.capitalize()]  
+                                break                           
                 
         # for stateName in stateCode:
         #         if stateName in Q:
