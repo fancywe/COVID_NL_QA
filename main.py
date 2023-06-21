@@ -168,7 +168,9 @@ def read_Q(Q):
                         #Print the place name in the question (for test)
                         # print('Place name in the question: ',gpe) 
                         if code==8 and state=='': 
-                                code=7      
+                                code=7    
+                        if 0<code<7 and state!='' and county!='': 
+                                code=code+9        
                         if 9<code<15 and state!='' and county=='': 
                                 code=code-9  
                         print('Adjust predict result: ',code)                                        
