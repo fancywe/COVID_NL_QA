@@ -269,7 +269,7 @@ if button:
                             i=i+1
                         
         else:
-                if type(result['result'])==str:
+                if type(result['result'])=='str':
                     st.markdown('<h3>'+result['result']+'</h3>', unsafe_allow_html=True)
                 else:
                     tab1, tab2= st.tabs(["Current Data", "History Chart"])
