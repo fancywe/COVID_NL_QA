@@ -211,160 +211,162 @@ def getDataDetail(dic,code):
        result={'result':'''Null '''}
        return result
    else:
-    if code==0:
-        result={'US Total Cases':dic['us_total_cases'],'US Total Deaths':dic['us_total_deaths'],'Booster Pop Pct':dic['Bivalent_Booster_Pop_Pct']
-                ,'us_trend_new_case':dic['us_trend_new_case'],'us_trend_new_death':dic['us_trend_new_death'],'US_case_graph':dic['new_case'],
-                'US_death_graph':dic['new_death'],'US_pediatric_graph':dic['sum_previous_day_pediatric_and_adult_7DayAvg'],
-                'Booster':dic['Bivalent_Booster'],'Admissions':dic['sum_inpatient_beds_used_clean']
-                }   
-        return result
-    elif code==6:
-            
-                result={'State':dic['StateName'],'At least 1 Dose Population':dic['Administered_Dose1_Recip'],
-                        'At Least One Dose rate of Total Population':dic['Administered_Dose1_Pop_Pct'],
-                        'Completed Primary Series Population':dic['Series_Complete_Yes'],
-                        'Completed Primary Series Rate':   dic["Series_Complete_Pop_Pct"],
-                        'Booster Received':dic['Bivalent_Booster'],'Booster Received Rate':dic['Bivalent_Booster_Pop_Pct']}
+    try:
+        if code==0:
+                result={'US Total Cases':dic['us_total_cases'],'US Total Deaths':dic['us_total_deaths'],'Booster Pop Pct':dic['Bivalent_Booster_Pop_Pct']
+                        ,'us_trend_new_case':dic['us_trend_new_case'],'us_trend_new_death':dic['us_trend_new_death'],'US_case_graph':dic['new_case'],
+                        'US_death_graph':dic['new_death'],'US_pediatric_graph':dic['sum_previous_day_pediatric_and_adult_7DayAvg'],
+                        'Booster':dic['Bivalent_Booster'],'Admissions':dic['sum_inpatient_beds_used_clean']
+                        }   
                 return result
-            
-    elif code==15: 
+        elif code==6:
                 
-                result={'State':dic['StateName'],'County':dic['County'],'Completed Primary Series Population':dic['Series_Complete_Yes'],
-                        'Completed Primary Series Population':dic['Series_Complete_Pop_Pct'],
-                        'Completed Primary Series Rate':dic['Completeness_pct'],
-                        'At Least One Dose Rate':dic['Administered_Dose1_Pop_Pct'],
-                        'Booster Dose received population':dic['Booster_Doses']}
+                        result={'State':dic['StateName'],'At least 1 Dose Population':dic['Administered_Dose1_Recip'],
+                                'At Least One Dose rate of Total Population':dic['Administered_Dose1_Pop_Pct'],
+                                'Completed Primary Series Population':dic['Series_Complete_Yes'],
+                                'Completed Primary Series Rate':   dic["Series_Complete_Pop_Pct"],
+                                'Booster Received':dic['Bivalent_Booster'],'Booster Received Rate':dic['Bivalent_Booster_Pop_Pct']}
+                        return result
                 
-                return result 
-    elif code==7:
-                result=dic
-                return dic
-    elif code==9:
-                result=dic
-                return dic
-    elif code==8:
-                result=dic
-                print(dic)
-                print(type(dic))
-                return dic 
-    elif code==16:
-                result=dic
-                print(dic)
-                print(type(dic))
-                return dic                 
-        
-    elif code==1:
-                result={'State':dic['StateName'],'New Case Last Week':dic['new_cases_past_7_days'],
-                        'New Case Rate Last Week 100K':dic['Seven_day_cum_new_cases_per_100k']
-                        ,'New Death Past 7 days':dic['new_deaths_past_7_days'],
-                        '7 days Death rate in 100K':dic['seven_day_cum_new_deaths_per_100k'],
-                        'Total Postive last week':dic['total_test_results_reported_7_day_count_change']
-                        ,'Postive Population rate in 100K':dic['total_test_results_reported_7_day_count_change_per_100K'],
-                        'Pediatric adult number':dic['sum_previous_day_pediatric_and_adult_7DayAvg'],'At least 1 Dose Population':dic['Administered_Dose1_Recip'],
-                        'At Least One Dose rate of Total Population':dic['Administered_Dose1_Pop_Pct'],
-                        'Completed Primary Series Population':dic['Series_Complete_Yes'],
-                        'Completed Primary Series Rate':   dic["Series_Complete_Pop_Pct"],
-                        'Booster Received':dic['Bivalent_Booster'],'Booster Received Rate':dic['Bivalent_Booster_Pop_Pct']
-                        # ,'History':dic['History']
-                        }
-                return result
-
-    elif code==10:
-                
-                result={'State':dic['State_name'],'County':dic['County'],'Level':dic['CCL_community_burden_level'],'New Case Past 7 days':dic['Cases_7_day_count_change'],
-                        'New Case Rate Past 7 days (100K)':dic['cases_per_100K_7_day_count_change'],
-                        'New Case Rate changed':dic['new_cases_week_over_week_percent_change'],
-                        'New Death Past 7 days':dic['deaths_7_day_count_change'],
-                        '7 days Death rate in 100K':dic['deaths_per_100K_7_day_count_change'],
-                        '7 days Death changed ':dic['new_deaths_week_over_week_percent_change'],
-                        'Total Postive last week':dic['percent_test_results_reported_positive_last_7_days']
-                        ,'Total Postive changed':dic['percent_test_results_reported_positive_last_7_days_7_day_count_change'],
-                        'Postive Population rate in 100K':dic['total_test_results_reported_7_day_count_change_per_100K'],
-                        'Postive Population rate in 100K changed':dic['total_new_test_results_reported_week_over_week_percent_change'],
-                        'New Admissions last 7 days':dic['admissions_covid_confirmed_last_7_days'],
-                        'New Admissions changed':dic['admissions_covid_confirmed_week_over_week_percent_change'],
-                        'COVID Inpatient Beds Used':dic['percent_adult_inpatient_beds_used_confirmed_covid'],
-                        'COVID Inpatient Beds Used changed':dic['percent_adult_inpatient_beds_used_confirmed_covid_week_over_week_absolute_change'],
-                        'ICU Beds Used by Covid':dic['percent_adult_icu_beds_used_confirmed_covid'],
-                        'ICU Beds Used by Covid changed':dic['percent_adult_icu_beds_used_confirmed_covid_week_over_week_absolute_change'],
-                        # 'History':dic['History']
-                        # ,'Completed Primary Series Population':dic['Series_Complete_Yes'],
-                        # 'Completed Primary Series Population':dic['Series_Complete_Pop_Pct'],
-                        # 'Completed Primary Series Rate':dic['Completeness_pct'],
-                        # 'At Least One Dose Rate':dic['Administered_Dose1_Pop_Pct'],
-                        # 'Booster Dose received population':dic['Booster_Doses']    
-                        }
-                return result
-            
-       
-    elif code==2:
-                result={'State':dic['StateName'],'New Case Last Week':dic['new_cases_past_7_days'],
-                        'New Case Rate Last Week 100K':dic['Seven_day_cum_new_cases_per_100k']
-                        # ,'History':dic['History']
-                        }
-                return result
-    elif code==11:
-                
-                result={'State':dic['State_name'],'County':dic['County'],'Level':dic['CCL_community_burden_level'].capitalize(),'New Case Past 7 days':dic['Cases_7_day_count_change'],
-                        'New Case Rate Past 7 days (100K)':dic['cases_per_100K_7_day_count_change'],
-                        'New Case Rate changed':dic['new_cases_week_over_week_percent_change'],
-                        'Start Date':dic['positivity_start_date'],'End Date':dic['positivity_end_date']}
-                return result
-            
-            
-    elif code==3:
-            
-            
-                result={'State':dic['StateName'],'New Death Past 7 days':dic['new_deaths_past_7_days'],
-                        '7 days Death rate in 100K':dic['seven_day_cum_new_deaths_per_100k']
-                        #,'History':dic['History']
-                        }
-                return result
-    elif code==12:
-                result={'State':dic['State_name'],'County':dic['County'],'Level':dic['CCL_community_burden_level'].capitalize(),'New Death Past 7 days':dic['deaths_7_day_count_change'],
-                        '7 days Death rate in 100K':dic['deaths_per_100K_7_day_count_change'],
-                        '7 days Death change from last week':dic['new_deaths_week_over_week_percent_change'],
-                        'Start date':dic['case_death_start_date'],'End Date':dic['case_death_end_date']
-                        #,'History':dic['History']
-                        }
-                return result
-                
-    elif code==4:
-                
-                
-                    result={'State':dic['StateName'],'Postive ':dic['percent_positive_7_day_range'],
-                            'Total Postive last week':dic['total_test_results_reported_7_day_count_change']
-                            ,'Postive Population rate in 100K':dic['total_test_results_reported_7_day_count_change_per_100K']
-                        #     ,'History':dic['History']
-                            }
-                    
-                    return result
-    elif code==13:
-                    result={'State':dic['State_name'],'County':dic['County'],'Level':dic['CCL_community_burden_level'].capitalize(),'Total Postive last week':dic['percent_test_results_reported_positive_last_7_days']
-                            ,'Total Postive changed':dic['percent_test_results_reported_positive_last_7_days_7_day_count_change'],
-                            'Postive Population rate in 100K':dic['total_test_results_reported_7_day_count_change_per_100K'],
-                            'Postive Population rate in 100K changed':dic['total_new_test_results_reported_week_over_week_percent_change'],
-                            'Start date':dic['testing_start_date'],'End date':dic['testing_end_date']}
-                    
-                    return result
-                    
-    elif code==5:
-            
-                result={'State':dic['StateName'],'Pediatric adult number':dic['sum_previous_day_pediatric_and_adult_7DayAvg']}
-                return result  
-            
-    elif code==14:
-                result={'State':dic['State_name'],'County':dic['County'],'Level':dic['CCL_community_burden_level'].capitalize(),
-                        'New Admissions last 7 days':dic['admissions_covid_confirmed_last_7_days'],
-                        'New Admissions changed':dic['admissions_covid_confirmed_week_over_week_percent_change'],
-                        'COVID Inpatient Beds Used':dic['percent_adult_inpatient_beds_used_confirmed_covid'],
-                        'COVID Inpatient Beds Used changed':dic['percent_adult_inpatient_beds_used_confirmed_covid_week_over_week_absolute_change'],
-                        'ICU Beds Used by Covid':dic['percent_adult_icu_beds_used_confirmed_covid'],
-                        'ICU Beds Used by Covid changed':dic['percent_adult_icu_beds_used_confirmed_covid_week_over_week_absolute_change']
+        elif code==15: 
                         
-                        }
-                return result
-            
+                        result={'State':dic['StateName'],'County':dic['County'],'Completed Primary Series Population':dic['Series_Complete_Yes'],
+                                'Completed Primary Series Population':dic['Series_Complete_Pop_Pct'],
+                                'Completed Primary Series Rate':dic['Completeness_pct'],
+                                'At Least One Dose Rate':dic['Administered_Dose1_Pop_Pct'],
+                                'Booster Dose received population':dic['Booster_Doses']}
+                        
+                        return result 
+        elif code==7:
+                        result=dic
+                        return dic
+        elif code==9:
+                        result=dic
+                        return dic
+        elif code==8:
+                        result=dic
+                        print(dic)
+                        print(type(dic))
+                        return dic 
+        elif code==16:
+                        result=dic
+                        print(dic)
+                        print(type(dic))
+                        return dic                 
+                
+        elif code==1:
+                        result={'State':dic['StateName'],'New Case Last Week':dic['new_cases_past_7_days'],
+                                'New Case Rate Last Week 100K':dic['Seven_day_cum_new_cases_per_100k']
+                                ,'New Death Past 7 days':dic['new_deaths_past_7_days'],
+                                '7 days Death rate in 100K':dic['seven_day_cum_new_deaths_per_100k'],
+                                'Total Postive last week':dic['total_test_results_reported_7_day_count_change']
+                                ,'Postive Population rate in 100K':dic['total_test_results_reported_7_day_count_change_per_100K'],
+                                'Pediatric adult number':dic['sum_previous_day_pediatric_and_adult_7DayAvg'],'At least 1 Dose Population':dic['Administered_Dose1_Recip'],
+                                'At Least One Dose rate of Total Population':dic['Administered_Dose1_Pop_Pct'],
+                                'Completed Primary Series Population':dic['Series_Complete_Yes'],
+                                'Completed Primary Series Rate':   dic["Series_Complete_Pop_Pct"],
+                                'Booster Received':dic['Bivalent_Booster'],'Booster Received Rate':dic['Bivalent_Booster_Pop_Pct']
+                                # ,'History':dic['History']
+                                }
+                        return result
+
+        elif code==10:
+                        
+                        result={'State':dic['State_name'],'County':dic['County'],'Level':dic['CCL_community_burden_level'],'New Case Past 7 days':dic['Cases_7_day_count_change'],
+                                'New Case Rate Past 7 days (100K)':dic['cases_per_100K_7_day_count_change'],
+                                'New Case Rate changed':dic['new_cases_week_over_week_percent_change'],
+                                'New Death Past 7 days':dic['deaths_7_day_count_change'],
+                                '7 days Death rate in 100K':dic['deaths_per_100K_7_day_count_change'],
+                                '7 days Death changed ':dic['new_deaths_week_over_week_percent_change'],
+                                'Total Postive last week':dic['percent_test_results_reported_positive_last_7_days']
+                                ,'Total Postive changed':dic['percent_test_results_reported_positive_last_7_days_7_day_count_change'],
+                                'Postive Population rate in 100K':dic['total_test_results_reported_7_day_count_change_per_100K'],
+                                'Postive Population rate in 100K changed':dic['total_new_test_results_reported_week_over_week_percent_change'],
+                                'New Admissions last 7 days':dic['admissions_covid_confirmed_last_7_days'],
+                                'New Admissions changed':dic['admissions_covid_confirmed_week_over_week_percent_change'],
+                                'COVID Inpatient Beds Used':dic['percent_adult_inpatient_beds_used_confirmed_covid'],
+                                'COVID Inpatient Beds Used changed':dic['percent_adult_inpatient_beds_used_confirmed_covid_week_over_week_absolute_change'],
+                                'ICU Beds Used by Covid':dic['percent_adult_icu_beds_used_confirmed_covid'],
+                                'ICU Beds Used by Covid changed':dic['percent_adult_icu_beds_used_confirmed_covid_week_over_week_absolute_change'],
+                                # 'History':dic['History']
+                                # ,'Completed Primary Series Population':dic['Series_Complete_Yes'],
+                                # 'Completed Primary Series Population':dic['Series_Complete_Pop_Pct'],
+                                # 'Completed Primary Series Rate':dic['Completeness_pct'],
+                                # 'At Least One Dose Rate':dic['Administered_Dose1_Pop_Pct'],
+                                # 'Booster Dose received population':dic['Booster_Doses']    
+                                }
+                        return result
+                
+        
+        elif code==2:
+                        result={'State':dic['StateName'],'New Case Last Week':dic['new_cases_past_7_days'],
+                                'New Case Rate Last Week 100K':dic['Seven_day_cum_new_cases_per_100k']
+                                # ,'History':dic['History']
+                                }
+                        return result
+        elif code==11:
+                        
+                        result={'State':dic['State_name'],'County':dic['County'],'Level':dic['CCL_community_burden_level'].capitalize(),'New Case Past 7 days':dic['Cases_7_day_count_change'],
+                                'New Case Rate Past 7 days (100K)':dic['cases_per_100K_7_day_count_change'],
+                                'New Case Rate changed':dic['new_cases_week_over_week_percent_change'],
+                                'Start Date':dic['positivity_start_date'],'End Date':dic['positivity_end_date']}
+                        return result
+                
+                
+        elif code==3:
+                
+                
+                        result={'State':dic['StateName'],'New Death Past 7 days':dic['new_deaths_past_7_days'],
+                                '7 days Death rate in 100K':dic['seven_day_cum_new_deaths_per_100k']
+                                #,'History':dic['History']
+                                }
+                        return result
+        elif code==12:
+                        result={'State':dic['State_name'],'County':dic['County'],'Level':dic['CCL_community_burden_level'].capitalize(),'New Death Past 7 days':dic['deaths_7_day_count_change'],
+                                '7 days Death rate in 100K':dic['deaths_per_100K_7_day_count_change'],
+                                '7 days Death change from last week':dic['new_deaths_week_over_week_percent_change'],
+                                'Start date':dic['case_death_start_date'],'End Date':dic['case_death_end_date']
+                                #,'History':dic['History']
+                                }
+                        return result
+                        
+        elif code==4:
+                        
+                        
+                        result={'State':dic['StateName'],'Postive ':dic['percent_positive_7_day_range'],
+                                'Total Postive last week':dic['total_test_results_reported_7_day_count_change']
+                                ,'Postive Population rate in 100K':dic['total_test_results_reported_7_day_count_change_per_100K']
+                                #     ,'History':dic['History']
+                                }
+                        
+                        return result
+        elif code==13:
+                        result={'State':dic['State_name'],'County':dic['County'],'Level':dic['CCL_community_burden_level'].capitalize(),'Total Postive last week':dic['percent_test_results_reported_positive_last_7_days']
+                                ,'Total Postive changed':dic['percent_test_results_reported_positive_last_7_days_7_day_count_change'],
+                                'Postive Population rate in 100K':dic['total_test_results_reported_7_day_count_change_per_100K'],
+                                'Postive Population rate in 100K changed':dic['total_new_test_results_reported_week_over_week_percent_change'],
+                                'Start date':dic['testing_start_date'],'End date':dic['testing_end_date']}
+                        
+                        return result
+                        
+        elif code==5:
+                
+                        result={'State':dic['StateName'],'Pediatric adult number':dic['sum_previous_day_pediatric_and_adult_7DayAvg']}
+                        return result  
+                
+        elif code==14:
+                        result={'State':dic['State_name'],'County':dic['County'],'Level':dic['CCL_community_burden_level'].capitalize(),
+                                'New Admissions last 7 days':dic['admissions_covid_confirmed_last_7_days'],
+                                'New Admissions changed':dic['admissions_covid_confirmed_week_over_week_percent_change'],
+                                'COVID Inpatient Beds Used':dic['percent_adult_inpatient_beds_used_confirmed_covid'],
+                                'COVID Inpatient Beds Used changed':dic['percent_adult_inpatient_beds_used_confirmed_covid_week_over_week_absolute_change'],
+                                'ICU Beds Used by Covid':dic['percent_adult_icu_beds_used_confirmed_covid'],
+                                'ICU Beds Used by Covid changed':dic['percent_adult_icu_beds_used_confirmed_covid_week_over_week_absolute_change']
+                                
+                                }
+                        return result
+    except:
+                result={'result':'Can\'t find the answr of this question, sry'}     
 # if qtype=='CommInfo':
        
 #    if qtype=='OverAll':                       
