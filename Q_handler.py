@@ -40,6 +40,7 @@ weekCase=state_code.dict_for_regular_data['week case info']
 weekDeath=state_code.dict_for_regular_data['week death info']
 weekTest=state_code.dict_for_regular_data['test info']
 weekHosp=state_code.dict_for_regular_data['Hosp info']
+Rank=state_code.dict_for_regular_data['rank info']
 
 stateCode=list(state_code.state_codes.keys())
 stateFullName=list(map(str.lower,state_code.states.values()))
@@ -75,6 +76,7 @@ def create_features(data):
     data['week_death_info'] = data['Question'].apply(lambda x: 1 if any(word in x.lower() for word in weekDeath) else 0)
     data['test_info'] = data['Question'].apply(lambda x: 1 if any(word in x.lower() for word in weekTest) else 0)
     data['hosp_info'] = data['Question'].apply(lambda x: 1 if any(word in x.lower() for word in weekHosp) else 0)
+    data['rank'] = data['Question'].apply(lambda x: 1 if any(word in x.lower() for word in Rank) else 0)
     return data
 
 def create_features_single(Q,state,county):
@@ -89,6 +91,7 @@ def create_features_single(Q,state,county):
     features['week_death_info'] = 1 if any(word in Q.lower() for word in weekDeath) else 0
     features['test_info'] = 1 if any(word in Q.lower() for word in weekTest) else 0
     features['hosp_info'] = 1 if any(word in Q.lower() for word in weekHosp) else 0
+    features['rank'] = 1 if any(word in Q.lower() for word in Rank) else 0
     return pd.DataFrame([features])
  
 warnings.simplefilter("ignore")
@@ -114,7 +117,7 @@ validY = valid['Type'].values
 preprocessor = ColumnTransformer(
     transformers=[
         ('tfidf', TfidfVectorizer(), 'Question'),
-        ('num', StandardScaler(), ['length','word_count','have_state','have_county', 'week_case_info', 'week_death_info', 'test_info', 'hosp_info'])
+        ('num', StandardScaler(), ['length','word_count','have_state','have_county', 'week_case_info', 'week_death_info', 'test_info', 'hosp_info','rank'])
     ])
 
 #Combine vectorizer with classifier in a pipeline
