@@ -84,7 +84,7 @@ def read_Q(Q):
                         Q=Q+token.text+' '
                         continue
                 else:
-                        Q=Q+spell.correction(token.text)+' '
+                        Q=Q+(spell.correction(token.text) if x is not None else '')+' '
                         print(Q)
                         print(len(token))
         x = Q.split() 

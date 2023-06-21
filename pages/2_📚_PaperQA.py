@@ -3,8 +3,7 @@ import requests, json
 from annotated_text import annotated_text
 
 st.set_page_config(
-    page_title="Naturalangue",
-    page_icon=":shark:",
+    page_title="Paper QA",
     layout="centered",
     initial_sidebar_state="expanded",
     )
