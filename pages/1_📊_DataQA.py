@@ -269,89 +269,92 @@ if button:
                             i=i+1
                         
         else:
-                tab1, tab2= st.tabs(["Current Data", "History Chart"])
-                
-                with tab1:
-                    col1, col2 = st.columns(2)
-                    if isinstance(result['result'], dict): 
-                        i=1    
-                        for k,v in result['result'].items():  
+                if type(result['result'])==str:
+                    st.markdown('<h3>'+result['result']+'</h3>', unsafe_allow_html=True)
+                else:
+                    tab1, tab2= st.tabs(["Current Data", "History Chart"])
+                    
+                    with tab1:
+                        col1, col2 = st.columns(2)
+                        if isinstance(result['result'], dict): 
+                            i=1    
+                            for k,v in result['result'].items():  
+                                
+                                
+                                if i%2==1:
+                                        col1.metric(k,v)
+                                else: col2.metric(k,v)       
+                                i=i+1
                             
+                                
+                        with tab2:
+                            date=[]
+                            case=[]
+                            death=[]
+                            test=[]
+                            admission=[]
+                            if(15>result['code']>=10):
+                                st.write('Well, this part is no longer available')
+                                # for x in result['History']: 
+                                #         date.append(x['date'])
+                                #         case.append(x['cases_7_day_count_change'])
+                                #         death.append(x['deaths_7_day_count_change'])
+                                #         test.append(x['new_test_results_reported_7_day_rolling_average'])
+                                #         admission.append(x["admissions_covid_confirmed_last_7_days_per_100k_population"])
+                                        
+                                # date=pd.to_datetime(date)  
+                                
+                                # df = pd.DataFrame({'Case':case,'Date':date,'Death':death,'Test':test,'Admission':admission})
                             
-                            if i%2==1:
-                                    col1.metric(k,v)
-                            else: col2.metric(k,v)       
-                            i=i+1
-                        
-                            
-                    with tab2:
-                        date=[]
-                        case=[]
-                        death=[]
-                        test=[]
-                        admission=[]
-                        if(15>result['code']>=10):
-                            st.write('Well, this part is no longer available')
-                            # for x in result['History']: 
-                            #         date.append(x['date'])
-                            #         case.append(x['cases_7_day_count_change'])
-                            #         death.append(x['deaths_7_day_count_change'])
-                            #         test.append(x['new_test_results_reported_7_day_rolling_average'])
-                            #         admission.append(x["admissions_covid_confirmed_last_7_days_per_100k_population"])
+                                
+                                # df.sort_values(by='Date',ascending=True,inplace = True)
+                                # df=df.reset_index(drop=True)
+                                # print(type(df.Date[0]))
+                                # print(df)
+                                # max=len(df.index)
+                                # min=0
+                                # print(max)
+                                
+                                # if(result['code']==11 or result['code']==10):
                                     
-                            # date=pd.to_datetime(date)  
-                            
-                            # df = pd.DataFrame({'Case':case,'Date':date,'Death':death,'Test':test,'Admission':admission})
-                        
-                            
-                            # df.sort_values(by='Date',ascending=True,inplace = True)
-                            # df=df.reset_index(drop=True)
-                            # print(type(df.Date[0]))
-                            # print(df)
-                            # max=len(df.index)
-                            # min=0
-                            # print(max)
-                            
-                            # if(result['code']==11 or result['code']==10):
-                                
-                            #         chart = alt.Chart(df.iloc[min:max,:]).mark_line().encode(
-                            #         x=alt.X('Date'),
-                            #         y=alt.Y('Case:Q'),
-                            #         ).properties(title='Case History')
-                            #         # values = st.slider(
-                            #         # 'Select a range ',
-                            #         # 0, max, (0, max))
-                            #         # st.write('Values:', values)
-                            #         st.altair_chart(chart, use_container_width=True)
-                            #         # min=values[0]
-                            #         # max=values[1]
-                            #         # k=k+1
+                                #         chart = alt.Chart(df.iloc[min:max,:]).mark_line().encode(
+                                #         x=alt.X('Date'),
+                                #         y=alt.Y('Case:Q'),
+                                #         ).properties(title='Case History')
+                                #         # values = st.slider(
+                                #         # 'Select a range ',
+                                #         # 0, max, (0, max))
+                                #         # st.write('Values:', values)
+                                #         st.altair_chart(chart, use_container_width=True)
+                                #         # min=values[0]
+                                #         # max=values[1]
+                                #         # k=k+1
 
-                                
-                            # if(result['code']==12 or result['code']==10):   
-                            #     chart = alt.Chart(df).mark_line().encode(
-                            #     x=alt.X('Date'),
-                            #     y=alt.Y('Death:Q'),
-                            #     ).properties(title="Death History")
-                            #     st.altair_chart(chart, use_container_width=True)
-                                
-                            # if(result['code']==13 or result['code']==10):
-                            #     chart = alt.Chart(df).mark_line().encode(
-                            #     x=alt.X('Date'),
-                            #     y=alt.Y('Test:Q'),
-                            #     ).properties(title="Test History")
-                            #     st.altair_chart(chart, use_container_width=True)
-                                
-                            # if(result['code']==14 or result['code']==10):    
-                                
-                            #     chart = alt.Chart(df).mark_line().encode(
-                            #     x=alt.X('Date'),
-                            #     y=alt.Y('Admission:Q'),
-                            #     ).properties(title="Admission History")
-                            #     st.altair_chart(chart, use_container_width=True)
-                                
-                        if(result['code']<10):
-                            st.write('Well, this part is no longer available')
+                                    
+                                # if(result['code']==12 or result['code']==10):   
+                                #     chart = alt.Chart(df).mark_line().encode(
+                                #     x=alt.X('Date'),
+                                #     y=alt.Y('Death:Q'),
+                                #     ).properties(title="Death History")
+                                #     st.altair_chart(chart, use_container_width=True)
+                                    
+                                # if(result['code']==13 or result['code']==10):
+                                #     chart = alt.Chart(df).mark_line().encode(
+                                #     x=alt.X('Date'),
+                                #     y=alt.Y('Test:Q'),
+                                #     ).properties(title="Test History")
+                                #     st.altair_chart(chart, use_container_width=True)
+                                    
+                                # if(result['code']==14 or result['code']==10):    
+                                    
+                                #     chart = alt.Chart(df).mark_line().encode(
+                                #     x=alt.X('Date'),
+                                #     y=alt.Y('Admission:Q'),
+                                #     ).properties(title="Admission History")
+                                #     st.altair_chart(chart, use_container_width=True)
+                                    
+                            if(result['code']<10):
+                                st.write('Well, this part is no longer available')
                             # for x in result['History']: 
                             #         date.append(x['submission_date'])
                             #         case.append(x['new_case'])
