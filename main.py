@@ -163,7 +163,11 @@ def read_Q(Q):
         
         elif code==0:
                 if us==1:
-                        result=getDataDetail(getDataFile(state,county,code),code)
+                        try:
+                                result=getDataDetail(getDataFile(state,county,code),code)
+                        except:
+                                result={'result':'Can\'t find the answr of this question, sry'} 
+                 
                 else:
                         if state=='': x=1
                         else: x=0
