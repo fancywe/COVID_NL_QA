@@ -200,7 +200,7 @@ def read_Q(Q):
 def getDataDetail(dic,code):
    
    if dic==None:
-       result={'result':'null'}
+       result={'result':'''Sorry, for some reasons can't find the result, try ask question in another way? '''}
        return result
    else:
     if code==0:
