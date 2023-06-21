@@ -24,7 +24,7 @@ weekCase=state_code.dict_for_regular_data['week case info']
 weekDeath=state_code.dict_for_regular_data['week death info']
 weekTest=state_code.dict_for_regular_data['test info']
 weekHosp=state_code.dict_for_regular_data['Hosp info']
-
+Rank=state_code.dict_for_regular_data['rank info']
 stateCode=list(state_code.state_codes.keys())
 stateFullName=list(map(str.lower,state_code.states.values()))
 countyName=list(map(str.lower,countyName))
@@ -131,11 +131,7 @@ def read_Q(Q):
         #                 Q+=' vac'
         #                 key=1
         #                 break
-        # for word in weekHosp :
-        #         if word in Q.lower() : 
-        #                 Q+='hosp'
-        #                 key=1
-        #                 break        
+             
         # if state!='':
         #         Q+=' state'
         #         geo=1
@@ -143,8 +139,10 @@ def read_Q(Q):
         #         Q+=' county' 
         #         geo=1
         rank=0
-        if 'rank' in Q:
-                rank=1               
+        for word in Rank :
+                if word in Q.lower() : 
+                        rank=1
+                        break                
         if len(gpe)==0 and state=='' and county=='' and rank==0:
                 code=20
                 result='No place detected'
@@ -176,6 +174,7 @@ def read_Q(Q):
                         print('Adjust predict result: ',code)                                        
                         result=getDataDetail(getDataFile(state,county,code),code)
                         print(result)
+                        
                         # if 'History' in result:
                         #         history=result.pop("History", None)  
                         #         print(result)    

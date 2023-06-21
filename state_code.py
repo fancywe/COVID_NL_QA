@@ -14,6 +14,7 @@ dict_for_regular_data = {
    'week case info':['case info','total case','weekly case rate per 100k','weekly case rate','case','cases'],
    'week death info':['total death','death rate','death info','death','deathes'],
    'test info':['test info','positivity','testing','postive','test'],
+   'rank info':['highest','lowest','most','array','order'],
    'Hosp info':['hostpital info','hospitalizations','admissions','hospitals','icu','patients','inpatient','beds','hospitals','hospital'],
    # 'Comm info':['community characteristics','community info']     
     
