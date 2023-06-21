@@ -72,8 +72,11 @@ def read_Q(Q):
     else:       
         
         for stateName in stateCode:
-                if stateName in Q:
-                        state=stateName
+                if state=='':
+                        if stateName in Q:
+                                state=stateName
+                                print(state)
+                                break
         if state=='':                
                 for stateName in stateFullName:
                         
