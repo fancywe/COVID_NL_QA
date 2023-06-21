@@ -74,11 +74,11 @@ def read_Q(Q):
         for stateName in stateCode:
                 if stateName in Q:
                         state=stateName
+        if state=='':                
+                for stateName in stateFullName:
                         
-        for stateName in stateFullName:
-                if state=='':      
-                        if(stateName in Q.lower()):
-                                state=state_code.us_state_to_abbrev[stateName.capitalize()] 
+                                if(stateName in Q.lower()):
+                                        state=state_code.us_state_to_abbrev[stateName.capitalize()] 
         Q=''                        
         for token in doc:
                 
@@ -98,11 +98,12 @@ def read_Q(Q):
                 x=Q.lower()   
                 if(name in x) and (len(name)>len(county)):
                         county=name 
-                        
-        for stateName in stateFullName:
-                if state=='':      
-                        if(stateName in Q.lower()):
-                                state=state_code.us_state_to_abbrev[stateName.capitalize()]                             
+        if state=='':                
+                for stateName in stateFullName:
+                        if state=='':      
+                                if(stateName in Q.lower()):
+                                        state=state_code.us_state_to_abbrev[stateName.capitalize()]  
+                                        break                           
                 
         # for stateName in stateCode:
         #         if stateName in Q:
