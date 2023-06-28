@@ -59,7 +59,7 @@ def read_Q(Q):
     if Q.isdigit():
         if len(Q)==5:
             if zipcodes.is_real(Q): #if zip code is valid, record the state name and the county name
-                county=zipcodes.matching(Q)[0]['city'].lower()
+                county=zipcodes.matching(Q)[0]['county'].lower()
                 state=zipcodes.matching(Q)[0]['state']
                 code=10
                 result=getDataDetail(getDataFile(state,county,code),code)
