@@ -60,6 +60,7 @@ def read_Q(Q):
         if len(Q)==5:
             if zipcodes.is_real(Q): #if zip code is valid, record the state name and the county name
                 county=zipcodes.matching(Q)[0]['county'].lower()
+                county=county.replace(' county','')
                 state=zipcodes.matching(Q)[0]['state']
                 code=10
                 result=getDataDetail(getDataFile(state,county,code),code)
