@@ -33,5 +33,7 @@ st.write(
     Well this part is more like a plug-in of an existing project, the ML model is from someone else (well it is also not that accurate LOL)
     But the main issue of this part is the datasource [The COVID-19 Open Research Dataset](https://github.com/allenai/cord19) is completely stopped updating,
     and I didn't find appropriate substitute, so I just leave it there.
+    
+    \\ Currently this module has abandoned.
     """
 )

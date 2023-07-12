@@ -133,9 +133,9 @@ model_pipeline.fit(trainX, trainY)
 valid_predictions = model_pipeline.predict(validX)
 print(f"Validation Accuracy of Random Forest Classifier is: {(model_pipeline.score(validX, validY))*100:.2f}%")
 
-trainX = train.drop('Type', axis=1)
-trainY = train['Type'].values
-model_pipeline.fit(trainX, trainY)
+# trainX = train.drop('Type', axis=1)
+# trainY = train['Type'].values
+# model_pipeline.fit(trainX, trainY)
 # model_pipeline = Pipeline(steps=[
 #   ('preprocessor', preprocessor),
 #   ('classifier', LogisticRegression(C=1.))
