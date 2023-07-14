@@ -92,7 +92,6 @@ def read_Q(Q):
         for word in x:
                 if state=='':  
                         for stateName in stateCode:
-                                if state=='':
                                         if stateName == word.upper():
                                                 state=stateName.upper()
                                                 print(state)
