@@ -146,7 +146,7 @@ col1, col2 = st.columns([4, 1])
 st.markdown('<h1 style="text-align: center">Covid Data QA</h1>', unsafe_allow_html=True)
 st.markdown('<h3>Question</h3>', unsafe_allow_html=True)
 
-question = st.text_input("Put your query", value="What are the new case in La Crosse WI",max_chars=50)
+question = st.text_input("Put your query", value="What are the new case in La Crosse WI",max_chars=100)
 my_expander=st.expander(label='history',expanded=True)
 
 button = st.button('Get Result')
