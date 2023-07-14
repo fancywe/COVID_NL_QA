@@ -90,7 +90,7 @@ def read_Q(Q):
                         print(len(token))
         x = Q.split() 
         for word in x:
-                if state=='':  
+                
                         for stateName in stateCode:
                                         if stateName == word.upper():
                                                 state=stateName.upper()
