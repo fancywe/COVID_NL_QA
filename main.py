@@ -94,7 +94,7 @@ def read_Q(Q):
                         for stateName in stateCode:
                                 if state=='':
                                         if stateName == word.upper():
-                                                state=stateName
+                                                state=stateName.upper()
                                                 print(state)
                                                 break              
                         # for stateName in stateFullName:      
