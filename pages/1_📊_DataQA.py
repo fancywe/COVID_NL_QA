@@ -194,7 +194,7 @@ if button:
         st.write('Please type in the question.')
     else:
     # Send an HTTP GET request to the specified URL, appending the question to the URL and providing the headers.
-        response = requests.get('http://35.225.219.221:1145/question/'+question, headers=headers)
+        response = requests.get('http://34.66.211.120:1145/question/'+question, headers=headers)
         
         # Parse the JSON response from the server and store the result.
         result = response.json()
