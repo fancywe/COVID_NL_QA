@@ -13,7 +13,6 @@ from matplotlib.ticker import NullFormatter
 import seaborn as sns
 from urllib.request import urlopen
 import json 
-from pandas.io.json import json_normalize
 import pandas as pd
 import requests
 from matplotlib.figure import Figure
