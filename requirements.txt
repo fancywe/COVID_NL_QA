@@ -1,1 +1,5 @@
-st-annotated-text
+pandas
+matplotlib
+seaborn
+datetime
+streamlit>=0.65

@@ -18,6 +18,16 @@ import pandas as pd
 import requests
 from matplotlib.figure import Figure
 
+
+st.set_page_config(
+    
+    page_title="Covid Data QA",
+    page_icon="📊",
+    layout="centered",
+    initial_sidebar_state="expanded",
+)
+
+
 today = date.today()
 #sns.set_style('whitegrid')
 style.use('fivethirtyeight')
@@ -30,20 +40,22 @@ plt.rcParams['axes.titlesize'] = plt.rcParams['font.size']
 plt.rcParams['legend.fontsize'] = plt.rcParams['font.size']
 plt.rcParams['xtick.labelsize'] = plt.rcParams['font.size']
 plt.rcParams['ytick.labelsize'] = plt.rcParams['font.size']
-plt.rcParams['figure.figsize'] = 8, 8
+plt.rcParams['figure.figsize'] = 10, 10
 
-import matplotlib as mpl
-mpl.use("agg")
+# import matplotlib as mpl
+# mpl.use("agg")
 
 from matplotlib.backends.backend_agg import RendererAgg
 _lock = RendererAgg.lock
 
 @st.cache(ttl=3*60*60, suppress_st_warning=True)
 def get_data():
-    US_confirmed = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv'
-    US_deaths = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_US.csv'
+    US_confirmed = 'json/US.csv'
+    US_deaths = 'json/death.csv'
     confirmed = pd.read_csv(US_confirmed)
     deaths = pd.read_csv(US_deaths)
+    # print(confirmed)
+    # print(deaths)
     return confirmed, deaths
 
 confirmed, deaths = get_data()
@@ -196,6 +208,8 @@ def plot_county(county):
     @st.cache(ttl=3*60*60, suppress_st_warning=True)
     def get_testing_data(County):
         apiKey = 'e7c0018658814e29b12b1286bfd83ae9'
+        print(type(County))
+        print(County)
         if len(County) == 1:
             #print(len(County))
             f = FIPSs[FIPSs.County == County[0]].FIPS.values[0]
@@ -268,39 +282,39 @@ def plot_county(county):
             
             data_to_show = (new_positive_tests_rolling / new_tests_rolling)*100
             return new_tests_rolling, data_to_show.iloc[-1:].values[0]
-        else:
-            st.text('Getting testing data for California State')
-            path1 = 'https://data.covidactnow.org/latest/us/states/CA.OBSERVED_INTERVENTION.timeseries.json?apiKey='+apiKey
-            df = json.loads(requests.get(path1).text)
-            data = pd.DataFrame.from_dict(df['actualsTimeseries'])
-            data['Date'] = pd.to_datetime(data['date'])
-            data = data.set_index('Date')
+        # else:
+        #     st.text('Getting testing data for California State')
+        #     path1 = 'https://data.covidactnow.org/latest/us/states/CA.OBSERVED_INTERVENTION.timeseries.json?apiKey='+apiKey
+        #     df = json.loads(requests.get(path1).text)
+        #     data = pd.DataFrame.from_dict(df['actualsTimeseries'])
+        #     data['Date'] = pd.to_datetime(data['date'])
+        #     data = data.set_index('Date')
             
-            try:
-                data['new_negative_tests'] = data['cumulativeNegativeTests'].diff()
-                data.loc[(data['new_negative_tests'] < 0)] = np.nan
-            except: 
-                data['new_negative_tests'] = np.nan
-                print('Negative test data not avilable')
-            data['new_negative_tests_rolling'] = data['new_negative_tests'].fillna(0).rolling(14).mean()
+        #     try:
+        #         data['new_negative_tests'] = data['cumulativeNegativeTests'].diff()
+        #         data.loc[(data['new_negative_tests'] < 0)] = np.nan
+        #     except: 
+        #         data['new_negative_tests'] = np.nan
+        #         print('Negative test data not avilable')
+        #     data['new_negative_tests_rolling'] = data['new_negative_tests'].fillna(0).rolling(14).mean()
             
             
-            try:
-                data['new_positive_tests'] = data['cumulativePositiveTests'].diff()
-                data.loc[(data['new_positive_tests'] < 0)] = np.nan
-            except: 
-                data['new_positive_tests'] = np.nan
-                st.text('test data not avilable')
-            data['new_positive_tests_rolling'] = data['new_positive_tests'].fillna(0).rolling(14).mean()
-            data['new_tests'] = data['new_negative_tests']+data['new_positive_tests']
-            data['new_tests_rolling'] = data['new_tests'].fillna(0).rolling(14).mean()
-            data['testing_positivity_rolling'] = (data['new_positive_tests_rolling'] / data['new_tests_rolling'])*100
-            return data['new_tests_rolling'], data['testing_positivity_rolling'].iloc[-1:].values[0]
+        #     try:
+        #         data['new_positive_tests'] = data['cumulativePositiveTests'].diff()
+        #         data.loc[(data['new_positive_tests'] < 0)] = np.nan
+        #     except: 
+        #         data['new_positive_tests'] = np.nan
+        #         st.text('test data not avilable')
+        #     data['new_positive_tests_rolling'] = data['new_positive_tests'].fillna(0).rolling(14).mean()
+        #     data['new_tests'] = data['new_negative_tests']+data['new_positive_tests']
+        #     data['new_tests_rolling'] = data['new_tests'].fillna(0).rolling(14).mean()
+        #     data['testing_positivity_rolling'] = (data['new_positive_tests_rolling'] / data['new_tests_rolling'])*100
+        #     return data['new_tests_rolling'], data['testing_positivity_rolling'].iloc[-1:].values[0]
             
     
     testing_df, testing_percent = get_testing_data(County=county)
-    county_confirmed = confirmed[confirmed.Admin2.isin(county)]
-    #county_confirmed = confirmed[confirmed.Admin2 == county]
+    # county_confirmed = confirmed[confirmed.Admin2.isin(county)]
+    county_confirmed = confirmed[confirmed.Admin2 == county[0]]
     county_confirmed_time = county_confirmed.drop(county_confirmed.iloc[:, 0:12], axis=1).T #inplace=True, axis=1
     county_confirmed_time = county_confirmed_time.sum(axis= 1)
     county_confirmed_time = county_confirmed_time.reset_index()
@@ -312,8 +326,9 @@ def plot_county(county):
     incidence= pd.DataFrame(county_confirmed_time.cases.diff())
     incidence.columns = ['incidence']
     
+    
     #temp_df_time = temp_df.drop(['date'], axis=0).T #inplace=True, axis=1
-    county_deaths = deaths[deaths.Admin2.isin(county)]
+    county_deaths = deaths[deaths.Admin2==county[0]]
     population = county_deaths.Population.values.sum()
     
     del county_deaths['Population']
@@ -530,13 +545,6 @@ def displayUS(result):
         col1, col2 = st.columns([1, 3])
         col1.progress(BoosterPct/100)
 
-st.set_page_config(
-    
-    page_title="Covid Data QA",
-    page_icon="📊",
-    layout="centered",
-    initial_sidebar_state="expanded",
-)
 
 # @st.cache_data # history
 # def history(question):
@@ -606,6 +614,8 @@ if button:
         # Parse the JSON response from the server and store the result.
         result = response.json()
         county=result['County name']
+        county=county.title()
+        print(county)
         state=result['State name']
         print(county)
         print(state)
@@ -704,7 +714,9 @@ if button:
                             test=[]
                             admission=[]
                             if(15>result['code']>=10):
-                                plot_county(county)
+                                C=[county]
+                                print(type(C))
+                                plot_county(C)
                                 # st.write('Well, this part is no longer available')
                                 # for x in result['History']: 
                                 #         date.append(x['date'])
