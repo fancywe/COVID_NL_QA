@@ -72,10 +72,8 @@ def read_Q(Q):
             result='This is not a valid zip code' 
     else:       
         
-        
         if state=='':                
                 for stateName in stateFullName:
-                        
                                 if(stateName in Q.lower()):
                                         state=state_code.us_state_to_abbrev[stateName.capitalize()] 
         Q=''                        
@@ -89,17 +87,18 @@ def read_Q(Q):
                         print(Q)
                         print(len(token))
         x = Q.split() 
-        for word in x:
-                
-                        for stateName in stateCode:
-                                        if stateName == word.upper():
-                                                state=stateName.upper()
-                                                print(state)
-                                                break              
-                        # for stateName in stateFullName:      
-                        #         if(stateName == word.lower()):
-                        #                 state=state_code.us_state_to_abbrev[stateName.capitalize()]  
-                        #                 break          
+        if state=='':
+                for word in x:
+                        if state=='' or state=='IN':
+                               for stateName in stateCode:
+                                                if stateName == word.upper():
+                                                        state=stateName.upper()
+                                                        print(state)
+                                                        break              
+                                # for stateName in stateFullName:      
+                                #         if(stateName == word.lower()):
+                                #                 state=state_code.us_state_to_abbrev[stateName.capitalize()]  
+                                #                 break          
         for ent in doc.ents:
                 print(doc.ents)
                 if (ent.label_ == 'GPE'):
