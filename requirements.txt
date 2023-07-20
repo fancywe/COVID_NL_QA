@@ -3,4 +3,4 @@ matplotlib
 seaborn
 datetime
 streamlit
-annotated_text
+st-annotated-text
