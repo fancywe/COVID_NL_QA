@@ -180,34 +180,34 @@ def plot_county(county):
     deaths_per100k['rolling average'] = deaths_per100k['deaths per 100K'].rolling(7).mean()
 
 
-    incidence['rolling_incidence'] = incidence.incidence.rolling(7).mean()
-    metric = (incidence['rolling_incidence'] * 100000 / population).iloc[[-1]]
+    incidence['daily new cases'] = incidence.incidence.rolling(7).mean()
+    metric = (incidence['daily new cases'] * 100000 / population).iloc[[-1]]
     
     st.subheader('Current situation of COVID-19 cases in '+', '.join(map(str, county))+' county ('+ str(today)+')')
     if len(county)==1:
         C = county[0]
         
-        a1, _, a2 = st.columns((3.9, 0.2, 3.9))     
-        with a1:
-            f = FIPSs[FIPSs.County == C].FIPS.values[0]
-            components.iframe("https://covidactnow.org/embed/us/county/"+f, width=350, height=365, scrolling=False)
-            
-        with a2:
-            st.markdown('New cases averaged over last 7 days = %s' %'{:,.1f}'.format(metric.values[0]))
-            st.markdown("Population under consideration = %s"% '{:,.0f}'.format(population))
-            st.markdown("Total cases = %s"% '{:,.0f}'.format(county_confirmed_time.tail(1).values[0][0]))
-            st.markdown("Total deaths = %s"% '{:,.0f}'.format(county_deaths_time.tail(1).values[0][0]))
-            st.markdown("% test positivity (14 day average)* = "+"%.2f" % testing_percent)
+             
+        
+        f = FIPSs[FIPSs.County == C].FIPS.values[0]
+        
+        
     
-        a2, _, a1 = st.columns((3.9, 0.2, 3.9))
+        st.markdown('New cases averaged over last 7 days = %s' %'{:,.1f}'.format(metric.values[0]))
+        st.markdown("Population under consideration = %s"% '{:,.0f}'.format(population))
+        st.markdown("Total cases = %s"% '{:,.0f}'.format(county_confirmed_time.tail(1).values[0][0]))
+        st.markdown("Total deaths = %s"% '{:,.0f}'.format(county_deaths_time.tail(1).values[0][0]))
+        st.markdown("% test positivity (14 day average)* = "+"%.2f" % testing_percent)
+    
+        
 
         incidence = incidence.reset_index()
-        incidence['nomalized_rolling_incidence'] = incidence['rolling_incidence'] * 100000 / population
+        incidence['nomalized_rolling_incidence'] = incidence['daily new cases'] * 100000 / population
         # incidence['Phase 2 Threshold'] = 25
         # incidence['Phase 3 Threshold'] = 10
         scale = alt.Scale(
             domain=[
-                "rolling_incidence",
+                "daily new cases",
                 # "Phase 2 Threshold",
                 # "Phase 3 Threshold"
             ], range=['#377eb8'])
@@ -215,7 +215,7 @@ def plot_county(county):
             incidence,
             title='Weekly  mean of incidence per 100K'
         ).transform_calculate(
-            base_="'rolling_incidence'",
+            base_="'daily new cases'",
            
         )
         
@@ -229,18 +229,18 @@ def plot_county(county):
 
         
 
-        with a2:
-            st.altair_chart(ax4 , use_container_width=True)
+        
+        st.altair_chart(ax4 , use_container_width=True)
 
         ax3 = alt.Chart(incidence, title = 'Daily incidence (new cases)').mark_bar().encode(
             x=alt.X("Datetime",axis = alt.Axis(title = 'Date')),
             y=alt.Y("incidence",axis = alt.Axis(title = 'Incidence'), scale=alt.Scale(domain=(0, chart_max), clamp=True))
         )
         
-        with a1:
-            st.altair_chart(ax3, use_container_width=True)
         
-        a3, _, a4 = st.columns((3.9, 0.2, 3.9))
+        st.altair_chart(ax3, use_container_width=True)
+        
+        
         testing_df = pd.DataFrame(testing_df).reset_index()
         #print(testing_df.head())
         #print(type(testing_df))
@@ -249,8 +249,8 @@ def plot_county(county):
             x=alt.X("Date",axis = alt.Axis(title = 'Date')),
             y=alt.Y("new_tests_rolling",axis = alt.Axis(title = 'Daily new tests'))
         )
-        with a4:
-            st.altair_chart(base, use_container_width=True)
+        
+        st.altair_chart(base, use_container_width=True)
 
         county_confirmed_time = county_confirmed_time.reset_index()
         county_deaths_time = county_deaths_time.reset_index()
@@ -279,8 +279,9 @@ def plot_county(county):
             y=alt.Y("deaths", axis=alt.Axis(title = 'Count')),
             color=alt.Color("deaths_:N", scale=scale, title="")
         )
-        with a3:
-            st.altair_chart(c+d, use_container_width=True)
+        
+        st.altair_chart(c+d, use_container_width=True)
+        components.iframe("https://covidactnow.org/embed/us/county/"+f, width=350, height=365, scrolling=False)
     #cases_per100k['cases per 100K'].plot(ax = ax2,  lw=4, linestyle='--', color = '#377eb8')
     #cases_per100k['rolling average'].plot(ax = ax2, lw=4, color = '#377eb8')
     
@@ -360,7 +361,7 @@ def plot_state(state):
             deaths_per100k.columns = ['deaths per 100K']
             deaths_per100k['rolling average'] = deaths_per100k['deaths per 100K'].rolling(7).mean()
 
-            incidence['rolling_incidence'] = incidence.incidence.rolling(7).mean()
+            incidence['daily new cases'] = incidence.incidence.rolling(7).mean()
             return population, testing_df, testing_percent, county_deaths_time, county_confirmed_time, incidence
     # metric = (incidence['rolling_incidence']*100000/population).iloc[[-1]]
 
@@ -376,19 +377,19 @@ def plot_state(state):
 
 
     incidence = incidence.reset_index()
-    incidence['nomalized_rolling_incidence'] = incidence['rolling_incidence'] * 100000 / population
+    incidence['nomalized_rolling_incidence'] = incidence['daily new cases'] * 100000 / population
     
     
     scale = alt.Scale(
         domain=[
-            "rolling_incidence",
+            "daily new cases",
             
         ], range=['#377eb8'])
     base = alt.Chart(
         incidence,
         title='Weekly rolling mean of incidence per 100K'
     ).transform_calculate(
-        base_="'rolling_incidence'",    
+        base_="'daily new cases'",    
     )
     
     ax4 = base.mark_line(strokeWidth=3).encode(
