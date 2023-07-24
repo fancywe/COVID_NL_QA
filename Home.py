@@ -34,6 +34,6 @@ st.write(
     But the main issue of this part is the datasource [The COVID-19 Open Research Dataset](https://github.com/allenai/cord19) is completely stopped updating,
     and I didn't find appropriate substitute, so I just leave it there.
     
-    \\ Currently this module has abandoned.
+    \\ Currently this module is offline.
     """
 )

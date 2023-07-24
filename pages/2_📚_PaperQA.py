@@ -36,27 +36,29 @@ if button:
     data = {
          'question': question, 'num_answers': top_k_reader, 'num_docs': top_k_retriever
     }
-    response = requests.post('http://host.docker.internal:85/query', headers=headers, data=json.dumps(data))
-    result = response.json()
+    
+    st.markdown('<h4>Sorry, this module is temporarily offline due to some technical issues</h4>', unsafe_allow_html=True)
+    # response = requests.post('http://host.docker.internal:85/query', headers=headers, data=json.dumps(data))
+    # result = response.json()
 
-    print(result)
+    # print(result)
 
 
-    for each in result['answer']['answers']:
-        title = each['meta']['title']
-        url = each['meta']['url'].split(';')[0]
-        tokens = []
-        tokens.append(each['context'][:each['offset_start']-1])
-        tokens.append( 
-            (each['context'][each['offset_start']:each['offset_end']], 'ANS', '#faa')
-        )
-        tokens.append(each['context'][each['offset_end']:])
-        col1,col2 = st.beta_columns([5,1])
-        col1.markdown(f'<span style="font-size: 16; font-weight:bold;">{title}</span><a href={url} target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i></a>', unsafe_allow_html=True)
-        col2.markdown(f'<input type="button" value="Confidence: {int(each["probability"]*100)}%">', unsafe_allow_html=True)
-        st.text("")
-        col1, col2 = st.beta_columns([2,4])
-        col1.markdown(f'<span style="font-size: 16; font-weight:bold;">Publish time: {each["meta"]["publish_time"]}\
-                    <br>Authors: {each["meta"]["authors"]}</span>', unsafe_allow_html=True)
-        annotated_text(*tokens)
+    # for each in result['answer']['answers']:
+    #     title = each['meta']['title']
+    #     url = each['meta']['url'].split(';')[0]
+    #     tokens = []
+    #     tokens.append(each['context'][:each['offset_start']-1])
+    #     tokens.append( 
+    #         (each['context'][each['offset_start']:each['offset_end']], 'ANS', '#faa')
+    #     )
+    #     tokens.append(each['context'][each['offset_end']:])
+    #     col1,col2 = st.beta_columns([5,1])
+    #     col1.markdown(f'<span style="font-size: 16; font-weight:bold;">{title}</span><a href={url} target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i></a>', unsafe_allow_html=True)
+    #     col2.markdown(f'<input type="button" value="Confidence: {int(each["probability"]*100)}%">', unsafe_allow_html=True)
+    #     st.text("")
+    #     col1, col2 = st.beta_columns([2,4])
+    #     col1.markdown(f'<span style="font-size: 16; font-weight:bold;">Publish time: {each["meta"]["publish_time"]}\
+    #                 <br>Authors: {each["meta"]["authors"]}</span>', unsafe_allow_html=True)
+    #     annotated_text(*tokens)
 

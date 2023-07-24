@@ -183,7 +183,7 @@ def plot_county(county):
     incidence['daily new cases'] = incidence.incidence.rolling(7).mean()
     metric = (incidence['daily new cases'] * 100000 / population).iloc[[-1]]
     
-    st.subheader('Current situation of COVID-19 cases in '+', '.join(map(str, county))+' county ('+ str(today)+')')
+    st.subheader('Current situation of COVID-19 cases in '+', '.join(map(str, county))+' county  (2023-5-7)')
     if len(county)==1:
         C = county[0]
         
@@ -259,7 +259,7 @@ def plot_county(county):
 
         # Custom colors for layered charts.
         # See https://stackoverflow.com/questions/61543503/add-legend-to-line-bars-to-altair-chart-without-using-size-color.
-        scale = alt.Scale(domain=["cases", "deaths"], range=['#377eb8', '#e41a1c'])
+        scale = alt.Scale(domain=["cases", "deaths"], range=['#4e1892', '#1f3696'])
         base = alt.Chart(
             cases_and_deaths,
             title='Cumulative cases and deaths'
@@ -368,7 +368,7 @@ def plot_state(state):
     #print(county_deaths_time.tail(1).values[0])
     #print(cases_per100k.head())
     population, testing_df, testing_percent, county_deaths_time, county_confirmed_time, incidence = get_testing_data_state()
-    st.subheader('Current situation of COVID-19 cases in ' +fullname+' ('+ str(today)+')')
+    st.subheader('Current situation of COVID-19 cases in ' +fullname+' (2023-5-7)')
     
     st.markdown("Population under consideration = %s"% '{:,.0f}'.format(population))
     st.markdown("% test positivity (14 day average) = "+"%.2f" % testing_percent)
@@ -384,7 +384,7 @@ def plot_state(state):
         domain=[
             "daily new cases",
             
-        ], range=['#377eb8'])
+        ], range=['#1b54f2'])
     base = alt.Chart(
         incidence,
         title='Weekly rolling mean of incidence per 100K'
@@ -397,8 +397,6 @@ def plot_state(state):
         y=alt.Y("nomalized_rolling_incidence", axis=alt.Axis(title='per 100 thousand')),
         color=alt.Color("base_:N", scale=scale, title="")
     )
-
-        
 
         
         
@@ -431,7 +429,7 @@ def plot_state(state):
 
     # Custom colors for layered charts.
     # See https://stackoverflow.com/questions/61543503/add-legend-to-line-bars-to-altair-chart-without-using-size-color.
-    scale = alt.Scale(domain=["cases", "deaths"], range=['#377eb8', '#e41a1c'])
+    scale = alt.Scale(domain=["cases", "deaths"], range=['#c4473d', '#3c5e91'])
     base = alt.Chart(
         cases_and_deaths,
         title='Cumulative cases and deaths'
@@ -458,25 +456,34 @@ def plot_state(state):
             
 def displayUS(result):
         st.write('')
+        
         for k,v in result['result'].items():
             
-            if k=='US_case_graph' :
-                date=[]
-                y=[]
-                print(v)
+            # Check if the current key is 'US_case_graph'
+            if k == 'US_case_graph' :
+                # Initialize empty lists for dates and y-values
+                date = []
+                y = []
+                
+                # Iterate through the list of tuples in v
                 for x in v:
-                    
+                    # Append the first element of each tuple to the y list
                     y.append(x[0])
+                    # Append the second element of each tuple to the date list
                     date.append(x[1])
                 
-                date=pd.to_datetime(date)  
-                df = pd.DataFrame({'Number':y,'Date':date})
-
-                print(df)
+                # Convert the date list into pandas DateTime objects  
+                date = pd.to_datetime(date)
                 
-                c1 = alt.Chart(df,title='Case Trend(weekly)').mark_area(
-                line={'color':'darkgreen'},
-                color=alt.Gradient(
+                # Create a DataFrame from the y and date lists
+                df = pd.DataFrame({'Number': y, 'Date': date})
+
+                # Create an Altair area chart from the DataFrame, with the y-axis representing
+                # the 'Number' column and the x-axis representing the 'Date' column.
+                # The area under the line is colored with a linear gradient, from white at the bottom to darkgreen at the top.
+                c1 = alt.Chart(df, title='Case Trend(weekly)').mark_area(
+                    line={'color': 'darkgreen'},
+                    color=alt.Gradient(
                         gradient='linear',
                         stops=[alt.GradientStop(color='white', offset=0),
                             alt.GradientStop(color='darkgreen', offset=1)],
@@ -485,10 +492,9 @@ def displayUS(result):
                         y1=1,
                         y2=0
                     )
-                    ).encode(alt.X("Date") , y= 'Number:Q' )
-                            # st.line_chart(df,x='Date',y='Number',use_container_width=True)
-                    # st.altair_chart(c)
-                        # st.line_chart(df)
+                ).encode(alt.X("Date"), y='Number:Q')
+
+                        
             if k=='US_death_graph' :
                 date=[]
                 y=[]
@@ -601,7 +607,7 @@ headers = {
         'Content-Type': 'application/json',
     }
 
-with st.sidebar:
+# with st.sidebar:
     
     # st.markdown('<h2>Features Support</h2>', unsafe_allow_html=True)
     
@@ -612,15 +618,40 @@ with st.sidebar:
     # st.markdown(''' - Covid Hospital info''', unsafe_allow_html=True)
     # st.markdown(''' - Covid Vaccine info''', unsafe_allow_html=True)
     
-    st.markdown('<h2>How to ask</h3>', unsafe_allow_html=True)
+    # st.markdown('<h2>How to ask</h3>', unsafe_allow_html=True)
     
-    st.markdown(''' - County level info: Type the county name,state name(Abbr. works) and the feature you want to know, or skip it to get the overview''', unsafe_allow_html=True)
-    st.markdown(''' - State level info: Type the state name(Abbr. works) and the feature you want to know, or skip it to get the overview''', unsafe_allow_html=True)
-    st.markdown(''' - US level info: Well, just tpye 'US' should works''', unsafe_allow_html=True)
-    st.markdown(''' - County/State Rank: Type Like 'Rank the county in WI',or'State rank'.''', unsafe_allow_html=True)
-    st.markdown(''' - Try ZIP code?''', unsafe_allow_html=True)
-    st.markdown(''' - State Abbr. has to be uppercase''', unsafe_allow_html=True)
+    # st.markdown(''' - County level info: Type the county name,state name(Abbr. works) and the feature you want to know, or skip it to get the overview''', unsafe_allow_html=True)
+    # st.markdown(''' - State level info: Type the state name(Abbr. works) and the feature you want to know, or skip it to get the overview''', unsafe_allow_html=True)
+    # st.markdown(''' - US level info: Well, just tpye 'US' should works''', unsafe_allow_html=True)
+    # st.markdown(''' - County/State Rank: Type Like 'Rank the county in WI',or'State rank'.''', unsafe_allow_html=True)
+    # st.markdown(''' - Try ZIP code?''', unsafe_allow_html=True)
+    # st.markdown(''' - State Abbr. has to be uppercase''', unsafe_allow_html=True)
     
+with st.sidebar.expander("How to Ask"):
+    st.markdown(f"""
+    - County level info: Type the county name,state name(Abbr. works) and the feature you want to know, or skip it to get the overview
+    - State level info: Type the state name(Abbr. works) and the feature you want to know, or skip it to get the overview
+    - US level info: Well, just tpye **US** should works  
+    - County/State Rank: Type Like **Rank the county in WI**, or**State rank**. 
+    - Try ZIP code?
+    - State Abbr. has to be uppercase
+    """)
+with st.sidebar.expander("Learn more about the History Dashboard"):
+    st.markdown(f"""
+                
+   - Estimates of daily new cases per 100,000
+    
+   - Daily new cases 
+    
+   - Cumulative cases and deaths  
+    
+   - Daily new tests 
+   
+   Data Source：
+   - [COVID-19 Data Repository](https://github.com/CSSEGISandData/COVID-19)
+   - https://covidactnow.org
+   """)
+        
     
 # If the button is clicked or activated:
 if button:
@@ -723,15 +754,17 @@ if button:
                 if type(result['result'])=='str':
                     st.markdown('<h3>'+result['result']+'</h3>', unsafe_allow_html=True)
                 else:
-                    tab1, tab2= st.tabs(["Current Data", "History Chart"])
+                    tab1, tab2= st.tabs(["Current Data", "History Dashboard"])
                     
                     with tab1:
                         col1, col2 = st.columns(2)
                         if isinstance(result['result'], dict): 
                             i=1    
                             for k,v in result['result'].items():  
-                                
-                                
+                                print(type(v),v)
+                                if(type(v)!=str):
+                                    
+                                    v = '{:,.2f}'.format(v)
                                 if i%2==1:
                                         col1.metric(k,v)
                                 else: col2.metric(k,v)       
