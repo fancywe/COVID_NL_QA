@@ -13,6 +13,7 @@ import zipcodes
 from Q_handler import Handle
 #import jamspell
 import unittest
+from state_code import states
 
 from spellchecker import SpellChecker
 
@@ -184,10 +185,11 @@ def read_Q(Q):
                                 code=0 
                         if code==1 and state=='' and county=='': 
                                 code=0                       
-                        # if 0<code<7 and state!='' and county!='': 
-                        #         code=code+9        
-                        # if 9<code<15 and state!='' and county=='': 
-                        #         code=code-9  
+                        if 0<code<7 and state!='' and county!='': 
+                                if county!=states[state].lower():
+                                        code=code+9        
+                        if 9<code<15 and state!='' and county=='': 
+                                code=code-9  
                         print('Adjust predict result: ',code)                                        
                         result=getDataDetail(getDataFile(state,county,code),code)
                         print(result)
