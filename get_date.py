@@ -25,11 +25,15 @@ def getDataFile(state,county,code):
     # date=datetime.today().strftime('%Y-%m-%d')   
     dic_name=''
     print('state:',state,'county:',county,states[state].lower())
+    f=(county=='' or county!=states[state])
+    print(f)
     try:
         if code==0: 
                 return us()
                 
-        elif 0<code<7 and state!='' and county=='' and county!=states[state].lower():  return get_stateinfo(state)
+        elif 0<code<7 and state!='' and f: 
+                
+                return get_stateinfo(state)
         #     elif 0<code<7 and state!='' and county!='':get_countyinfo(state,county)
         elif code==7: return get_staterank()
         elif code==8 and state!='': return get_countyrank(state)
