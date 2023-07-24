@@ -89,9 +89,9 @@ def read_Q(Q):
         x = Q.split() 
         if state=='':
                 for word in x:
-                        if state=='' or state=='IN':
+                        if state=='':
                                for stateName in stateCode:
-                                                if stateName == word.upper():
+                                                if stateName == word:
                                                         state=stateName.upper()
                                                         print(state)
                                                         break              
