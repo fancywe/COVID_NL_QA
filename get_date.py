@@ -29,7 +29,7 @@ def getDataFile(state,county,code):
         if code==0: 
                 return us()
                 
-        elif 0<code<7 and state!='' and (county=='' or county==states[state].lower()): return get_stateinfo(state)
+        elif 0<code<7 and state!='' and county=='': return get_stateinfo(state)
         #     elif 0<code<7 and state!='' and county!='':get_countyinfo(state,county)
         elif code==7: return get_staterank()
         elif code==8 and state!='': return get_countyrank(state)
