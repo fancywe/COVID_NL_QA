@@ -9,7 +9,7 @@ import sys
 from os.path import exists
 import requests
 from state_code import state_codes
-
+from state_code import states
 
 # url_all_state='https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=county_view_state_data'
 # url_county='https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=integrated_county_latest_external_data'
@@ -29,7 +29,7 @@ def getDataFile(state,county,code):
         if code==0: 
                 return us()
                 
-        elif 0<code<7 and state!='': return get_stateinfo(state)
+        elif 0<code<7 and state!='' and (county=='' or county==states[state].lower()): return get_stateinfo(state)
         #     elif 0<code<7 and state!='' and county!='':get_countyinfo(state,county)
         elif code==7: return get_staterank()
         elif code==8 and state!='': return get_countyrank(state)
