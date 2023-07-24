@@ -633,8 +633,9 @@ with st.sidebar.expander("How to Ask"):
     - State level info: Type the state name(Abbr. works) and the feature you want to know, or skip it to get the overview
     - US level info: Well, just tpye **US** should works  
     - County/State Rank: Type Like **Rank the county in WI**, or**State rank**. 
+    - **State Abbr. has to be uppercase**, everybody knows that.
     - Try ZIP code?
-    - State Abbr. has to be uppercase
+    
     """)
 with st.sidebar.expander("Learn more about the History Dashboard"):
     st.markdown(f"""
