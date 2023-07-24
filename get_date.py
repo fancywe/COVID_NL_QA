@@ -24,7 +24,7 @@ def getDataFile(state,county,code):
     data={}
     # date=datetime.today().strftime('%Y-%m-%d')   
     dic_name=''
-    print('state:',state,'county:',county)
+    print('state:',state,'county:',county,states[state].lower())
     try:
         if code==0: 
                 return us()
