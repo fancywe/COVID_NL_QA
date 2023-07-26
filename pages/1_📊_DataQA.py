@@ -763,7 +763,7 @@ if button:
                             i=1    
                             for k,v in result['result'].items():  
                                 print(type(v),v)
-                                if(type(v)!=str):
+                                if(type(v)==int):
                                     
                                     v = '{:,.2f}'.format(v)
                                 if i%2==1:
