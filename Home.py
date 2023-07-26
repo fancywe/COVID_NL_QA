@@ -11,29 +11,23 @@ st.write(
     
     """
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-    This is a small individual project to answer Covid related question(Statistics / Papers). 
-    By the time I start this project, Covid was still a pretty big issue and now it just something irrelevant.
-    Actually most of Covid related API and database stop maintenance in 2022, but I still managed to get this project done(well, not that good tho).
+    This project, conceived and executed individually, aims to provide answers to queries related to Covid-19, encompassing both statistical data and scientific literature. At the inception of this project, the Covid-19 pandemic was a pressing issue globally. However, as the project progressed, the significance of the pandemic declined, rendering it largely irrelevant.
+
+Indeed, by 2022, the upkeep of most Covid-19 related APIs and databases ceased due to the subsiding importance of the pandemic. Despite these challenges and dwindling resources, I have successfully brought this project to fruition, although the results might not be as comprehensive as initially envisioned.
     """
 )
 
 st.subheader('DataQA')
 st.write(
     """
-    This part take the majority of my workload, I maintained a API that accept natural language as input and after a word frequency analysis process
-    it will predicts the type of the question then return the corresponding result. Notice that the prediction accuracy is not very ideal, 
-    which blame to the training data which is totally handwrited and insufficient in quantity. The data source of this part is from 
-    [CDC(Centers for Disease Control and Prevention) offical Covid tracker](https://covid.cdc.gov/covid-data-tracker/#datatracker-home), they don't really provid a public API, 
-    I used some kind of script thing to obtain data everyday,well the update period of the data itself is usually one week though.  
+    This is the major portion of my project involved developing an API that can handle natural language inputs. This API undergoes a word frequency analysis process to predict the type of question being asked and subsequently returns the corresponding results. It is important to note that the accuracy of this prediction is less than ideal, largely due to the limitations of the training data, which was manually curated and somewhat sparse.
+
+The data source for this segment of the project was obtained from the official Covid tracker provided by the Centers for Disease Control and Prevention (CDC). Although the CDC does not provide a public API, I managed to script a solution that allowed me to gather data daily. Nonetheless, the inherent update period for the data is typically one week.
     """
 )
 st.subheader('PaperQA')
 st.write(
     """
-    Well this part is more like a plug-in of an existing project, the ML model is from someone else (well it is also not that accurate LOL)
-    But the main issue of this part is the datasource [The COVID-19 Open Research Dataset](https://github.com/allenai/cord19) is completely stopped updating,
-    and I didn't find appropriate substitute, so I just leave it there.
-    
-    \\ Currently this module is offline.
+    The second component of the project can be considered an extension of an existing project, with a pretrained machine learning model. However, the model's accuracy remains sub-optimal. A primary challenge encountered in this module was the cessation of updates for our data source, The COVID-19 Open Research Dataset. Despite extensive search, an adequate alternative could not be identified, which led to the decision to temporarily suspend this module. As such, this module is presently offline.
     """
 )
