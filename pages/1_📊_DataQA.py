@@ -764,8 +764,8 @@ if button:
                             for k,v in result['result'].items():  
                                 print(type(v),v)
                                 if(type(v)==int):
+                                    v= '{:,}'.format(v)
                                     
-                                    v = '{:,.2f}'.format(v)
                                 if i%2==1:
                                         col1.metric(k,v)
                                 else: col2.metric(k,v)       
