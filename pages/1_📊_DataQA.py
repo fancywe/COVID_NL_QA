@@ -281,7 +281,7 @@ def plot_county(county):
         )
         
         st.altair_chart(c+d, use_container_width=True)
-        st.markdown("*Deaths and testing data for some regions are not publicly available, so may appear as straight lines on the graph*")  
+        st.markdown("*Deaths and testing data for some regions are not publicly available, so may appear as straight lines on the graph.*")  
         # components.iframe("https://covidactnow.org/embed/us/county/"+f, width=350, height=365, scrolling=False)
     #cases_per100k['cases per 100K'].plot(ax = ax2,  lw=4, linestyle='--', color = '#377eb8')
     #cases_per100k['rolling average'].plot(ax = ax2, lw=4, color = '#377eb8')
@@ -453,7 +453,7 @@ def plot_state(state):
 
     st.altair_chart(c+d, use_container_width=True)
     # components.iframe("https://covidactnow.org/embed/us/"+fullname.lower()+"-"+state.lower(), width=350, height=365, scrolling=False)       
-    st.markdown("*Deaths and testing data for some regions are not publicly available, so may appear as straight lines on the graph*")        
+    st.markdown("*Deaths and testing data for some regions are not publicly available, so may appear as straight lines on the graph.*")        
             
 def displayUS(result):
         st.write('')
