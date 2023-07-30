@@ -30,7 +30,6 @@ if _ENABLE_PROFILING:
 
 today = date.today()
 
-@st.cache(ttl=3*60*60, suppress_st_warning=True)
 def get_data():
     US_confirmed = 'json/US.csv'
     US_deaths = 'json/death.csv'
@@ -47,7 +46,7 @@ FIPSs.columns = ['State', 'County', 'FIPS']
 FIPSs['FIPS'].fillna(0, inplace = True)
 FIPSs['FIPS'] = FIPSs.FIPS.astype(int).astype(str).str.zfill(5)
 
-@st.cache(ttl=3*60*60, suppress_st_warning=True)
+
 def get_testing_data(County):
     apiKey = 'e7c0018658814e29b12b1286bfd83ae9'
     if len(County) == 1:
@@ -295,7 +294,7 @@ def plot_county(county):
         
 def plot_state(state):
     fullname=states[state]
-    @st.cache(ttl=3*60*60, suppress_st_warning=True)
+  
     
     def get_testing_data_state():
             
@@ -644,10 +643,12 @@ with st.sidebar.expander("Learn more about the History Dashboard"):
    - Estimates of daily new cases per 100,000
     
    - Daily new cases 
+   
+   - Daily new tests
     
    - Cumulative cases and deaths  
     
-   - Daily new tests 
+    
    
    Data Source：
    - [COVID-19 Data Repository](https://github.com/CSSEGISandData/COVID-19)
