@@ -639,6 +639,7 @@ with st.sidebar.expander("How to Ask"):
     """)
 with st.sidebar.expander("Learn more about the History Dashboard"):
     st.markdown(f"""
+   The four graphs represent:
                 
    - Estimates of daily new cases per 100,000
     
