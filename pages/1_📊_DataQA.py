@@ -629,7 +629,7 @@ headers = {
     
 with st.sidebar.expander("How to Ask"):
     st.markdown(f"""
-                
+    
     - **County Level Information**: Enter the county name followed by the state name (abbreviation is acceptable). Specify the particular feature you are interested in, or leave it blank for an overview of all data.
     - **State Level Information**: Type in the name of the state (abbreviation is acceptable). Specify a particular feature if desired, or leave it blank to get an overview of all data.
     - **US Level Information**: To receive nationwide data, simply type `US`.
