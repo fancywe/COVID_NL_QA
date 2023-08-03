@@ -629,12 +629,13 @@ headers = {
     
 with st.sidebar.expander("How to Ask"):
     st.markdown(f"""
-    - County level info: Type the county name,state name(Abbr. works) and the feature you want to know, or skip it to get the overview
-    - State level info: Type the state name(Abbr. works) and the feature you want to know, or skip it to get the overview
-    - US level info: Well, just tpye **US** should works  
-    - County/State Rank: Type Like **Rank the county in WI**, or**State rank**. 
-    - **State Abbr. has to be uppercase**.
-    - Try ZIP code?
+                
+    - **County Level Information**: Enter the county name followed by the state name (abbreviation is acceptable). Specify the particular feature you are interested in, or leave it blank for an overview of all data.
+    - **State Level Information**: Type in the name of the state (abbreviation is acceptable). Specify a particular feature if desired, or leave it blank to get an overview of all data.
+    - **US Level Information**: To receive nationwide data, simply type `US`.
+    - **County/State Rankings**: To receive a ranking of counties within a state, type `Rank the counties in [state]`, where `[state]` is the state's name or abbreviation. For state rankings, type `[state] rank`.
+    - **Case Sensitivity**: Please note, when using abbreviations, `State abbreviations should be in uppercase`, cause some words may contain implied state abbreviations (like word 'in' could be Indiana).
+    - **ZIP Code Search**: Want information specific to your ZIP code? Give a shot.
     
     """)
 with st.sidebar.expander("Learn more about the History Dashboard"):
